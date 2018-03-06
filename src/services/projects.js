@@ -1,5 +1,6 @@
 export default [
   {
+    id: "1",
     name: "SMS",
     description: "A Dynamic program",
     keyPoints: "Key points of project",
@@ -16,6 +17,7 @@ export default [
     }
   },
   {
+    id: "2",
     name: "Peekr",
     description: "A Dynamic program",
     keyPoints: "Key points of project",
@@ -32,6 +34,7 @@ export default [
     }
   },
   {
+    id: "3",
     name: "Manager",
     description: "A Dynamic program",
     keyPoints: "Key points of project",

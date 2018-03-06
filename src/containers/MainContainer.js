@@ -14,10 +14,12 @@ import HeaderMenu from "../components/HeaderMenu";
 import Footer from "../components/Footer";
 import ParallaxHover from "react-parallax-hover";
 import { Route, Switch, withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 import About from "../components/About";
 import Contact from "../components/Contact";
 import Home from "../components/Home";
 import Work from "../components/Work";
+import { getProjects } from "../actions";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 class MainContainer extends Component {
@@ -45,7 +47,14 @@ class MainContainer extends Component {
             )}
           />
           <Route path="/contact" component={Contact} />
-          <Route path="/work" component={Work} />
+          <Route
+            path="/work"
+            render={() => {
+              // get Projects List
+              this.props.getProjects();
+              return <Work />;
+            }}
+          />
           <Route path="/" component={Home} />
         </Switch>
         <Footer />
@@ -54,4 +63,4 @@ class MainContainer extends Component {
   }
 }
 
-export default withRouter(MainContainer);
+export default withRouter(connect(null, { getProjects })(MainContainer));

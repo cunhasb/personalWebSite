@@ -14,8 +14,11 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "react-transition-group": "^2.2.1",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
     "semantic-ui": "^2.3.0",
-    "style-loader": "^0.20.2"
+    "style-loader": "^0.20.2",
+    "thunk": "0.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
