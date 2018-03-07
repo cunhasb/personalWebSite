@@ -6,8 +6,8 @@ export default [
     keyPoints: "Key points of project",
     webSiteUrl: "www.mywebsite.com",
     media: {
-      featured: ["../../public/images/pexels-photo-316466.jpeg"],
-      webSite: ["../../public/images/pexels-photo-316466.jpeg"],
+      featured: ["pexels-photo-316466.jpeg"],
+      webSite: ["pexels-photo-316466.jpeg"],
       mobile: ["image1", "image2", "image3"]
     },
     fullDescription: {
@@ -23,8 +23,8 @@ export default [
     keyPoints: "Key points of project",
     webSiteUrl: "www.mywebsite.com",
     media: {
-      featured: ["../../public/images/pexels-photo-316466.jpeg"],
-      webSite: ["../../public/images/pexels-photo-316466.jpeg"],
+      featured: ["pexels-photo-583846.jpeg"],
+      webSite: ["pexels-photo-583846.jpeg"],
       mobile: ["image1", "image2", "image3"]
     },
     fullDescription: {
@@ -40,8 +40,8 @@ export default [
     keyPoints: "Key points of project",
     webSiteUrl: "www.mywebsite.com",
     media: {
-      featured: ["../../public/images/pexels-photo-316466.jpeg"],
-      webSite: ["../../public/images/pexels-photo-316466.jpeg"],
+      featured: ["pexels-photo-585752.jpeg"],
+      webSite: ["pexels-photo-585752.jpeg"],
       mobile: ["image1", "image2", "image3"]
     },
     fullDescription: {

@@ -1,38 +1,55 @@
 import React, { Component } from "react";
-import { Container, Header, Image, List } from "semantic-ui-react";
+import {
+  Container,
+  Header,
+  Image,
+  List,
+  Progress,
+  Dimmer,
+  Button
+} from "semantic-ui-react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
+import { styles } from "../styles/work";
+import Tilt from "react-tilt";
 
-import ParallaxHover from "react-parallax-hover";
-
-const styles = {
-  selectedStyle: {
-    fontSize: "2em"
-  },
-  listStyle: {
-    fontSize: "1em"
-  }
-};
-
-class Work extends Component {
+class Work extends React.Component {
   state = {
     animation: "scale",
     duration: 3600,
     visible: false,
     projects: [],
-    selectedProject: "",
-    timer: { timer: null, counter: 0 }
+    selectedProject: {
+      id: "",
+      name: "",
+      description: "",
+      keyPoints: "",
+      webSiteUrl: "",
+      media: {
+        featured: ["featuredDefault.jpeg"],
+        webSite: [],
+        mobile: []
+      },
+      fullDescription: {
+        description: "",
+        client: "",
+        year: ""
+      }
+    },
+    timer: { timer: null, counter: 0 },
+    innerTimer: { timer: null, counter: 0 },
+    active: false
   };
 
   handleVisibility = () => this.setState({ visible: !this.state.visible });
-  handleMouseOver = e => {
-    this.setState({ selectedProject: e.target.id });
+  handleMouseOver = project => {
+    // debugger;
+    this.setState({ selectedProject: project });
   };
   applyStyle = e => {
     // debugger;
-    return e === this.state.selectedProject
-      ? styles.selectedStyle
-      : styles.listStyle;
+    const { selectedStyle, listStyle } = styles();
+    return e === this.state.selectedProject.id ? selectedStyle : listStyle;
   };
   tick = () => {
     this.setState(prevState => {
@@ -43,7 +60,11 @@ class Work extends Component {
             timer: prevState.timer.timer,
             counter: 0
           },
-          selectedProject: prevState.projects[0].id
+          innerTimer: {
+            timer: prevState.innerTimer.timer,
+            counter: 0
+          },
+          selectedProject: prevState.projects[0]
         };
       } else {
         return {
@@ -51,49 +72,102 @@ class Work extends Component {
             timer: prevState.timer.timer,
             counter: prevState.timer.counter + 1
           },
-          selectedProject: prevState.projects[prevState.timer.counter + 1].id
+          innerTimer: {
+            timer: prevState.innerTimer.timer,
+            counter: 100
+          },
+          selectedProject: prevState.projects[prevState.timer.counter + 1]
+        };
+      }
+    });
+  };
+  innerTick = () => {
+    this.setState(prevState => {
+      if (prevState.innerTimer.counter + 1 > 100) {
+        return {
+          innerTimer: {
+            timer: prevState.innerTimer.timer,
+            counter: 0
+          }
+        };
+      } else {
+        return {
+          innerTimer: {
+            timer: prevState.innerTimer.timer,
+            counter: prevState.innerTimer.counter + 1
+          }
         };
       }
     });
   };
   componentDidMount() {
-    // let timer = setInterval(this.tick, 10000);
-    this.setState({
-      visible: !this.state.visible,
-      projects: this.props.projects,
-      selectedProject: this.props.projects[this.state.timer.counter].id,
-      timer: { timer: "timer", counter: 0 }
+    let timer = setInterval(this.tick, 10000);
+    let innerTimer = setInterval(this.innerTick, 100);
+    this.setState(prevState => {
+      return {
+        visible: !prevState.visible,
+        projects: this.props.projects,
+        selectedProject: this.props.projects[prevState.timer.counter],
+        timer: { timer: timer, counter: 0 },
+        innerTimer: { timer: innerTimer, counter: 0 }
+      };
     });
   }
   componentWillUnmount() {
     this.clearInterval(this.state.timer.timer);
+    this.clearInterval(this.state.innerTimer.timer);
   }
+  handleShow = () => {
+    console.log("show", this.state.active);
+    this.setState({ active: true });
+  };
+  handleHide = () => {
+    console.log("hide", this.state.active);
+    this.setState({ active: false });
+  };
+
   render() {
+    const { active } = this.state.active;
+    const contentX = (
+      <div>
+        <Header as="h2" inverted>
+          Title
+        </Header>
+
+        <Button primary>Add</Button>
+        <Button>View</Button>
+      </div>
+    );
     const projectsList = this.state.projects.map(project => {
       return (
         <List.Item
-          ordered="true"
+          onMouseOver={() => this.handleMouseOver(project)}
+          key={project.id}
           style={
-            this.state.selectedStyle == project.id
+            this.state.selectedProject.id === project.id
               ? this.applyStyle(project.id)
               : this.applyStyle(project.id)
           }
         >
           <List.Content>
-            <List.Header
-              key={project.id}
-              id={project.id}
-              onMouseOver={this.handleMouseOver}
-            >
-              {project.name}
-            </List.Header>
+            <List.Header>{project.name}</List.Header>
           </List.Content>
         </List.Item>
       );
     });
-
     return (
       <Container fluid>
+        <Dimmer.Dimmable
+          as={Image}
+          dimmed={this.state.active}
+          dimmer={{ active, contentX }}
+          onMouseEnter={this.handleShow}
+          onMouseLeave={this.handleHide}
+          size="medium"
+          src={require(`../images/${
+            this.state.selectedProject.media.featured[0]
+          }`)}
+        />
         <List
           animated
           verticalAlign="middle"
@@ -107,16 +181,58 @@ class Work extends Component {
         >
           {projectsList}
         </List>
-        <Container style={{ width: "20%" }}>
-          <ParallaxHover width="1000" height="600">
-            <div
-              style={{
-                backgroundColor: "red",
-                width: "60%",
-                height: "60%"
-              }}
+        <Container>
+          <Tilt
+            className="Tilt"
+            options={{ max: 25 }}
+            style={{
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              width: "80%",
+              marginLeft: "30%"
+            }}
+          >
+            <div className="Tilt-inner">
+              <div
+                style={{
+                  padding: "10%",
+                  width: "720px",
+                  height: "475px",
+                  backgroundColor: "rgba(250,250,250,0.5)",
+                  marginLeft: "10%",
+                  marginTop: "20%",
+                  border: "5px black"
+                }}
+              />
+              <Image
+                style={{
+                  marginTop: "-60%",
+                  marginLeft: "17%",
+                  width: "80%",
+                  zIndex: 0
+                }}
+                src={require(`../images/${
+                  this.state.selectedProject.media.featured[0]
+                }`)}
+                alt="Parallax Layer"
+              />
+            </div>
+          </Tilt>
+          <div
+            style={{
+              marginTop: "2%",
+              marginLeft: "50%",
+              width: "50%",
+              zIndex: 1
+            }}
+          >
+            {`${this.state.timer.counter + 1}/${this.state.projects.length}`}
+            <Progress
+              size="tiny"
+              attached="bottom"
+              percent={this.state.innerTimer.counter}
             />
-          </ParallaxHover>
+          </div>
         </Container>
       </Container>
     );
