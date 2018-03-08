@@ -1,8 +1,10 @@
-export default (state = [], action) => {
-  console.log("inside projects reducer", state, action);
+export default (state = { projects: [], selectedProject: [] }, action) => {
   switch (action.type) {
     case "GET_PROJECTS": {
-      return [...state, ...action.projects];
+      return { projects: action.projects, selectedProject: action.projects[0] };
+    }
+    case "SET_SELECTED_PROJECT": {
+      return { projects: state.projects, selectedProject: action.project };
     }
     default:
       return state;

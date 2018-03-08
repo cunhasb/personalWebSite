@@ -2,6 +2,7 @@ export default [
   {
     id: "1",
     name: "SMS",
+    route: "sms",
     description: "A Dynamic program",
     keyPoints: "Key points of project",
     webSiteUrl: "www.mywebsite.com",
@@ -11,6 +12,7 @@ export default [
       mobile: ["image1", "image2", "image3"]
     },
     fullDescription: {
+      services: "WebApp",
       description: "description of services provided",
       client: "name of client",
       year: "2018"
@@ -19,6 +21,7 @@ export default [
   {
     id: "2",
     name: "Peekr",
+    route: "peekr",
     description: "A Dynamic program",
     keyPoints: "Key points of project",
     webSiteUrl: "www.mywebsite.com",
@@ -28,6 +31,7 @@ export default [
       mobile: ["image1", "image2", "image3"]
     },
     fullDescription: {
+      services: "WebApp",
       description: "description of services provided",
       client: "name of client",
       year: "2018"
@@ -36,6 +40,7 @@ export default [
   {
     id: "3",
     name: "Manager",
+    route: "manager",
     description: "A Dynamic program",
     keyPoints: "Key points of project",
     webSiteUrl: "www.mywebsite.com",
@@ -45,6 +50,7 @@ export default [
       mobile: ["image1", "image2", "image3"]
     },
     fullDescription: {
+      services: "WebApp",
       description: "description of services provided",
       client: "name of client",
       year: "2018"

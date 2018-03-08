@@ -19,6 +19,7 @@ import About from "../components/About";
 import Contact from "../components/Contact";
 import Home from "../components/Home";
 import Work from "../components/Work";
+import WorkDetails from "../components/WorkDetail";
 import { getProjects } from "../actions";
 import { TransitionGroup, CSSTransition } from "react-transition-group";
 
@@ -30,6 +31,7 @@ class MainContainer extends Component {
     this.setState({ visible: !this.state.visible });
   }
   render() {
+    console.log("props", this.props);
     return (
       <Container fluid style={{ width: "80%" }}>
         <HeaderMenu />
@@ -48,9 +50,19 @@ class MainContainer extends Component {
           />
           <Route path="/contact" component={Contact} />
           <Route
+            exact
+            path="/work/:name"
+            render={() => {
+              console.log("/work/:name route rendering");
+              !this.props.projects.length > 0 ? this.props.getProjects() : null;
+              return <WorkDetails />;
+            }}
+          />
+          <Route
             path="/work"
             render={() => {
               // get Projects List
+              console.log("/work route rendering");
               this.props.getProjects();
               return <Work />;
             }}
@@ -62,5 +74,12 @@ class MainContainer extends Component {
     );
   }
 }
-
-export default withRouter(connect(null, { getProjects })(MainContainer));
+const mapStateToProps = state => {
+  // debugger;
+  return {
+    projects: state.projects.projects
+  };
+};
+export default withRouter(
+  connect(mapStateToProps, { getProjects })(MainContainer)
+);
