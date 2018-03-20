@@ -75,8 +75,8 @@ export const mouseShell = Page => {
 
       const styles = StyleSheet.create({
         wrapper: {
-          width: "100%vw",
-          height: "100%vh",
+          width: "100vw",
+          height: "100vh",
           cursor: "none"
         },
         default: {

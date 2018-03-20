@@ -66,7 +66,7 @@ class MainContainer extends Component {
             exact
             path="/work/:name"
             render={() => {
-              this.props.takePicture(this.props.refItem);
+              // this.props.takePicture(this.props.refItem);
               console.log("/work/:name route rendering", this.props);
               !this.props.projects.length > 0 ? this.props.getProjects() : null;
 
@@ -107,7 +107,7 @@ class MainContainer extends Component {
           />
           <Route path="/" component={PageShell(Home)} />
         </Switch>
-        <Footer />
+        <Footer style={{ position: "fixed", bottom: "0px" }} />
       </Container>
     );
   }

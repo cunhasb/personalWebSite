@@ -27,64 +27,52 @@ class About extends React.Component {
       );
     });
     return (
-      <div style={{ position: "relative" }}>
-        <Tilt
-          className="Tilt"
-          options={{ max: 15, scale: 1, reverse: true }}
-          style={{
-            width: "100%",
-            height: "85vh",
-            position: "relative",
-            bottom: "0%"
-          }}
-        >
-          <Grid stackable style={{}}>
-            <Grid.Row>
-              <Grid.Column width={6}>
-                <Tilt
-                  className="Tilt"
-                  options={{ max: 1, scale: 1, reverse: true }}
-                  style={{
-                    bottom: "0px",
-                    width: "700px",
-                    height: "350px",
-                    position: "absolute",
-                    backgroundPosition: "center",
-                    backgroundSize: "cover",
-                    backgroundColor: "rgba(250,250,250,0.4)"
-                  }}
+      <Tilt className="Tilt" options={{ max: 15, scale: 1, reverse: true }}>
+        <Grid stackable verticalAlign="middle">
+          <Grid.Row columns={2}>
+            <Grid.Column width={6}>
+              <Tilt
+                className="Tilt"
+                options={{ max: 1, scale: 1, reverse: true }}
+                style={{
+                  bottom: "0px",
+                  width: "700px",
+                  height: "350px",
+                  position: "absolute",
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                  backgroundColor: "rgba(250,250,250,0.4)"
+                }}
+              />
+              <Tilt
+                className="Tilt"
+                options={{ max: 1, scale: 1, reverse: true }}
+                style={{
+                  left: "13.8%",
+                  backgroundColor: "blue",
+                  width: "100%",
+                  position: "relative",
+                  bottom: "2%"
+                }}
+              >
+                <Image
+                  src={`${require("../images/fabianoSketch2.png")}`}
+                  style={{}}
                 />
-                <Tilt
-                  className="Tilt"
-                  options={{ max: 1, scale: 1, reverse: true }}
-                  style={{
-                    left: "13.8%",
-                    backgroundColor: "blue",
-                    width: "100%",
-                    position: "relative",
-                    bottom: "2%"
-                  }}
-                >
-                  <Image
-                    src={`${require("../images/fabianoSketch2.png")}`}
-                    style={{}}
-                  />
-                </Tilt>
-              </Grid.Column>
-            </Grid.Row>
-          </Grid>
-        </Tilt>
-        <div
-          style={{
-            position: "absolute",
-            backgroundColor: "green",
-            left: "50%",
-            bottom: "50%"
-          }}
-        >
-          <Header>{this.props.parameters.about}</Header>
-        </div>
-      </div>
+              </Tilt>
+            </Grid.Column>
+            <Grid.Column
+              centered
+              verticalAlign="middle"
+              width={8}
+              textAlign="justified"
+              floated="right"
+            >
+              <Header>{this.props.parameters.about}</Header>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Tilt>
     );
   }
 }
