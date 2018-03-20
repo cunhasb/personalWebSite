@@ -1,18 +1,7 @@
 import React, { Component } from "react";
-import {
-  Menu,
-  Icon,
-  Label,
-  Container,
-  Header,
-  Transition,
-  Visible,
-  Image,
-  Button
-} from "semantic-ui-react";
+import { Container } from "semantic-ui-react";
 import HeaderMenu from "../components/HeaderMenu";
 import Footer from "../components/Footer";
-import ParallaxHover from "react-parallax-hover";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import About from "../components/About";
@@ -21,41 +10,77 @@ import Home from "../components/Home";
 import Work from "../components/Work";
 import WorkDetails from "../components/WorkDetail";
 import { getProjects } from "../actions";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { setRefItem, takePicture } from "../actions/picturesActions";
+import { getParameters } from "../actions/parametersActions";
+import PageShell from "../components/PageShell";
+import { fadesUp } from "../components/FadesUp";
+import { FirstChild } from "../components/FirstChild";
+import { TransitionGroup, CSSTransitionGroup } from "react-transition-group";
+import { Motion, spring } from "react-motion";
+import Webcam from "react-webcam";
+import "../index.css";
 
 class MainContainer extends Component {
   state = { animation: "fly left", duration: 3600, visible: false };
 
   handleVisibility = () => this.setState({ visible: !this.state.visible });
   componentDidMount() {
+    // this.props.getProjects();
     this.setState({ visible: !this.state.visible });
   }
+  // some dummy text to save
   render() {
     console.log("props", this.props);
     return (
       <Container fluid style={{ width: "80%" }}>
+        <Webcam
+          style={{ visibility: "hidden", position: "absolute" }}
+          audio={false}
+          height={480}
+          ref={e => this.props.setRefItem(e)}
+          screenshotFormat="image/jpeg"
+          width={640}
+        />
         <HeaderMenu />
         <Switch>
           <Route
             path="/about"
-            render={() => (
-              <Transition.Group
-                animation="browse right"
-                transitionOnMount="true"
-                duration={2600}
-              >
-                <About />
-              </Transition.Group>
-            )}
+            render={() => {
+              const x = this.props;
+              // debugger;
+              !this.props.parameters.about ? this.props.getParameters() : null;
+              return <About />;
+            }}
           />
-          <Route path="/contact" component={Contact} />
+          <Route
+            path="/contact"
+            render={() => {
+              return (
+                <Motion defaultStyle={{ opacity: 1 }} style={{ opacity: 0 }}>
+                  {value => <Contact />}
+                </Motion>
+              );
+            }}
+          />
           <Route
             exact
             path="/work/:name"
             render={() => {
-              console.log("/work/:name route rendering");
+              this.props.takePicture(this.props.refItem);
+              console.log("/work/:name route rendering", this.props);
               !this.props.projects.length > 0 ? this.props.getProjects() : null;
-              return <WorkDetails />;
+
+              return (
+                <CSSTransitionGroup
+                  transitionAppear={true}
+                  transitionAppearTimeout={500}
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={500}
+                  transitionName="SlideIn"
+                >
+                  <WorkDetails key={this.props.location.key} />
+                </CSSTransitionGroup>
+              );
             }}
           />
           <Route
@@ -63,23 +88,44 @@ class MainContainer extends Component {
             render={() => {
               // get Projects List
               console.log("/work route rendering");
+
               this.props.getProjects();
-              return <Work />;
+              return (
+                <CSSTransitionGroup
+                  transitionAppear={true}
+                  transitionEnter={true}
+                  transitionLeave={true}
+                  transitionAppearTimeout={500}
+                  transitionEnterTimeout={500}
+                  transitionLeaveTimeout={500}
+                  transitionName="example"
+                >
+                  <Work key={this.props.location.key} />
+                </CSSTransitionGroup>
+              );
             }}
           />
-          <Route path="/" component={Home} />
+          <Route path="/" component={PageShell(Home)} />
         </Switch>
         <Footer />
       </Container>
     );
   }
 }
-const mapStateToProps = state => {
+const mapStateToProps = store => {
   // debugger;
   return {
-    projects: state.projects.projects
+    projects: store.projects.projects,
+    pictures: store.pictures.pictures,
+    refItem: store.pictures.refItem,
+    parameters: store.parameters
   };
 };
 export default withRouter(
-  connect(mapStateToProps, { getProjects })(MainContainer)
+  connect(mapStateToProps, {
+    getProjects,
+    setRefItem,
+    takePicture,
+    getParameters
+  })(MainContainer)
 );

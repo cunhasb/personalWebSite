@@ -1,18 +1,17 @@
-import React, { Component } from "react";
-import { Transition, Reveal } from "semantic-ui-react";
+import React from "react";
 import { Link, withRouter } from "react-router-dom";
 import {
+  Transition,
   Container,
-  Header,
   Image,
   List,
-  Progress,
-  Button
+  Progress
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import { styles } from "../styles/work";
 import Tilt from "react-tilt";
+import PageShell from "../components/PageShell";
 
 class Work extends React.Component {
   state = {
@@ -49,7 +48,6 @@ class Work extends React.Component {
           }
         };
       } else {
-        let x = this.props;
         this.props.setSelectedProject(
           this.props.projects[prevState.timer.counter + 1]
         );
@@ -102,13 +100,11 @@ class Work extends React.Component {
     });
   }
   componentWillUnmount() {
-    let x = this.state;
     // debugger;
     clearInterval(this.state.timer.timer);
     clearInterval(this.state.innerTimer.timer);
   }
   handleShow = () => {
-    console.log("show", this.state.animations);
     this.setState(prevState => {
       return {
         animations: {
@@ -131,7 +127,6 @@ class Work extends React.Component {
 
   render() {
     const projectsList = this.props.projects.map(project => {
-      let x = this.props;
       // debugger;
       return (
         <List.Item
@@ -193,7 +188,7 @@ class Work extends React.Component {
                 }}
               >
                 <Transition
-                  duration="1000"
+                  duration="6000"
                   animation="swing up"
                   visible={this.state.animations.details}
                 >
@@ -256,4 +251,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default withRouter(connect(mapStateToProps, actions)(Work));
+export default withRouter(connect(mapStateToProps, actions)(PageShell(Work)));

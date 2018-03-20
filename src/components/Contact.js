@@ -1,29 +1,41 @@
 import React, { Component } from "react";
-import {
-  Menu,
-  Icon,
-  Label,
-  Container,
-  Header,
-  Transition,
-  Visible,
-  Image,
-  Button
-} from "semantic-ui-react";
-import HeaderMenu from "../components/HeaderMenu";
-import Footer from "../components/Footer";
+import { Container, Header, Transition } from "semantic-ui-react";
 import ParallaxHover from "react-parallax-hover";
 
-export default class Contact extends Component {
-  state = { animation: "scale", duration: 3600, visible: false };
+class Contact extends Component {
+  state = {
+    animation: "scale",
+    duration: 3600,
+    visible: false,
+    position: { x: 0, y: 0 }
+  };
 
   handleVisibility = () => this.setState({ visible: !this.state.visible });
   componentDidMount() {
     this.setState({ visible: !this.state.visible });
   }
+  handleMouseMove = e => {
+    console.log("x=", e.clientX, "y=", e.clientY);
+    this.setState({ position: { x: e.clientX, y: e.clientY } });
+    // debugger;
+  };
   render() {
     return (
-      <Container fluid>
+      <Container
+        onMouseMove={this.handleMouseMove}
+        fluid
+        style={{ cursor: "none" }}
+      >
+        <div
+          style={{
+            width: "10px",
+            height: "10px",
+            backgroundColor: "red",
+            position: "absolute",
+            left: this.state.position.x,
+            top: this.state.position.y
+          }}
+        />
         <Transition.Group
           animation={this.state.animation}
           duration={this.state.duration}
@@ -60,3 +72,5 @@ export default class Contact extends Component {
     );
   }
 }
+
+export default Contact;

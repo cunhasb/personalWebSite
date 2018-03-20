@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Icon, Label } from "semantic-ui-react";
+import { Menu, Icon } from "semantic-ui-react";
 
 export default class Footer extends Component {
   state = {};
@@ -7,11 +7,9 @@ export default class Footer extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    const { activeItem } = this.state;
-
     return (
-      <div style={{ marginTop: "8%" }}>
-        <Menu stackable size="huge">
+      <div style={{ bottom: "0" }}>
+        <Menu text size="huge">
           <Menu.Item>
             <Icon name="linkedin" />
           </Menu.Item>

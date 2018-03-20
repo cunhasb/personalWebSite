@@ -1,5 +1,86 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 5s linear;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 3s ease-in;
+}
+.example-appear {
+
+  opacity: 0.01;
+}
+
+.example-appear.example-appear-active {
+  opacity: 1;
+  transition: opacity 4s ease-in;
+}
+.SlideIn-appear {
+  backgroundColor:'white';
+    width:100%vw;
+    height:100%vh;
+  transform: translateX(10%);
+  opacity: 0;
+}
+.SlideIn-appear.SlideIn-appear-active {
+  backgroundColor:'white';
+  width:0%vw;
+  height:0%vh;
+  opacity: 1;
+  transform: translateX(0);;
+  transition: all 0.6s linear;
+}
+.SlideIn-enter {
+    opacity: 0;
+    transform: translateX(30px);
+}
+.SlideIn-enter.SlideIn-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.2s ease-in 0.4s;
+}
+.SlideIn-leave {
+    opacity: 1.0;
+    transform: translateX(0);
+}
+.SlideIn-leave.SlideIn-leave-active {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    transform: translateX(-30px);
+    transition: all 0.2s linear;
+}
+
+.SlideLayer-enter.SlideLayer-enter-active{
+    from { }
+    to { -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+}
+.SlideLayer-appear {
+  opacity: 0.3; -webkit-transform: translateX(-100%); transform: translateX(-100%); }
+
+.SlideLayer-appear.SlideLayer-appear-active{
+    opacity: 0.3; -webkit-transform: translateX(-100%); transform: translateX(-100%);
+}
+
+.MousePointer-appear{
+  transform: scale(2, 3)
+}
+.MousePointer-appear.MousePointer-appear-active{
+  transform: scale(3, 2)
+}
+.Mouse-enter{
+  background-color: red;
+}
+.Mouse-enter.Mouse-enter.active{
+  background-color: blue;
 }

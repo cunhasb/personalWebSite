@@ -1,17 +1,5 @@
 import React, { Component } from "react";
-import {
-  Menu,
-  Icon,
-  Label,
-  Container,
-  Header,
-  Transition,
-  Visible,
-  Image,
-  Button
-} from "semantic-ui-react";
-import HeaderMenu from "../components/HeaderMenu";
-import Footer from "../components/Footer";
+import { Container, Header, Transition } from "semantic-ui-react";
 import ParallaxHover from "react-parallax-hover";
 
 export default class Home extends Component {
