@@ -34,9 +34,9 @@ class Contact extends Component {
               position: "absolute",
               top: "50%",
               left: "50%",
-              width: "30%",
-              height: "40%",
-              backgroundColor: "rgba(250,250,250,0.3)",
+              width: "40%",
+              height: "25vw",
+              backgroundColor: "rgba(250,250,250,0.6)",
               transform: "translate(-50%,-50%)",
               transformStyle: "preserve-3d"
             }}
