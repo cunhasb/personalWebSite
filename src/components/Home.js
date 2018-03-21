@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { Container, Header, Transition } from "semantic-ui-react";
+import {
+  Container,
+  Header,
+  Transition,
+  Responsive,
+  Segment
+} from "semantic-ui-react";
 import ParallaxHover from "react-parallax-hover";
 import Tilt from "react-tilt";
 
@@ -36,20 +42,22 @@ export default class Home extends Component {
             width: "100%"
           }}
         >
-          <div
-            options={{ scale: 1 }}
-            style={{
-              position: "absolute",
-              top: "25%",
-              left: "5%",
-              width: "40%",
-              height: "60%",
-              backgroundColor: "rgba(250,250,250,0.6)",
-              transform:
-                "matrix3d(1,0,0.00,0.0003,0.00,1,0.00,0,0,0,1,0,200,0,0,1)",
-              transformStyle: "preserve-3d"
-            }}
-          />
+          <Responsive minWidth={480}>
+            <div
+              options={{ scale: 1 }}
+              style={{
+                position: "absolute",
+                top: "15vh",
+                left: "2vw",
+                width: "75vh",
+                height: "45vh",
+                backgroundColor: "rgba(250,250,250,0.6)",
+                transform:
+                  "matrix3d(1,0,0.00,0.0003,0.00,1,0.00,0,0,0,1,0,200,0,0,1)",
+                transformStyle: "preserve-3d"
+              }}
+            />
+          </Responsive>
         </Tilt>
         <Transition.Group
           style={{ position: "absolute", top: "0px" }}
@@ -60,8 +68,8 @@ export default class Home extends Component {
             <Header
               style={{
                 position: "relative",
-                marginTop: "27%",
-                left: "70%",
+                marginTop: "18vh",
+                left: "35vw",
                 fontSize: "2vw",
                 pointerEvents: "none"
               }}
