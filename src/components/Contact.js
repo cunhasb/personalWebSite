@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Header, Transition } from "semantic-ui-react";
-import ParallaxHover from "react-parallax-hover";
+import Tilt from "react-tilt";
 
 class Contact extends Component {
   state = {
@@ -14,40 +14,48 @@ class Contact extends Component {
   componentDidMount() {
     this.setState({ visible: !this.state.visible });
   }
-  handleMouseMove = e => {
-    console.log("x=", e.clientX, "y=", e.clientY);
-    this.setState({ position: { x: e.clientX, y: e.clientY } });
-    // debugger;
-  };
+
   render() {
     return (
-      <Container
-        onMouseMove={this.handleMouseMove}
-        fluid
-        style={{ cursor: "none" }}
+      <div
+        style={{
+          position: "relative",
+          left: "-10vw",
+          width: "100vw",
+          height: "75vh"
+        }}
       >
-        <div
-          style={{
-            width: "10px",
-            height: "10px",
-            backgroundColor: "red",
-            position: "absolute",
-            left: this.state.position.x,
-            top: this.state.position.y
-          }}
-        />
+        <Tilt
+          options={{ scale: 1, reverse: true, max: 35 }}
+          style={{ width: "100%", height: "100%" }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: "50%",
+              width: "30%",
+              height: "40%",
+              backgroundColor: "rgba(250,250,250,0.3)",
+              transform: "translate(-50%,-50%)",
+              transformStyle: "preserve-3d"
+            }}
+          />
+        </Tilt>
         <Transition.Group
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%,-50%)"
+          }}
           animation={this.state.animation}
           duration={this.state.duration}
         >
           {this.state.visible && (
             <Header
               style={{
-                fontSize: "3em",
-                position: "absolute",
-                left: "30%",
-                top: "250px",
-                width: "50%"
+                fontSize: "4vw"
               }}
             >
               <p>{"Contact"}</p>
@@ -57,18 +65,8 @@ class Contact extends Component {
               </p>
             </Header>
           )}
-          <image
-            style={{
-              width: "570px",
-              height: "500px",
-              backgroundColor: "red",
-              perspective: "1000px",
-              float: "left"
-            }}
-          />
-          <ParallaxHover width="1000" height="600" />
         </Transition.Group>
-      </Container>
+      </div>
     );
   }
 }
