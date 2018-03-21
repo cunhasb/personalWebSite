@@ -163,8 +163,7 @@ export const mouseShell = Page => {
               width: "17px",
               top: "37%",
               left: "37%",
-              borderRadius: "50%",
-              borderColor: "red"
+              borderRadius: "50%"
             }}
           />
         </div>,
@@ -202,7 +201,6 @@ export const mouseShell = Page => {
           onWheel={this.handleOnWheel}
         >
           <Page {...this.props} />
-
           {mousePointers[this.props.mouse.pointer]}
         </div>
       );

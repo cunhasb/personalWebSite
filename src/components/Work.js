@@ -135,7 +135,12 @@ class Work extends React.Component {
           style={this.applyStyle(project.id)}
         >
           <List.Content>
-            <List.Header>{project.name}</List.Header>
+            <Link
+              className="ui header"
+              to={`/work/${this.props.selectedProject.route}`}
+            >
+              <List.Header>{project.name}</List.Header>
+            </Link>
           </List.Content>
         </List.Item>
       );
@@ -229,7 +234,6 @@ class Work extends React.Component {
                   src={require(`../images/${
                     this.props.selectedProject.media.featured[0]
                   }`)}
-                  alt="Parallax Layer"
                 />
               </Link>
             </div>
