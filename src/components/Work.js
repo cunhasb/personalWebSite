@@ -145,12 +145,11 @@ class Work extends React.Component {
         <List
           animated
           verticalAlign="middle"
-          size="massive"
           style={{
             marginLeft: "10%",
-            position: "absolute",
-            top: "250px",
-            width: "50%"
+            position: "relative",
+            top: "10vw",
+            width: "50vw"
           }}
         >
           {projectsList}
@@ -170,11 +169,11 @@ class Work extends React.Component {
               <div
                 style={{
                   padding: "10%",
-                  width: "720px",
-                  height: "475px",
+                  height: "25vw",
+                  width: "38vw",
                   backgroundColor: "rgba(250,250,250,0.5)",
                   marginLeft: "10%",
-                  marginTop: "20%",
+                  top: "7vw",
                   border: "5px black"
                 }}
               />
@@ -210,8 +209,8 @@ class Work extends React.Component {
                   onMouseLeave={this.handleHide}
                   style={{
                     marginTop: "-60%",
-                    marginLeft: "17%",
-                    width: "80%",
+                    marginLeft: "8vw",
+                    width: "37.5vw",
                     zIndex: 0
                   }}
                   src={require(`../images/${
