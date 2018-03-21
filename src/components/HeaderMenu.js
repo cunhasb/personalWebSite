@@ -4,6 +4,7 @@ import { bindActionCreators } from "redux";
 import { setPointerType } from "../actions";
 import { takePicture } from "../actions/picturesActions";
 import { withRouter, NavLink } from "react-router-dom";
+import { StyleSheet, css } from "aphrodite";
 
 class HeaderMenu extends Component {
   state = {};
@@ -15,6 +16,8 @@ class HeaderMenu extends Component {
   };
 
   handleMouseEnter = e => {
+    let x = e;
+    // debugger;
     this.props.setPointerType("hover");
   };
   handleMouseLeave = e => {
@@ -24,20 +27,22 @@ class HeaderMenu extends Component {
     const { activeItem } = this.state;
 
     return (
-      <div
-        className="ui text menu"
-        style={{ marginBottom: "3%", cursor: " none" }}
-        onMouseEnter={this.handleMouseEnter}
-        onMouseLeave={this.handleMouseLeave}
-      >
-        <NavLink to="/home" className="header item">
+      <div className="ui text menu" style={{ marginBottom: "3%" }}>
+        <NavLink
+          to="/home"
+          className={css(styles.navLink) + " " + "header item"}
+          onMouseEnter={this.handleMouseEnter}
+          onMouseLeave={this.handleMouseLeave}
+        >
           FABIANO S. CUNHA
         </NavLink>
-        <div className="right menu" position="right">
+        <div className="right menu">
           <NavLink
             to="/work"
-            className="header item"
+            className={css(styles.navLink) + " " + "header item"}
             name="WORK"
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
             active={activeItem === "WORK" ? "true" : undefined}
             onClick={e => this.handleItemClick(e, { name: "WORK" })}
           >
@@ -45,8 +50,10 @@ class HeaderMenu extends Component {
           </NavLink>
           <NavLink
             to="/about"
-            className="header item"
+            className={css(styles.navLink) + " " + "header item"}
             name="ABOUT"
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
             active={activeItem === "ABOUT" ? "true" : undefined}
             onClick={e => this.handleItemClick(e, { name: "ABOUT" })}
           >
@@ -54,8 +61,10 @@ class HeaderMenu extends Component {
           </NavLink>
           <NavLink
             to="/contact"
-            className="header item"
+            className={css(styles.navLink) + " " + "header item"}
             name="CONTACT"
+            onMouseEnter={this.handleMouseEnter}
+            onMouseLeave={this.handleMouseLeave}
             active={activeItem === "CONTACT" ? "true" : undefined}
             onClick={e => this.handleItemClick(e, { name: "CONTACT" })}
           >
@@ -76,6 +85,12 @@ const mapDispatchToProps = dispatch => {
   };
   // debugger;
 };
+const styles = StyleSheet.create({
+  navLink: {
+    cursor: "none",
+    styles: "none"
+  }
+});
 export default withRouter(
   connect(mapStateToProps, mapDispatchToProps)(HeaderMenu)
 );
