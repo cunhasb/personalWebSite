@@ -86,10 +86,10 @@ export const styles = () => {
       transform: "translate(-15%, 17%)"
     },
     selectedStyle: {
-      fontSize: "2em"
+      fontSize: "2vw"
     },
     listStyle: {
-      fontSize: "1em"
+      fontSize: "2vw"
     }
   };
 };

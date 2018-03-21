@@ -141,49 +141,62 @@ class Work extends React.Component {
       );
     });
     return (
-      <Container fluid>
+      <Container
+        style={{ position: "relative", width: "85vw", height: "75vh" }}
+      >
         <List
           animated
           verticalAlign="middle"
           style={{
-            marginLeft: "10%",
-            position: "relative",
-            top: "10vw",
-            width: "50vw"
+            marginLeft: "3vw",
+            position: "absolute",
+            top: "50%",
+            transform: "translateY(-50%)",
+            width: "60vw"
           }}
         >
           {projectsList}
         </List>
-        <Container>
+        <Container
+          style={{
+            position: "relative",
+            top: "50%",
+            width: "40vw",
+            height: "30vw",
+            transform: "translateY(-50%)"
+          }}
+        >
           <Tilt
             className="Tilt"
-            options={{ max: 25 }}
+            options={{ max: 25, scale: 1.05 }}
             style={{
-              backgroundPosition: "center",
-              backgroundSize: "cover",
-              width: "80%",
-              marginLeft: "30%"
+              position: "relative",
+              marginTop: "5%",
+              width: "40vw",
+              height: "30vw",
+              marginLeft: "40%",
+              backgroundColor: "blue"
             }}
           >
             <div className="Tilt-inner">
               <div
                 style={{
-                  padding: "10%",
+                  position: "absolute",
+                  top: "10%",
                   height: "25vw",
                   width: "38vw",
                   backgroundColor: "rgba(250,250,250,0.5)",
-                  marginLeft: "10%",
-                  top: "7vw",
                   border: "5px black"
                 }}
               />
               <div
                 style={{
                   position: "absolute",
-                  marginTop: "-35%",
-                  marginLeft: "90%",
+                  left: "80%",
+                  top: "60%",
                   width: "80%",
-                  zIndex: 1
+                  zIndex: 1,
+                  fontSize: "1.5vw"
                 }}
               >
                 <Transition
@@ -196,7 +209,7 @@ class Work extends React.Component {
                     onMouseEnter={this.handleShow}
                     to={`/work/${this.props.selectedProject.route}`}
                   >
-                    See it...
+                    <span style={{ color: "white" }}>See it...</span>
                   </Link>
                 </Transition>
               </div>
@@ -208,8 +221,9 @@ class Work extends React.Component {
                   onMouseEnter={this.handleShow}
                   onMouseLeave={this.handleHide}
                   style={{
-                    marginTop: "-60%",
-                    marginLeft: "8vw",
+                    position: "absolute",
+                    marginLeft: "3%",
+                    top: "5%",
                     width: "37.5vw",
                     zIndex: 0
                   }}
