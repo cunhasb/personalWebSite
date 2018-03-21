@@ -15,7 +15,7 @@ export default class Footer extends Component {
           }
         }
       >
-        <Menu text size="huge">
+        <Menu text>
           <Menu.Item>
             <Icon name="linkedin" />
           </Menu.Item>
