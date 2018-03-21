@@ -174,8 +174,7 @@ class Work extends React.Component {
               marginTop: "5%",
               width: "40vw",
               height: "30vw",
-              marginLeft: "40%",
-              backgroundColor: "blue"
+              marginLeft: "40%"
             }}
           >
             <div className="Tilt-inner">

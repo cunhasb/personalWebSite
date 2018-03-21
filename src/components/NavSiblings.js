@@ -78,7 +78,7 @@ class NavSiblings extends React.Component {
                       centered
                       style={styles().image}
                       src={require(`../images/${
-                        this.props.project.media.wall[2]
+                        this.props.siblings[0].media.featured
                       }`)}
                     />
                     <Header style={styles().header}>
@@ -95,7 +95,7 @@ class NavSiblings extends React.Component {
                       <Image
                         name="prev"
                         src={require(`../images/${
-                          this.props.project.media.wall[2]
+                          this.props.siblings[0].media.featured
                         }`)}
                       />
                     </div>
@@ -123,7 +123,7 @@ class NavSiblings extends React.Component {
                       centered
                       style={styles().image}
                       src={require(`../images/${
-                        this.props.project.media.wall[1]
+                        this.props.siblings[1].media.featured
                       }`)}
                     />
                     <Header style={styles().header}>
@@ -140,7 +140,7 @@ class NavSiblings extends React.Component {
                       <Image
                         name="next"
                         src={require(`../images/${
-                          this.props.project.media.wall[1]
+                          this.props.siblings[1].media.featured
                         }`)}
                       />
                     </div>
