@@ -10,14 +10,11 @@ class HeaderMenu extends Component {
   state = {};
 
   handleItemClick = (e, { name }) => {
-    const x = this.props;
     this.props.takePicture(this.props.pictures.refItem);
     return this.setState({ activeItem: name });
   };
 
   handleMouseEnter = e => {
-    let x = e;
-    // debugger;
     this.props.setPointerType("hover");
   };
   handleMouseLeave = e => {
@@ -27,7 +24,7 @@ class HeaderMenu extends Component {
     const { activeItem } = this.state;
 
     return (
-      <div className="ui text menu" style={{ marginBottom: "3%" }}>
+      <div className="ui text menu">
         <NavLink
           to="/home"
           className={css(styles.navLink) + " " + "header item"}
@@ -78,13 +75,7 @@ class HeaderMenu extends Component {
 const mapStateToProps = store => {
   return store;
 };
-const mapDispatchToProps = dispatch => {
-  return {
-    setPointerType: bindActionCreators(setPointerType, dispatch),
-    takePicture: bindActionCreators(takePicture, dispatch)
-  };
-  // debugger;
-};
+
 const styles = StyleSheet.create({
   navLink: {
     cursor: "none",
@@ -92,5 +83,5 @@ const styles = StyleSheet.create({
   }
 });
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToProps)(HeaderMenu)
+  connect(mapStateToProps, { setPointerType, takePicture })(HeaderMenu)
 );
