@@ -14,6 +14,8 @@ import { TransitionGroup } from "react-transition-group"; // ES6
 import Webcam from "react-webcam";
 import uuidv4 from "uuid/v4";
 import Tilt from "react-tilt";
+import { css } from "aphrodite";
+import { styles } from "../styles/about";
 
 class About extends React.Component {
   render() {
@@ -27,7 +29,7 @@ class About extends React.Component {
       );
     });
     return (
-      <Tilt className="Tilt" options={{ max: 15, scale: 1, reverse: true }}>
+      <Tilt options={{ max: 15, scale: 1, reverse: true }}>
         <Grid stackable verticalAlign="middle">
           <Grid.Row columns={2}>
             <Grid.Column width={6}>
@@ -45,7 +47,7 @@ class About extends React.Component {
                 }}
               />
               <Tilt
-                className="Tilt"
+                className={css(styles.tilt)}
                 options={{ max: 1, scale: 1, reverse: true }}
                 style={{
                   left: "13.8%",
@@ -76,31 +78,7 @@ class About extends React.Component {
     );
   }
 }
-const style = {
-  preview: {
-    position: "relative"
-  },
-  captureContainer: {
-    display: "flex",
-    position: "absolute",
-    justifyContent: "center",
-    zIndex: 1,
-    bottom: 0,
-    width: "100%",
-    backgroundColor: "red"
-  },
-  captureButton: {
-    backgroundColor: "#fff",
-    borderRadius: "50%",
-    height: 56,
-    width: 56,
-    color: "#000",
-    margin: 20
-  },
-  captureImage: {
-    width: "30%"
-  }
-};
+
 const mapStateToProps = store => {
   return {
     pictures: store.pictures.pictures,

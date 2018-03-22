@@ -5,11 +5,9 @@ import { StyleSheet, css } from "aphrodite";
 
 export const mouseShell = Page => {
   return class MouseShell extends React.Component {
-    state = { x: 0, y: 0 };
-
     handleMouseMove = e => {
       const x = this.props;
-      // console.log("mouse type", this.props.mouse.type, this.props.mouse);
+      console.log("mouse", this.props);
       if (this.props.mouse.type == "hover") {
         this.props.setMousePointer(2);
       } else {
@@ -18,20 +16,20 @@ export const mouseShell = Page => {
       // const pointer = this.props.mouse.type === "hover" ? 2 : 0;
       // debugger;
       // this.props.setMousePointer(pointer);
-      this.setState({
+      this.props.setMouseCoordinates({
         x: e.pageX,
         y: e.pageY
       });
     };
     handleOnWheel = e => {
       this.props.setMousePointer(1);
-      this.setState({
+      this.props.setMouseCoordinates({
         x: e.pageX,
         y: e.pageY
       });
     };
     render() {
-      // console.log("props mouseshell", this.props.mouse);
+      console.log("props mouseshell", this.props);
       const translateKeyframes = {
         "0%": {
           transform: "scale3d(0,0,0)"
@@ -95,8 +93,8 @@ export const mouseShell = Page => {
           borderColor: "rgba(248,248,248,.6)",
           borderRadius: "50%",
           position: "absolute",
-          top: this.state.y,
-          left: this.state.x,
+          top: this.props.mouse.coordinates.y,
+          left: this.props.mouse.coordinates.x,
           animationName: [translateKeyframes, opacityKeyframes],
           animationDuration: "750ms, 500ms",
           animationIterationCount: "1",
@@ -116,8 +114,8 @@ export const mouseShell = Page => {
           borderWidth: "2px",
           borderColor: "rgba(248,248,248,.6)",
           position: "absolute",
-          top: this.state.y - 42.5,
-          left: this.state.x - 42.5,
+          top: this.props.mouse.coordinates.y - 42.5,
+          left: this.props.mouse.coordinates.x - 42.5,
           animationName: [translateKeyframesLeave],
           animationDuration: "750ms",
           animationIterationCount: "1",
@@ -134,8 +132,8 @@ export const mouseShell = Page => {
           borderColor: "rgba(248,248,248,.6)",
           borderRadius: "50%",
           position: "absolute",
-          top: this.state.y,
-          left: this.state.x,
+          top: this.props.mouse.coordinates.y,
+          left: this.props.mouse.coordinates.x,
           animationName: [translateKeyframes, opacityKeyframes],
           animationDuration: "750ms, 500ms",
           animationIterationCount: "1",

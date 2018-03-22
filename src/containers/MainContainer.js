@@ -11,7 +11,10 @@ import Work from "../components/Work";
 import WorkDetails from "../components/WorkDetail";
 import { getProjects } from "../actions";
 import { setRefItem, takePicture } from "../actions/picturesActions";
-import { getParameters } from "../actions/parametersActions";
+import {
+  getParameters,
+  setMouseCoordinates
+} from "../actions/parametersActions";
 import PageShell from "../components/PageShell";
 import { fadesUp } from "../components/FadesUp";
 import { FirstChild } from "../components/FirstChild";
@@ -121,6 +124,7 @@ export default withRouter(
     getProjects,
     setRefItem,
     takePicture,
-    getParameters
+    getParameters,
+    setMouseCoordinates
   })(MainContainer)
 );
