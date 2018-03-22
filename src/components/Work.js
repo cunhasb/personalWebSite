@@ -130,9 +130,6 @@ class Work extends React.Component {
 
   render() {
     const projectsList = this.props.projects.map(project => {
-      // debugger;project.id === this.props.selectedProject.id
-      // ? css(styles.selectedStyle)
-      // : css(styles.listStyle)
       return (
         <List.Item
           onMouseOver={() => this.handleMouseOver(project)}
@@ -153,20 +150,8 @@ class Work extends React.Component {
       );
     });
     return (
-      <Container
-        style={{ position: "relative", width: "85vw", height: "75vh" }}
-      >
-        <List
-          animated
-          verticalAlign="middle"
-          style={{
-            marginLeft: "3vw",
-            position: "absolute",
-            top: "50%",
-            transform: "translateY(-50%)",
-            width: "60vw"
-          }}
-        >
+      <Container className={css(styles.mainContainer)}>
+        <List animated verticalAlign="middle" className={css(styles.list)}>
           {projectsList}
         </List>
         <Container
@@ -212,11 +197,13 @@ class Work extends React.Component {
               >
                 <Transition
                   animation="swing up"
+                  duration={750}
                   visible={this.state.animations.details}
                 >
                   <Link
                     className="ui header"
                     onMouseEnter={this.handleShow}
+                    onMouseLeave={this.handleHide}
                     to={`/work/${this.props.selectedProject.route}`}
                   >
                     <span style={{ color: "white", cursor: "none" }}>

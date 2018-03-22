@@ -1,6 +1,7 @@
 import { StyleSheet } from "aphrodite";
 
 export const styles = StyleSheet.create({
+  mainContainer: { position: "relative", width: "85vw", height: "75vh" },
   navLink: {
     cursor: "none",
     styles: "none",
@@ -9,6 +10,13 @@ export const styles = StyleSheet.create({
       transform: "translateX(50px)",
       fontSize: "3vw"
     }
+  },
+  list: {
+    marginLeft: "3vw",
+    position: "absolute",
+    top: "50%",
+    transform: "translateY(-50%)",
+    width: "60vw"
   },
   perspectiveOutter: {
     position: "relative",
