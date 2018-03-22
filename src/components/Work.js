@@ -12,6 +12,7 @@ import * as actions from "../actions";
 import { styles } from "../styles/work";
 import Tilt from "react-tilt";
 import PageShell from "../components/PageShell";
+import { css } from "aphrodite";
 
 class Work extends React.Component {
   state = {
@@ -105,6 +106,7 @@ class Work extends React.Component {
     clearInterval(this.state.innerTimer.timer);
   }
   handleShow = () => {
+    this.props.setPointerType("hover");
     this.setState(prevState => {
       return {
         animations: {
@@ -115,6 +117,7 @@ class Work extends React.Component {
     });
   };
   handleHide = () => {
+    this.props.setPointerType("default");
     this.setState(prevState => {
       return {
         animations: {
@@ -127,16 +130,20 @@ class Work extends React.Component {
 
   render() {
     const projectsList = this.props.projects.map(project => {
-      // debugger;
+      // debugger;project.id === this.props.selectedProject.id
+      // ? css(styles.selectedStyle)
+      // : css(styles.listStyle)
       return (
         <List.Item
           onMouseOver={() => this.handleMouseOver(project)}
+          onMouseEnter={() => this.props.setPointerType("hover")}
+          onMouseLeave={() => this.props.setPointerType("default")}
           key={project.id}
-          style={this.applyStyle(project.id)}
+          className={css(styles.listStyle)}
         >
           <List.Content>
             <Link
-              className="ui header"
+              className={`${css(styles.navLink)} ui header`}
               to={`/work/${this.props.selectedProject.route}`}
             >
               <List.Header>{project.name}</List.Header>
@@ -212,7 +219,9 @@ class Work extends React.Component {
                     onMouseEnter={this.handleShow}
                     to={`/work/${this.props.selectedProject.route}`}
                   >
-                    <span style={{ color: "white" }}>See it...</span>
+                    <span style={{ color: "white", cursor: "none" }}>
+                      See it...
+                    </span>
                   </Link>
                 </Transition>
               </div>
@@ -224,6 +233,7 @@ class Work extends React.Component {
                   onMouseEnter={this.handleShow}
                   onMouseLeave={this.handleHide}
                   style={{
+                    cursor: "none",
                     position: "absolute",
                     marginLeft: "3%",
                     top: "5%",
