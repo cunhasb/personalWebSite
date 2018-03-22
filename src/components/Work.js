@@ -154,17 +154,8 @@ class Work extends React.Component {
         <List animated verticalAlign="middle" className={css(styles.list)}>
           {projectsList}
         </List>
-        <Container
-          style={{
-            position: "relative",
-            top: "50%",
-            width: "40vw",
-            height: "30vw",
-            transform: "translateY(-50%)"
-          }}
-        >
+        <Container className={css(styles.tiltContainer)}>
           <Tilt
-            className="Tilt"
             options={{ max: 25, scale: 1.05 }}
             style={{
               position: "relative",
@@ -174,27 +165,10 @@ class Work extends React.Component {
               marginLeft: "40%"
             }}
           >
-            <div className="Tilt-inner">
-              <div
-                style={{
-                  position: "absolute",
-                  top: "10%",
-                  height: "25vw",
-                  width: "38vw",
-                  backgroundColor: "rgba(250,250,250,0.5)",
-                  border: "5px black"
-                }}
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  left: "80%",
-                  top: "60%",
-                  width: "80%",
-                  zIndex: 1,
-                  fontSize: "1.5vw"
-                }}
-              >
+            <div>
+              <div className={css(styles.tiltOuterDivMain)} />
+
+              <div className={css(styles.tiltInnerDivMain)}>
                 <Transition
                   animation="swing up"
                   duration={750}
@@ -206,9 +180,7 @@ class Work extends React.Component {
                     onMouseLeave={this.handleHide}
                     to={`/work/${this.props.selectedProject.route}`}
                   >
-                    <span style={{ color: "white", cursor: "none" }}>
-                      See it...
-                    </span>
+                    <span className={css(styles.seeIt)}>See it...</span>
                   </Link>
                 </Transition>
               </div>
@@ -219,14 +191,7 @@ class Work extends React.Component {
                 <Image
                   onMouseEnter={this.handleShow}
                   onMouseLeave={this.handleHide}
-                  style={{
-                    cursor: "none",
-                    position: "absolute",
-                    marginLeft: "3%",
-                    top: "5%",
-                    width: "37.5vw",
-                    zIndex: 0
-                  }}
+                  className={css(styles.image)}
                   src={require(`../images/${
                     this.props.selectedProject.media.featured[0]
                   }`)}
@@ -234,14 +199,7 @@ class Work extends React.Component {
               </Link>
             </div>
           </Tilt>
-          <div
-            style={{
-              marginTop: "2%",
-              marginLeft: "50%",
-              width: "50%",
-              zIndex: 1
-            }}
-          >
+          <div className={css(styles.progress)}>
             {`${this.state.timer.counter + 1}/${this.props.projects.length}`}
             <Progress
               size="tiny"
@@ -256,7 +214,6 @@ class Work extends React.Component {
 }
 
 const mapStateToProps = state => {
-  // debugger;
   return {
     projects: state.projects.projects,
     selectedProject: state.projects.selectedProject

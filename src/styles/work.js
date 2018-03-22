@@ -18,89 +18,47 @@ export const styles = StyleSheet.create({
     transform: "translateY(-50%)",
     width: "60vw"
   },
+  tiltContainer: {
+    position: "relative",
+    top: "50%",
+    width: "40vw",
+    height: "30vw",
+    transform: "translateY(-50%)"
+  },
+  tiltOuterDivMain: {
+    position: "absolute",
+    top: "10%",
+    height: "25vw",
+    width: "38vw",
+    backgroundColor: "rgba(250,250,250,0.5)",
+    border: "5px black"
+  },
+  tiltInnerDivMain: {
+    position: "absolute",
+    left: "80%",
+    top: "60%",
+    width: "80%",
+    zIndex: 1,
+    fontSize: "1.5vw"
+  },
+  seeIt: { color: "white", cursor: "none" },
   perspectiveOutter: {
     position: "relative",
     webkitPerspective: "3000px",
     perspective: "3000px"
   },
-  perspectiveLayer: {
-    position: "relative",
-    padding: "50px",
-    background: "rgba(100,100,100,0.5)",
-    webkitTransformStyle: "preserve-3d",
-    webkitTransform: "rotateX(45deg)",
-    webkitTransform: "rotateY(45deg)",
-    webKitTransform: "rotateZ(45deg)",
-    transformStyle: "preserve-3d",
-    transform: "rotateX(45deg)",
-    transform: "rotateY(25deg)"
-  },
-  outter: {
-    background: "rgba(0,0,0,0.01)",
-    backgroundPosition: "center",
-    backgroundSize: "cover",
-    width: "100%",
-    position: "relative",
-    overflow: "hidden",
-    perspective: "3000px",
-    zIndex: -1
-  },
-  inner: {
-    width: 700,
-    height: 500,
+  image: {
+    cursor: "none",
     position: "absolute",
-    margin: "auto",
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    textAlign: "center"
+    marginLeft: "3%",
+    top: "5%",
+    width: "37.5vw",
+    zIndex: 0
   },
-  header: {
-    fontFamily: "Open Sans Condensed",
-    textTransform: "uppercase",
-    color: "white",
-    textShadow: "0px 0px 2px #43AABA",
-    fontSize: "50px",
-    marginTop: "35px",
-    fontWeight: 600
-  },
-  paragraph: {
-    fontFamily: "Roboto",
-    fontSize: "20px",
-    color: "white",
-    letterSpacing: "0.62px",
-    lineHeight: "30px",
-    fontWeight: 300
-  },
-  button: {
-    fontFamily: "Roboto",
-    borderRadius: "100px",
-    background: "#247B8A",
-    textDecoration: "none",
-    color: "white",
-    textAlign: "center",
-    padding: "20px",
-    marginTop: "40px",
-    fontWeight: 100,
-    display: "block"
-  },
-  infoLayerStyle: {
-    position: "relative",
-    marginTop: "-60px"
-  },
-  infoLayerStylePerspective: {
-    position: "relative",
-    padding: "50px",
-    background: "rgba(100,100,100,0.5)",
-    webkitTransformStyle: "preserve-3d",
-    webkitTransform: "rotateX(45deg)",
-    transformStyle: "preserve-3d",
-    transform: "rotateX(45deg)"
-  },
-  bgLayerStyle: {
-    position: "absolute",
-    height: "100%",
-    transform: "translate(-15%, 17%)"
+  progress: {
+    marginTop: "2%",
+    marginLeft: "50%",
+    width: "50%",
+    zIndex: 1
   }
 });
