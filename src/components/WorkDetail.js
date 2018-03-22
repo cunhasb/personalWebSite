@@ -16,6 +16,7 @@ import { styles } from "../styles/WorkDetail";
 import NavSiblings from "./NavSiblings";
 import PageShell from "../components/PageShell";
 import { CSSTransitionGroup } from "react-transition-group"; // ES6
+import { css } from "aphrodite";
 
 class WorkDetails extends React.Component {
   state = {
@@ -97,11 +98,11 @@ class WorkDetails extends React.Component {
                     }`)}
                   />
                 </Container>
-                <div style={styles().divFeatured}>
-                  <span style={styles().divFeaturedHeader}>
+                <div className={css(styles.divFeatured)}>
+                  <span className={css(styles.divFeaturedHeader)}>
                     {this.props.project.name}
                   </span>
-                  <p style={styles().divFeaturedP}>
+                  <p className={css(styles.divFeaturedP)}>
                     {this.props.project.description}
                   </p>
                 </div>

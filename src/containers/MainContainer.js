@@ -66,8 +66,6 @@ class MainContainer extends Component {
             exact
             path="/work/:name"
             render={() => {
-              // this.props.takePicture(this.props.refItem);
-              console.log("/work/:name route rendering", this.props);
               !this.props.projects.length > 0 ? this.props.getProjects() : null;
 
               return (
@@ -86,10 +84,7 @@ class MainContainer extends Component {
           <Route
             path="/work"
             render={() => {
-              // get Projects List
-              console.log("/work route rendering");
-
-              this.props.getProjects();
+              !this.props.projects.length > 0 ? this.props.getProjects() : null;
               return (
                 <CSSTransitionGroup
                   transitionAppear={true}

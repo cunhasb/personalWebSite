@@ -204,7 +204,6 @@ class Work extends React.Component {
                 }}
               >
                 <Transition
-                  duration="6000"
                   animation="swing up"
                   visible={this.state.animations.details}
                 >
