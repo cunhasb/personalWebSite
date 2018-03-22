@@ -14,7 +14,8 @@ class NavSiblings extends React.Component {
     }
   };
 
-  toggleVisibility = name => {
+  toggleVisibility = (name, type) => {
+    this.props.setPointerType(type);
     this.setState(prevState => {
       let newState = {};
       if (name === "next") {
@@ -68,8 +69,8 @@ class NavSiblings extends React.Component {
             <Grid.Column>
               <Segment
                 basic
-                onMouseEnter={() => this.toggleVisibility("prev")}
-                onMouseLeave={() => this.toggleVisibility("prev")}
+                onMouseEnter={() => this.toggleVisibility("prev", "hover")}
+                onMouseLeave={() => this.toggleVisibility("prev", "default")}
                 onClick={e => this.handleClick(e, this.props.siblings[0])}
               >
                 <div style={{ textAlign: "center" }}>
@@ -113,8 +114,8 @@ class NavSiblings extends React.Component {
             <Grid.Column>
               <Segment
                 basic
-                onMouseEnter={() => this.toggleVisibility("next")}
-                onMouseLeave={() => this.toggleVisibility("next")}
+                onMouseEnter={() => this.toggleVisibility("next", "hover")}
+                onMouseLeave={() => this.toggleVisibility("next", "default")}
                 onClick={e => this.handleClick(e, this.props.siblings[1])}
               >
                 <div style={{ textAlign: "center" }}>

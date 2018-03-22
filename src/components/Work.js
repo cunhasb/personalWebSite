@@ -25,10 +25,7 @@ class Work extends React.Component {
   handleMouseOver = project => {
     this.props.setSelectedProject(project);
   };
-  applyStyle = e => {
-    const { selectedStyle, listStyle } = styles();
-    return e === this.props.selectedProject.id ? selectedStyle : listStyle;
-  };
+
   tick = () => {
     this.setState(prevState => {
       let projectsSize = this.props.projects.length - 1;
