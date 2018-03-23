@@ -9,7 +9,8 @@ import {
   Item,
   Container,
   Grid,
-  Ref
+  Ref,
+  Modal
 } from "semantic-ui-react";
 import PageShell from "../components/PageShell";
 import { TransitionGroup } from "react-transition-group"; // ES6
@@ -20,24 +21,39 @@ import { css } from "aphrodite";
 import { styles } from "../styles/about";
 
 class About extends React.Component {
-  state = { node: "", picture: "front.png" };
+  state = { node: "", picture: "front.png", modalOpen: false };
   handleMouseMove = e => {
     let element = ReactDOM.findDOMNode(this.state.node);
     let coordinates = element.getBoundingClientRect();
     let picture = this.getPicture(coordinates);
     this.setState(prevState => {
-      return { node: prevState.node, picture: picture };
+      return {
+        node: prevState.node,
+        picture: picture,
+        modalOpen: prevState.modalOpen
+      };
     });
   };
-  handleMouseOver = e => {};
-  componentDidMount = () => {
-    // this.setState(prevState => {
-    //   return {
-    //     node: prevState.node,
-    //     picture: this.props.parameters.followingPictures.center[0]
-    //   };
-    // });
+  handleClick = e => {
+    this.setState(prevState => {
+      return {
+        node: prevState.node,
+        picture: prevState.picture,
+        modalOpen: true
+      };
+    });
   };
+
+  handleClose = e => {
+    this.setState(prevState => {
+      return {
+        node: prevState.node,
+        picture: prevState.picture,
+        modalOpen: false
+      };
+    });
+  };
+
   getPicture = coordinates => {
     let props = this.props;
     // debugger;
@@ -147,6 +163,7 @@ class About extends React.Component {
                 <Ref innerRef={node => this.setState({ node })}>
                   <Image
                     onMouseOver={this.handleMouseOver}
+                    onClick={this.handleClick}
                     src={`${require(`../images/parameters/${
                       this.state.picture
                     }`)}`}
@@ -168,6 +185,33 @@ class About extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        <Modal
+          open={this.state.modalOpen}
+          onClose={this.handleClose}
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translateX(-50%)"
+          }}
+        >
+          <Modal.Header>Select a Photo</Modal.Header>
+          <Modal.Content image>
+            <Image
+              wrapped
+              size="medium"
+              src={`${require(`../images/parameters/${this.state.picture}`)}`}
+            />
+            <Modal.Description>
+              <Header>Default Profile Image</Header>
+              <p>
+                We've found the following gravatar image associated with your
+                e-mail address.
+              </p>
+              <p>Is it okay to use this photo?</p>
+            </Modal.Description>
+          </Modal.Content>
+        </Modal>
       </Tilt>
     );
   }
