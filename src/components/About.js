@@ -65,25 +65,25 @@ class About extends React.Component {
         // upCenter
         case x > coordinates.left * 1.3 &&
           x < coordinates.right * 0.7 &&
-          y < coordinates.top: {
+          y < coordinates.top * 1.4: {
           return pictures.center[1];
         }
         // downCenter
         case x > coordinates.left * 1.3 &&
           x < coordinates.right * 0.7 &&
-          y > coordinates.bottom: {
+          y > coordinates.bottom * 0.6: {
           return pictures.center[3];
         }
         // leftCenter
         case y > coordinates.top * 1.3 &&
           y < coordinates.bottom * 0.7 &&
-          x < coordinates.left: {
+          x < coordinates.left * 1.3: {
           return pictures.center[4];
         }
         // RightCenter
         case y > coordinates.top * 1.3 &&
           y < coordinates.bottom * 0.7 &&
-          x > coordinates.right: {
+          x > coordinates.right * 0.7: {
           return pictures.center[2];
         }
         // topCornerLeft
