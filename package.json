@@ -6,6 +6,7 @@
     "ajv": "^6.2.0",
     "aphrodite": "^1.2.5",
     "autoprefixer-loader": "^3.2.0",
+    "clarifai": "^2.6.0",
     "css-loader": "^0.28.10",
     "greensock": "^1.20.2",
     "gsap-react-plugin": "^1.0.2",

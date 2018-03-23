@@ -9,3 +9,9 @@ export const takePicture = refItem => {
     return { type: "NULL" };
   }
 };
+export const getDemographics = picture => {
+  if (picture) {
+  } else {
+    return { type: "NULL" };
+  }
+};

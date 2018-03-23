@@ -197,11 +197,7 @@ class About extends React.Component {
         >
           <Modal.Header>Select a Photo</Modal.Header>
           <Modal.Content image>
-            <Image
-              wrapped
-              size="medium"
-              src={`${require(`../images/parameters/${this.state.picture}`)}`}
-            />
+            <Image wrapped size="medium" src={this.props.pictures[0]} />
             <Modal.Description>
               <Header>Default Profile Image</Header>
               <p>
