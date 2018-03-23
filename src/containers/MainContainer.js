@@ -33,7 +33,7 @@ class MainContainer extends Component {
   }
   // some dummy text to save
   render() {
-    console.log("props", this.props);
+    // console.log("props", this.props);
     return (
       <Container fluid style={{ width: "80%" }}>
         <Webcam

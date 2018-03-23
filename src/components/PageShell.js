@@ -4,7 +4,7 @@ import { CSSTransitionGroup } from "react-transition-group"; // ES6
 const PageShell = Page => {
   let width = window.screen.width * 1.15;
   let height = window.screen.height * 1.15;
-  console.log(width, height);
+  // console.log(width, height);
   // debugger;
   return props => (
     <div

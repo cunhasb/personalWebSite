@@ -7,7 +7,7 @@ export const mouseShell = Page => {
   return class MouseShell extends React.Component {
     handleMouseMove = e => {
       const x = this.props;
-      console.log("mouse", this.props);
+      // console.log("mouse", this.props);
       if (this.props.mouse.type == "hover") {
         this.props.setMousePointer(2);
       } else {

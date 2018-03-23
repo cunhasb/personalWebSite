@@ -10,7 +10,8 @@ import {
   Container,
   Grid,
   Ref,
-  Modal
+  Modal,
+  List
 } from "semantic-ui-react";
 import PageShell from "../components/PageShell";
 import { TransitionGroup } from "react-transition-group"; // ES6
@@ -19,9 +20,21 @@ import uuidv4 from "uuid/v4";
 import Tilt from "react-tilt";
 import { css } from "aphrodite";
 import { styles } from "../styles/about";
+import Clarifai from "clarifai";
+import { C_SECRET } from "../.secrets.js";
 
 class About extends React.Component {
-  state = { node: "", picture: "front.png", modalOpen: false };
+  state = {
+    node: "",
+    picture: "front.png",
+    modalOpen: false,
+    clarifai: "",
+    visitor: {
+      demographics: { age: [], gender: [], ethinicity: [] },
+      celebrity: [],
+      general: []
+    }
+  };
   handleMouseMove = e => {
     let element = ReactDOM.findDOMNode(this.state.node);
     let coordinates = element.getBoundingClientRect();
@@ -30,18 +43,70 @@ class About extends React.Component {
       return {
         node: prevState.node,
         picture: picture,
-        modalOpen: prevState.modalOpen
+        modalOpen: prevState.modalOpen,
+        clarifai: prevState.clarifai,
+        visitor: prevState.visitor
       };
     });
   };
+  handleUpdateState = e => {};
   handleClick = e => {
     this.setState(prevState => {
       return {
         node: prevState.node,
         picture: prevState.picture,
-        modalOpen: true
+        modalOpen: true,
+        clarifai: prevState.clarifai,
+        visitor: prevState.visitor
       };
     });
+    let state = this.state;
+    let x = C_SECRET;
+    let picture = this.props.pictures[0];
+    const self = this;
+    // debugger;
+    this.state.clarifai.workflow
+      .predict("personalWebSite", {
+        base64: this.props.pictures[0].split(",")[1]
+      })
+      .then(
+        function(response) {
+          // debugger;
+          // do something with response
+          // demographics data
+          let demographics =
+            response.results[0].outputs[0].data.regions[0].data.face;
+          // celebrity data
+          let celebrity =
+            response.results[0].outputs[1].data.regions[0].data.face.identity
+              .concepts;
+          // general data
+          let general = response.results[0].outputs[2].data.concepts;
+          let celebrityList = celebrity.slice(0, 3).map(el => el.name);
+          let generalList = general.map(el => el.name);
+          // debugger;
+          console.log("im here");
+          self.setState(prevState => {
+            console.log("now here");
+            console.log("prevState", prevState, "state", this.state);
+            return {
+              node: prevState.node,
+              picture: prevState.picture,
+              modalOpen: prevState.modalOpen,
+              clarifai: prevState.clarifai,
+              visitor: {
+                demographics: prevState.demographics,
+                celebrity: celebrityList,
+                general: generalList
+              }
+            };
+          });
+        },
+        function(err) {
+          // there was an error
+          console.log("err", err);
+        }
+      );
   };
 
   handleClose = e => {
@@ -49,7 +114,9 @@ class About extends React.Component {
       return {
         node: prevState.node,
         picture: prevState.picture,
-        modalOpen: false
+        modalOpen: false,
+        clarifai: prevState.clarifai,
+        visitor: prevState.visitor
       };
     });
   };
@@ -125,9 +192,27 @@ class About extends React.Component {
       return pictures.center[0];
     }
   };
+  componentDidMount = () => {
+    let x = C_SECRET;
+    // debugger;
+    const app = new Clarifai.App({ apiKey: C_SECRET.id });
+    // console.log("mounted app =", app);
+    this.setState(prevState => {
+      return {
+        node: prevState.node,
+        picture: prevState.picture,
+        modalOpen: false,
+        clarifai: app,
+        visitor: prevState.visitor
+      };
+    });
+  };
   render() {
-    // console.log("pictures", this.state);
+    console.log("state", this.state);
     // console.log(this.props);
+    const celebrities = this.state.visitor.celebrity.map(el => {
+      <List.item>el</List.item>;
+    });
     const items = this.props.pictures.map(picture => {
       return (
         <Item key={uuidv4()}>
@@ -179,9 +264,7 @@ class About extends React.Component {
               floated="right"
             >
               <Header>{this.props.parameters.about}</Header>
-              <span>{`x=${this.props.parameters.mouse.coordinates.x}, y=${
-                this.props.parameters.mouse.coordinates.y
-              }`}</span>
+              <span>{}</span>
             </Grid.Column>
           </Grid.Row>
         </Grid>
@@ -205,6 +288,7 @@ class About extends React.Component {
                 e-mail address.
               </p>
               <p>Is it okay to use this photo?</p>
+              <List>{celebrities}</List>
             </Modal.Description>
           </Modal.Content>
         </Modal>
