@@ -29,7 +29,7 @@ export const mouseShell = Page => {
       });
     };
     render() {
-      console.log("props mouseshell", this.props);
+      // console.log("props mouseshell", this.props);
       const translateKeyframes = {
         "0%": {
           transform: "scale3d(0,0,0)"

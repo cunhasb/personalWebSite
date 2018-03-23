@@ -1,5 +1,9 @@
 export default (
-  state = { about: "", mouse: { coordinates: { x: 0, y: 0 } } },
+  state = {
+    about: "",
+    followingPictures: {},
+    mouse: { coordinates: { x: 0, y: 0 } }
+  },
   action
 ) => {
   switch (action.type) {
@@ -9,6 +13,7 @@ export default (
     case "SET_MOUSE_COORDINATES": {
       return {
         about: state.about,
+        followingPictures: state.followingPictures,
         mouse: {
           coordinates: { x: action.coordinates.x, y: action.coordinates.y }
         }
