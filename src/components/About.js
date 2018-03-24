@@ -13,7 +13,8 @@ import {
   Ref,
   Modal,
   List,
-  Card
+  Card,
+  Responsive
 } from "semantic-ui-react";
 import PageShell from "../components/PageShell";
 import { TransitionGroup } from "react-transition-group"; // ES6

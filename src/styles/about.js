@@ -5,6 +5,6 @@ export const styles = StyleSheet.create({
     left: "13.8%",
     width: "100%",
     position: "relative",
-    bottom: "2%"
+    bottom: "58%"
   }
 });
