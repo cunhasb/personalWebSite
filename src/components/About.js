@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import * as actions from "../actions/picturesActions";
+import { startClient, analyzePicture } from "../actions/clarifaiActions";
 import {
   Image,
   Segment,
@@ -20,8 +21,6 @@ import uuidv4 from "uuid/v4";
 import Tilt from "react-tilt";
 import { css } from "aphrodite";
 import { styles } from "../styles/about";
-import Clarifai from "clarifai";
-import { C_SECRET } from "../.secrets.js";
 
 class About extends React.Component {
   state = {
@@ -51,62 +50,8 @@ class About extends React.Component {
   };
   handleUpdateState = e => {};
   handleClick = e => {
-    this.setState(prevState => {
-      return {
-        node: prevState.node,
-        picture: prevState.picture,
-        modalOpen: true,
-        clarifai: prevState.clarifai,
-        visitor: prevState.visitor
-      };
-    });
-    let state = this.state;
-    let x = C_SECRET;
-    let picture = this.props.pictures[0];
-    const self = this;
-    // debugger;
-    this.state.clarifai.workflow
-      .predict("personalWebSite", {
-        base64: this.props.pictures[0].split(",")[1]
-      })
-      .then(
-        function(response) {
-          // debugger;
-          // do something with response
-          // demographics data
-          let demographics =
-            response.results[0].outputs[0].data.regions[0].data.face;
-          // celebrity data
-          let celebrity =
-            response.results[0].outputs[1].data.regions[0].data.face.identity
-              .concepts;
-          // general data
-          let general = response.results[0].outputs[2].data.concepts;
-          let celebrityList = celebrity.slice(0, 3).map(el => el.name);
-          let generalList = general.map(el => el.name);
-          // debugger;
-          console.log("im here");
-          self.setState(prevState => {
-            console.log("now here");
-            console.log("prevState", prevState, "state", this.state);
-            return {
-              node: prevState.node,
-              picture: prevState.picture,
-              modalOpen: prevState.modalOpen,
-              clarifai: prevState.clarifai,
-              visitor: {
-                demographics: prevState.demographics,
-                celebrity: celebrityList,
-                general: generalList
-              }
-            };
-          });
-        },
-        function(err) {
-          // there was an error
-          console.log("err", err);
-        }
-      );
+    this.props.startClient();
+    this.props.analyzePicture();
   };
 
   handleClose = e => {
@@ -154,7 +99,7 @@ class About extends React.Component {
         // downCenter
         case x > coordinates.left * 1.3 &&
           x < coordinates.right * 0.7 &&
-          y > coordinates.bottom * 0.6: {
+          y > coordinates.bottom * 0.7: {
           return pictures.center[3];
         }
         // leftCenter
@@ -193,26 +138,26 @@ class About extends React.Component {
     }
   };
   componentDidMount = () => {
-    let x = C_SECRET;
-    // debugger;
-    const app = new Clarifai.App({ apiKey: C_SECRET.id });
-    // console.log("mounted app =", app);
-    this.setState(prevState => {
-      return {
-        node: prevState.node,
-        picture: prevState.picture,
-        modalOpen: false,
-        clarifai: app,
-        visitor: prevState.visitor
-      };
-    });
+    // let x = C_SECRET;
+    // // debugger;
+    // const app = new Clarifai.App({ apiKey: C_SECRET.id });
+    // // console.log("mounted app =", app);
+    // this.setState(prevState => {
+    //   return {
+    //     node: prevState.node,
+    //     picture: prevState.picture,
+    //     modalOpen: false,
+    //     clarifai: app,
+    //     visitor: prevState.visitor
+    //   };
+    // });
   };
   render() {
-    console.log("state", this.state);
-    // console.log(this.props);
-    const celebrities = this.state.visitor.celebrity.map(el => {
-      <List.item>el</List.item>;
-    });
+    // console.log("state", this.state);
+    console.log("about props", this.props);
+    // const celebrities = this.state.visitor.celebrity.map(el => {
+    //   <List.item>el</List.item>;
+    // });
     const items = this.props.pictures.map(picture => {
       return (
         <Item key={uuidv4()}>
@@ -288,7 +233,7 @@ class About extends React.Component {
                 e-mail address.
               </p>
               <p>Is it okay to use this photo?</p>
-              <List>{celebrities}</List>
+              <List>celebrities</List>
             </Modal.Description>
           </Modal.Content>
         </Modal>
@@ -301,7 +246,12 @@ const mapStateToProps = store => {
   return {
     pictures: store.pictures.pictures,
     refItem: store.pictures.refItem,
-    parameters: store.parameters
+    parameters: store.parameters,
+    clarifai: store.clarifai
   };
 };
-export default connect(mapStateToProps, actions)(About);
+export default connect(mapStateToProps, {
+  actions,
+  startClient,
+  analyzePicture
+})(About);
