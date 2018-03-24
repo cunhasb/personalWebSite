@@ -12,7 +12,8 @@ import {
   Grid,
   Ref,
   Modal,
-  List
+  List,
+  Card
 } from "semantic-ui-react";
 import PageShell from "../components/PageShell";
 import { TransitionGroup } from "react-transition-group"; // ES6
@@ -21,18 +22,13 @@ import uuidv4 from "uuid/v4";
 import Tilt from "react-tilt";
 import { css } from "aphrodite";
 import { styles } from "../styles/about";
+import ModalAbout from "../components/ModalAbout";
 
 class About extends React.Component {
   state = {
     node: "",
     picture: "front.png",
-    modalOpen: false,
-    clarifai: "",
-    visitor: {
-      demographics: { age: [], gender: [], ethinicity: [] },
-      celebrity: [],
-      general: []
-    }
+    modalOpen: false
   };
   handleMouseMove = e => {
     let element = ReactDOM.findDOMNode(this.state.node);
@@ -42,9 +38,7 @@ class About extends React.Component {
       return {
         node: prevState.node,
         picture: picture,
-        modalOpen: prevState.modalOpen,
-        clarifai: prevState.clarifai,
-        visitor: prevState.visitor
+        modalOpen: prevState.modalOpen
       };
     });
   };
@@ -52,6 +46,13 @@ class About extends React.Component {
   handleClick = e => {
     this.props.startClient();
     this.props.analyzePicture();
+    this.setState(prevState => {
+      return {
+        node: prevState.node,
+        picture: prevState.picture,
+        modalOpen: true
+      };
+    });
   };
 
   handleClose = e => {
@@ -59,9 +60,7 @@ class About extends React.Component {
       return {
         node: prevState.node,
         picture: prevState.picture,
-        modalOpen: false,
-        clarifai: prevState.clarifai,
-        visitor: prevState.visitor
+        modalOpen: false
       };
     });
   };
@@ -137,34 +136,18 @@ class About extends React.Component {
       return pictures.center[0];
     }
   };
-  componentDidMount = () => {
-    // let x = C_SECRET;
-    // // debugger;
-    // const app = new Clarifai.App({ apiKey: C_SECRET.id });
-    // // console.log("mounted app =", app);
-    // this.setState(prevState => {
-    //   return {
-    //     node: prevState.node,
-    //     picture: prevState.picture,
-    //     modalOpen: false,
-    //     clarifai: app,
-    //     visitor: prevState.visitor
-    //   };
-    // });
-  };
+
   render() {
     // console.log("state", this.state);
     console.log("about props", this.props);
-    // const celebrities = this.state.visitor.celebrity.map(el => {
-    //   <List.item>el</List.item>;
-    // });
-    const items = this.props.pictures.map(picture => {
-      return (
-        <Item key={uuidv4()}>
-          <Item.Image src={picture} />
-        </Item>
-      );
+    console.log("celebrity", this.props.clarifai.celebrity);
+    const celebrities = this.props.clarifai.celebrity.map(el => {
+      return <List.Item key={uuidv4()}>{el}</List.Item>;
     });
+    const items = this.props.pictures.map(picture => {
+      return <Card raised key={uuidv4()} image={picture} />;
+    });
+    // console.log("celebrities", celebrities, "items", items);
     return (
       <Tilt
         options={{ max: 15, scale: 1, reverse: true }}
@@ -213,30 +196,8 @@ class About extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Modal
-          open={this.state.modalOpen}
-          onClose={this.handleClose}
-          style={{
-            position: "absolute",
-            top: "50%",
-            left: "50%",
-            transform: "translateX(-50%)"
-          }}
-        >
-          <Modal.Header>Select a Photo</Modal.Header>
-          <Modal.Content image>
-            <Image wrapped size="medium" src={this.props.pictures[0]} />
-            <Modal.Description>
-              <Header>Default Profile Image</Header>
-              <p>
-                We've found the following gravatar image associated with your
-                e-mail address.
-              </p>
-              <p>Is it okay to use this photo?</p>
-              <List>celebrities</List>
-            </Modal.Description>
-          </Modal.Content>
-        </Modal>
+
+        <ModalAbout open={this.state.modalOpen} close={this.handleClose} />
       </Tilt>
     );
   }
