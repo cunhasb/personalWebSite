@@ -150,56 +150,67 @@ class About extends React.Component {
     });
     // console.log("celebrities", celebrities, "items", items);
     return (
-      <Tilt
-        options={{ max: 15, scale: 1, reverse: true }}
-        onMouseMove={this.handleMouseMove}
-      >
-        <Grid stackable verticalAlign="middle">
-          <Grid.Row columns={2}>
-            <Grid.Column width={6}>
-              <Tilt
-                className="Tilt"
-                options={{ max: 1, scale: 1, reverse: true }}
-                style={{
-                  bottom: "0px",
-                  width: "700px",
-                  height: "350px",
-                  position: "absolute",
-                  backgroundPosition: "center",
-                  backgroundSize: "cover",
-                  backgroundColor: "rgba(250,250,250,0.4)"
-                }}
-              />
-              <Tilt
-                className={css(styles.tilt)}
-                options={{ max: 1, scale: 1, reverse: true }}
-              >
-                <Ref innerRef={node => this.setState({ node })}>
-                  <Image
-                    onMouseOver={this.handleMouseOver}
-                    onClick={this.handleClick}
-                    src={`${require(`../images/parameters/${
-                      this.state.picture
-                    }`)}`}
-                  />
-                </Ref>
-              </Tilt>
-            </Grid.Column>
-            <Grid.Column
-              centered
-              verticalAlign="middle"
-              width={8}
-              textAlign="justified"
-              floated="right"
-            >
-              <Header>{this.props.parameters.about}</Header>
-              <span>{}</span>
-            </Grid.Column>
-          </Grid.Row>
-        </Grid>
+      <div className={css(styles.wrapper)}>
+        <Tilt
+          style={{
+            position: "relative",
+            width: "100%",
+            height: "100%"
+          }}
+          options={{ max: 15, scale: 1, reverse: true }}
+          onMouseMove={this.handleMouseMove}
+        >
+          <div className={css(styles.gridWrapper)}>
+            <Grid centered stackable verticalAlign="middle">
+              <Grid.Row columns={2}>
+                <Grid.Column width={6}>
+                  <Responsive minWidth={480}>
+                    <Tilt
+                      style={{
+                        bottom: "0px",
+                        width: "100%",
+                        height: "50%",
+                        position: "absolute",
+                        backgroundColor: "rgba(250,250,250,0.6)"
+                      }}
+                      options={{ max: 1, scale: 1, reverse: true }}
+                    />
+                  </Responsive>
+                  <Tilt options={{ max: 10, scale: 1, reverse: true }}>
+                    <Ref innerRef={node => this.setState({ node })}>
+                      <Image
+                        className={css(styles.image)}
+                        onMouseOver={this.handleMouseOver}
+                        onClick={this.handleClick}
+                        src={`${require(`../images/parameters/${
+                          this.state.picture
+                        }`)}`}
+                      />
+                    </Ref>
+                  </Tilt>
+                </Grid.Column>
+                <Grid.Column
+                  centered
+                  verticalAlign="middle"
+                  width={8}
+                  textAlign="justified"
+                >
+                  <Header style={{ fontSize: "1.5vw" }}>
+                    {this.props.parameters.about}
+                  </Header>
+                </Grid.Column>
+              </Grid.Row>
+              <Responsive maxWidth={480}>
+                <Header textAlign="justified" style={{ fontSize: "4vw" }}>
+                  {this.props.parameters.about}
+                </Header>
+              </Responsive>
+            </Grid>
 
-        <ModalAbout open={this.state.modalOpen} close={this.handleClose} />
-      </Tilt>
+            <ModalAbout open={this.state.modalOpen} close={this.handleClose} />
+          </div>
+        </Tilt>
+      </div>
     );
   }
 }
