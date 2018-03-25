@@ -150,66 +150,41 @@ class About extends React.Component {
     });
     // console.log("celebrities", celebrities, "items", items);
     return (
-      <div className={css(styles.wrapper)}>
+      <div className={css(styles.outerWrapper)}>
         <Tilt
-          style={{
-            position: "relative",
-            width: "100%",
-            height: "100%"
-          }}
+          className={css(styles.outerTilt)}
           options={{ max: 15, scale: 1, reverse: true }}
           onMouseMove={this.handleMouseMove}
         >
-          <div className={css(styles.gridWrapper)}>
-            <Grid centered stackable verticalAlign="middle">
-              <Grid.Row columns={2}>
-                <Grid.Column width={6}>
-                  <Responsive minWidth={480}>
-                    <Tilt
-                      style={{
-                        bottom: "0px",
-                        width: "100%",
-                        height: "50%",
-                        position: "absolute",
-                        backgroundColor: "rgba(250,250,250,0.6)"
-                      }}
-                      options={{ max: 1, scale: 1, reverse: true }}
-                    />
-                  </Responsive>
-                  <Tilt options={{ max: 10, scale: 1, reverse: true }}>
-                    <Ref innerRef={node => this.setState({ node })}>
-                      <Image
-                        className={css(styles.image)}
-                        onMouseOver={this.handleMouseOver}
-                        onClick={this.handleClick}
-                        src={`${require(`../images/parameters/${
-                          this.state.picture
-                        }`)}`}
-                      />
-                    </Ref>
-                  </Tilt>
-                </Grid.Column>
-                <Grid.Column
-                  centered
-                  verticalAlign="middle"
-                  width={8}
-                  textAlign="justified"
-                >
-                  <Header style={{ fontSize: "1.5vw" }}>
-                    {this.props.parameters.about}
-                  </Header>
-                </Grid.Column>
-              </Grid.Row>
-              <Responsive maxWidth={480}>
-                <Header textAlign="justified" style={{ fontSize: "4vw" }}>
-                  {this.props.parameters.about}
-                </Header>
+          <div className={css(styles.outerContainer)}>
+            <div className={css(styles.imageContainer)}>
+              <Responsive minWidth={600}>
+                <Tilt
+                  className={css(styles.imageTilt)}
+                  options={{ max: 1, scale: 1, reverse: true }}
+                />
               </Responsive>
-            </Grid>
-
-            <ModalAbout open={this.state.modalOpen} close={this.handleClose} />
+              <Tilt options={{ max: 10, scale: 1, reverse: true }}>
+                <Ref innerRef={node => this.setState({ node })}>
+                  <Image
+                    className={css(styles.image)}
+                    onMouseOver={this.handleMouseOver}
+                    onClick={this.handleClick}
+                    src={`${require(`../images/parameters/${
+                      this.state.picture
+                    }`)}`}
+                  />
+                </Ref>
+              </Tilt>
+            </div>
           </div>
         </Tilt>
+        <div className={css(styles.headerContainer)}>
+          <Header style={{ fontSize: "1.5vw" }}>
+            {this.props.parameters.about}
+          </Header>
+        </div>
+        <ModalAbout open={this.state.modalOpen} close={this.handleClose} />
       </div>
     );
   }
