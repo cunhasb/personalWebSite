@@ -3,7 +3,8 @@ export default (
     about: "",
     followingPictures: {},
     mouse: { coordinates: { x: 0, y: 0 } },
-    contact: ""
+    contact: "",
+    clarifai: ""
   },
   action
 ) => {
@@ -18,7 +19,8 @@ export default (
         mouse: {
           coordinates: { x: action.coordinates.x, y: action.coordinates.y }
         },
-        contact: state.contact
+        contact: state.contact,
+        clarifai: state.clarifai
       };
     }
     default:
