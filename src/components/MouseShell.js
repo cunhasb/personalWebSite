@@ -52,6 +52,12 @@ export const mouseShell = Page => {
           borderColor: "rgba(248,248,248,0)"
         }
       };
+      const offsetMouse = {
+        from: {
+          transform: "translate(-50%,-50%)"
+        },
+        to: { transform: "translate(-50%,-50%)" }
+      };
       const opacityKeyframesLeave = {
         from: {
           opacity: 0
@@ -134,7 +140,7 @@ export const mouseShell = Page => {
           position: "absolute",
           top: this.props.mouse.coordinates.y,
           left: this.props.mouse.coordinates.x,
-          animationName: [translateKeyframes, opacityKeyframes],
+          animationName: [translateKeyframes],
           animationDuration: "750ms, 500ms",
           animationIterationCount: "1",
           transform: "translate(-50%,-50%)"

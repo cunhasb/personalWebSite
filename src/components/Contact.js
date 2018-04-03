@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import { Container, Header, Transition } from "semantic-ui-react";
+import { connect } from "react-redux";
 import Tilt from "react-tilt";
+import { css } from "aphrodite";
 
 class Contact extends Component {
   state = {
-    animation: "scale",
-    duration: 3600,
+    animation: "fly left",
+    duration: 4600,
     visible: false,
     position: { x: 0, y: 0 }
   };
@@ -16,6 +18,7 @@ class Contact extends Component {
   }
 
   render() {
+    console.log("contact", this.props);
     return (
       <div
         style={{
@@ -55,13 +58,23 @@ class Contact extends Component {
           {this.state.visible && (
             <Header
               style={{
-                fontSize: "4vw"
+                fontSize: "3vw"
               }}
             >
-              <p>{"Contact"}</p>
+              <p>{this.props.title}</p>
 
               <p>
-                {"I'm Fabiano a Fullstack Developer, what do you believe in?"}
+                {this.props.email.text}
+                <a href={this.props.email.href}>email</a>
+              </p>
+              <p>
+                {this.props.linkedIn.text}
+                <a href={this.props.linkedIn.href}> linkedIn or </a>
+                <a href={this.props.github.href}> Github</a>
+              </p>
+              <p>
+                {this.props.phone.text}
+                <a href={this.props.phone.href}> phone</a>
               </p>
             </Header>
           )}
@@ -70,5 +83,7 @@ class Contact extends Component {
     );
   }
 }
-
-export default Contact;
+const mapStateToProps = store => {
+  return store.parameters.contact;
+};
+export default connect(mapStateToProps)(Contact);

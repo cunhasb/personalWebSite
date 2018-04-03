@@ -15,5 +15,19 @@ While working in construction I've done freelance IT/Support in my free time, bu
       "leftBottom.png",
       "leftTop.png"
     ]
+  },
+  contact: {
+    title: "Let's Connect!",
+    email: {
+      text: "Write me an ",
+      href: "mailto:fabianocunhadev@gmail.com?subject=More%20Info"
+    },
+    linkedIn: {
+      text: "Find me on",
+      href: "https://www.linkedin.com/in/fabiano-cunha/"
+    },
+    github: { text: "Find me on", href: "https://github.com/cunhasb" },
+    medium: { text: "Find me on", href: "https://medium.com/@cunhasb" },
+    phone: { text: "Call me on my", href: "tel:7323376090" }
   }
 };

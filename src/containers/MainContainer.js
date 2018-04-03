@@ -58,6 +58,11 @@ class MainContainer extends Component {
           <Route
             path="/contact"
             render={() => {
+              let x = this.props;
+              // debugger;
+              !this.props.parameters.contact
+                ? this.props.getParameters()
+                : null;
               return (
                 <Motion defaultStyle={{ opacity: 1 }} style={{ opacity: 0 }}>
                   {value => <Contact />}
@@ -103,7 +108,7 @@ class MainContainer extends Component {
               );
             }}
           />
-          <Route path="/" component={PageShell(Home)} />
+          <Route path="/" component={Home} />
         </Switch>
         <Footer style={{ position: "fixed", bottom: "0px" }} />
       </Container>

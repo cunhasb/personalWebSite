@@ -6,7 +6,6 @@ import {
   Responsive,
   Segment
 } from "semantic-ui-react";
-import ParallaxHover from "react-parallax-hover";
 import Tilt from "react-tilt";
 
 export default class Home extends Component {
@@ -17,6 +16,7 @@ export default class Home extends Component {
     this.setState({ visible: !this.state.visible });
   }
   render() {
+    console.log("home", this.props);
     return (
       <div
         style={{

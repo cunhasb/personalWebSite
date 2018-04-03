@@ -16,17 +16,17 @@ export default class Footer extends Component {
         }
       >
         <Menu text>
-          <Menu.Item>
+          <Menu.Item href="https://www.linkedin.com/in/fabiano-cunha/">
             <Icon name="linkedin" />
           </Menu.Item>
-          <Menu.Item>
+          <Menu.Item href="https://github.com/cunhasb">
             <Icon name="github" />
           </Menu.Item>
-          <Menu.Item>
-            <Icon name="mail" />
+          <Menu.Item href="https://medium.com/@cunhasb">
+            <Icon name="medium" />
           </Menu.Item>
-          <Menu.Item>
-            <Icon name="twitter" />
+          <Menu.Item href="mailto:fabianocunhadev@gmail.com?subject=More%20Info">
+            <Icon name="mail" />
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item>&copy;2018 Fabiano S. Cunha</Menu.Item>

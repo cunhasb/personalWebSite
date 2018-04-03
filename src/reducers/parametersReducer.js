@@ -2,7 +2,8 @@ export default (
   state = {
     about: "",
     followingPictures: {},
-    mouse: { coordinates: { x: 0, y: 0 } }
+    mouse: { coordinates: { x: 0, y: 0 } },
+    contact: ""
   },
   action
 ) => {
@@ -16,7 +17,8 @@ export default (
         followingPictures: state.followingPictures,
         mouse: {
           coordinates: { x: action.coordinates.x, y: action.coordinates.y }
-        }
+        },
+        contact: state.contact
       };
     }
     default:

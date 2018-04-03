@@ -1,7 +1,11 @@
 import { StyleSheet } from "aphrodite";
 
 export const styles = StyleSheet.create({
-  mainContainer: { position: "relative", width: "85vw", height: "75vh" },
+  mainContainer: {
+    position: "relative",
+    width: "85vw",
+    height: "75vh"
+  },
   navLink: {
     cursor: "none",
     styles: "none",
