@@ -6,72 +6,103 @@ import {
   Image,
   List,
   Transition,
-  Divider
+  Divider,
+  Loader
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import uuidv4 from "uuid/v4";
 class NestedModal extends Component {
-  state = { open: false, timer: "", messages: [], items: [] };
+  state = { open: false, timer: "", messages: [], items: [], categories: [] };
 
-  open = () => this.setState({ open: true });
-  close = () => this.setState({ open: false });
+  open = () => {
+    this.setState({ open: true });
+  };
+  close = () => {
+    clearInterval(this.state.timer);
+    this.setState({ open: false });
+  };
   handleClick = e => {
     let timer = setInterval(this.tick, 8000);
     this.setState({
       timer: timer,
-      items: [
-        this.props.parameters.demographics.gender +
-          this.props.demographics.gender
-        // `Let's begin by your gender appearance, I would say that I'm pretty confident your appear to be  ${
-        //   this.props.demographics.gender
-        // }`
-      ]
+      items: [this.state.messages.demographics[0]],
+      categories: ["general", "celebrity", "demographics"]
     });
-    console.log("clicked");
   };
   componentWillUnmout = () => {
     clearInterval(this.state.timer);
   };
   tick = () => {
-    if (this.state.items.length < this.state.messages.length) {
-      this.setState({
-        items: this.state.messages.slice(0, this.state.items.length + 1)
-      });
+    if (this.state.categories.length > 0) {
+      // if categories has items, it will set the currentCategory to the last one
+      const currentCategory = this.state.categories[
+        this.state.categories.length - 1
+      ];
+      if (
+        this.state.items.length < this.state.messages[currentCategory].length
+      ) {
+        this.setState({
+          items: this.state.messages[currentCategory].slice(
+            0,
+            this.state.items.length + 1
+          )
+        });
+      } else {
+        this.setState(prevState => {
+          const endArray = prevState.categories.length - 1;
+          const items =
+            endArray > 0
+              ? [prevState.messages[prevState.categories[endArray - 1]][0]]
+              : [`That's it folks, I hope you liked...`];
+          // debugger;
+          return {
+            categories: prevState.categories.slice(0, endArray),
+            items: items
+          };
+        });
+      }
     } else {
-      clearInterval(this.state.timer);
+      this.close();
     }
   };
 
   componentDidMount = () => {
-    // const messages = [
-    //   `Let's begin by your gender appearance, I would say that I'm pretty confident your appear to be  ${
-    //     this.props.demographics.gender
-    //   }`,
-    //   `Now, let me try to guess your age,don't worry I won't tell anyone, it's only between you and me. I would say that you are between ${
-    //     this.props.demographics.age[0]
-    //   } and ${this.props.demographics.age[1]}`,
-    //   `How Am I doing? Let's take it up a notch, I'm now going to try to guess your ethnicity. Be kind though, sometimes I get it wrong, you're most likely to be ${
-    //     this.props.demographics.ethnicity[0]
-    //   }, followed by ${this.props.demographics.ethnicity[1]} and ${
-    //     this.props.demographics.ethnicity[0]
-    //   }`,
-    //   `Your face is very familiar, you remind me of someone, not quite sure who, but your face is very familiar, are you a celebrity? Oh, yeah, you remind me of ${
-    //     this.props.celebrity[0]
-    //   }, or is it ${this.props.celebrity[1]}, well I even see some of ${
-    //     this.props.celebrity[2]
-    //   } in you.`
-    // ];
     const messages = {
       demographics: [
-        this.props.parameters.demographics.gender,
-        this.props.parameters.demographics.age,
-        this.props.parameters.demographics.ethnicity
+        `${this.props.parameters.demographics.gender} ${
+          this.props.demographics.gender
+        }`,
+        `${this.props.parameters.demographics.age} ${
+          this.props.demographics.age[0]
+        } and ${this.props.demographics.age[1]}`,
+        `${this.props.parameters.demographics.ethnicity} ${
+          this.props.demographics.ethnicity[0]
+        }, followed by ${this.props.demographics.ethnicity[1]} and ${
+          this.props.demographics.ethnicity[2]
+        }`
       ],
-      celebrity: this.props.parameters.celebrity,
-      general: this.props.parameters
+      celebrity: [
+        `${this.props.parameters.celebrity} ${this.capitalize(
+          this.props.celebrity[0]
+        )}, or is it ${this.capitalize(
+          this.props.celebrity[1]
+        )}, well I even see some of ${this.capitalize(
+          this.props.celebrity[2]
+        )} in you.`
+      ],
+      general: [this.props.parameters.general]
     };
     this.setState(prevState => {
-      return { messages: messages };
+      return {
+        messages: messages,
+        categories: ["general", "celebrity", "demographics"]
+      };
+    });
+  };
+  capitalize = s => {
+    // lowerCase entire string, then it replaces all (/g) first letter(\b.) with the return statement in the nameless function a.toUpperCase();
+    return s.toLowerCase().replace(/\b./g, a => {
+      return a.toUpperCase();
     });
   };
   render() {
@@ -89,6 +120,7 @@ class NestedModal extends Component {
         }}
         dimmer={false}
         open={open}
+        closeOnDocumentClick={true}
         onOpen={this.open}
         onClose={this.close}
         trigger={
@@ -103,21 +135,25 @@ class NestedModal extends Component {
           <Transition.Group
             animation="scale"
             as={List}
-            duration={400}
+            duration={700}
             divided
             size="huge"
             verticalAlign="middle"
           >
             {items.map(item => (
               <List.Item key={item}>
-                <List.Content header={item} />
-                <Divider hidden />
+                <List.Header>{item}</List.Header>
               </List.Item>
             ))}
           </Transition.Group>
         </Modal.Content>
+        <Loader active inline="centered" />
         <Modal.Actions>
-          <Button icon="check" content="All Done" onClick={this.close} />
+          <Button
+            icon="check"
+            content={!!this.state.categories.length ? "Close" : "All Done"}
+            onClick={this.close}
+          />
         </Modal.Actions>
       </Modal>
     );
@@ -126,6 +162,7 @@ class NestedModal extends Component {
 
 const ModalExampleMultiple = props => (
   <Modal
+    closeIcon
     style={{
       position: "relative",
       top: "50%",

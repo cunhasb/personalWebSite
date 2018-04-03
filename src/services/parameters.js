@@ -10,7 +10,7 @@ While working in construction I've done freelance IT/Support in my free time, bu
   How Am I doing? Let's take it up a notch, I'm now going to try to guess your ethnicity. Be kind though, sometimes I get it wrong, you're most likely to be `
     },
     celebrity: `Your face is very familiar, you remind me of someone, not quite sure who, but your face is very familiar, are you a celebrity? Oh, yeah, you remind me of,`,
-    general: `I spot with my little something ...`
+    general: `I spot with my little eye something ...`
   },
   followingPictures: {
     center: [
