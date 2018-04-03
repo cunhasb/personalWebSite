@@ -5,7 +5,8 @@ import {
   Modal,
   Image,
   List,
-  Transition
+  Transition,
+  Divider
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 class NestedModal extends Component {
@@ -98,6 +99,7 @@ class NestedModal extends Component {
             {items.map(item => (
               <List.Item key={item}>
                 <List.Content header={item} />
+                <Divider hidden />
               </List.Item>
             ))}
           </Transition.Group>
