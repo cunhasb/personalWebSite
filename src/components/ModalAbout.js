@@ -7,7 +7,8 @@ import {
   List,
   Transition,
   Divider,
-  Loader
+  Loader,
+  Label
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import uuidv4 from "uuid/v4";
@@ -67,6 +68,9 @@ class NestedModal extends Component {
   };
 
   componentDidMount = () => {
+    const generalItems = this.props.general.map(el => {
+      return <Label>{el}</Label>;
+    });
     const messages = {
       demographics: [
         `${this.props.parameters.demographics.gender} ${
@@ -90,7 +94,7 @@ class NestedModal extends Component {
           this.props.celebrity[2]
         )} in you.`
       ],
-      general: [this.props.parameters.general]
+      general: [this.props.parameters.general, ...generalItems]
     };
     this.setState(prevState => {
       return {
@@ -140,11 +144,17 @@ class NestedModal extends Component {
             size="huge"
             verticalAlign="middle"
           >
-            {items.map(item => (
-              <List.Item key={item}>
-                <List.Header>{item}</List.Header>
-              </List.Item>
-            ))}
+            {items.map(item => {
+              return (
+                <List.Item key={item}>
+                  <List.Header>
+                    <Label.Group size="huge" style={{ textAlign: "center" }}>
+                      {item}
+                    </Label.Group>
+                  </List.Header>
+                </List.Item>
+              );
+            })}
           </Transition.Group>
         </Modal.Content>
         <Loader active inline="centered" />

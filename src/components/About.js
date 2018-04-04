@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
-import * as actions from "../actions/picturesActions";
+import { takePicture } from "../actions/picturesActions";
 import { startClient, analyzePicture } from "../actions/clarifaiActions";
 import {
   Image,
@@ -45,8 +45,12 @@ class About extends React.Component {
   };
   handleUpdateState = e => {};
   handleClick = e => {
+    // if (!this.props.pictures.length) {
+    this.props.takePicture(this.props.refItem);
+    // }
     this.props.startClient();
     this.props.analyzePicture();
+
     this.setState(prevState => {
       return {
         node: prevState.node,
@@ -199,7 +203,7 @@ const mapStateToProps = store => {
   };
 };
 export default connect(mapStateToProps, {
-  actions,
+  takePicture,
   startClient,
   analyzePicture
 })(About);
