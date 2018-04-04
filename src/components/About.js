@@ -184,7 +184,7 @@ class About extends React.Component {
           <Header style={{ fontSize: "1.5vw" }}>
             {this.props.parameters.about}
           </Header>
-          <VisitorPictures />
+          <VisitorPictures pictures={this.props.pictures} />
         </div>
         <ModalAbout open={this.state.modalOpen} close={this.handleClose} />
       </div>
