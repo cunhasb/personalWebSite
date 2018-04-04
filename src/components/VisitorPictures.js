@@ -1,9 +1,17 @@
 import React from "react";
 import { Button, Header, Image, Modal } from "semantic-ui-react";
 
-const ModalModalExample = () => (
-  <Modal trigger={<Button>Show Modal</Button>}>
-    <Modal.Header>Select a Photo</Modal.Header>
+const VisitorPictures = () => (
+  <Modal
+    style={{
+      position: "absolute",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%,-50%)"
+    }}
+    trigger={<Button>Show Modal</Button>}
+  >
+    <Modal.Header>You Are Really Photogenic!</Modal.Header>
     <Modal.Content image>
       <Image
         wrapped
@@ -22,4 +30,4 @@ const ModalModalExample = () => (
   </Modal>
 );
 
-export default ModalModalExample;
+export default VisitorPictures;

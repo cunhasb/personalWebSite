@@ -24,6 +24,7 @@ import Tilt from "react-tilt";
 import { css } from "aphrodite";
 import { styles } from "../styles/about";
 import ModalAbout from "../components/ModalAbout";
+import VisitorPictures from "../components/VisitorPictures";
 
 class About extends React.Component {
   state = {
@@ -183,6 +184,7 @@ class About extends React.Component {
           <Header style={{ fontSize: "1.5vw" }}>
             {this.props.parameters.about}
           </Header>
+          <VisitorPictures />
         </div>
         <ModalAbout open={this.state.modalOpen} close={this.handleClose} />
       </div>
