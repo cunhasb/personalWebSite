@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Header, Image, Modal } from "semantic-ui-react";
+import { Button, Header, Image, Modal, Card } from "semantic-ui-react";
 
 const VisitorPictures = () => (
   <Modal
@@ -7,17 +7,13 @@ const VisitorPictures = () => (
       position: "absolute",
       top: "50%",
       left: "50%",
-      transform: "translate(-50%,-50%)"
+      transform: "translate(-50%,-50%)",
+      textAlign: "center"
     }}
     trigger={<Button>Show Modal</Button>}
   >
     <Modal.Header>You Are Really Photogenic!</Modal.Header>
-    <Modal.Content image>
-      <Image
-        wrapped
-        size="medium"
-        src="/assets/images/avatar/large/rachel.png"
-      />
+    <Modal.Content>
       <Modal.Description>
         <Header>Default Profile Image</Header>
         <p>
@@ -27,6 +23,20 @@ const VisitorPictures = () => (
         <p>Is it okay to use this photo?</p>
       </Modal.Description>
     </Modal.Content>
+    <Card.Group itemsPerRow={6}>
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+      <Card raised image="{src}" />
+    </Card.Group>
   </Modal>
 );
 
