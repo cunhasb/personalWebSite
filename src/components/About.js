@@ -30,7 +30,8 @@ class About extends React.Component {
   state = {
     node: "",
     picture: "front.png",
-    modalOpen: false
+    modalOpen: false,
+    visitorPictures: false
   };
   handleMouseMove = e => {
     let element = ReactDOM.findDOMNode(this.state.node);
@@ -40,7 +41,8 @@ class About extends React.Component {
       return {
         node: prevState.node,
         picture: picture,
-        modalOpen: prevState.modalOpen
+        modalOpen: prevState.modalOpen,
+        visitorPictures: prevState.visitorPictures
       };
     });
   };
@@ -62,11 +64,16 @@ class About extends React.Component {
       return {
         node: prevState.node,
         picture: prevState.picture,
-        modalOpen: false
+        modalOpen: false,
+        visitorPictures: true
       };
     });
   };
-
+  handleCloseVisitorPictures = e => {
+    return {
+      visitorPictures: false
+    };
+  };
   getPicture = coordinates => {
     let props = this.props;
     // debugger;
@@ -184,7 +191,11 @@ class About extends React.Component {
           <Header style={{ fontSize: "1.5vw" }}>
             {this.props.parameters.about}
           </Header>
-          <VisitorPictures pictures={this.props.pictures} />
+          <VisitorPictures
+            open={this.state.visitorPictures}
+            close={this.handleCloseVisitorPictures}
+            pictures={this.props.pictures}
+          />
         </div>
         <ModalAbout open={this.state.modalOpen} close={this.handleClose} />
       </div>
