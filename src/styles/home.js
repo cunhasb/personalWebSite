@@ -22,7 +22,12 @@ export const styles = StyleSheet.create({
     left: "-12.5%",
     position: "relative",
     pointerEvents: "none",
-    [screenSize.small]: { left: "0%" }
+    [screenSize.portrait]: {
+      left: "0%",
+      top: "0%",
+      width: "100%",
+      height: "100%"
+    }
   },
   leftDiv: {
     position: "fixed",
@@ -32,9 +37,18 @@ export const styles = StyleSheet.create({
     height: "100%",
     width: "31.25%",
     backgroundImage: `url(${require("../images/fabianoSketch.png")})`,
+    backgroundSize: "auto",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
-    backgroundClip: "borderBox"
+    [screenSize.portrait]: {
+      position: "relative",
+      width: "70vw",
+      height: "70vh",
+      margin: "auto",
+      backgroundOrigin: "padding-box",
+      backgroundPosition: "left top",
+      backgroundSize: "cover"
+    }
   },
   tiltDiv: {
     position: "absolute",
@@ -44,20 +58,35 @@ export const styles = StyleSheet.create({
     height: "45vh",
     backgroundColor: "rgba(250,250,250,0.6)",
     transform: "matrix3d(1,0,0.00,0.0003,0.00,1,0.00,0,0,0,1,0,200,0,0,1)",
-    transformStyle: "preserve-3d"
+    transformStyle: "preserve-3d",
+    [screenSize.portrait]: {
+      position: "relative",
+      width: "100%",
+      left: "0px",
+      top: "0px"
+    }
   },
   // Grid
-  grid: { height: "100%" },
-  imageContainer: {
-    position: "absolute",
-    width: "45%",
-    top: "50%",
-    left: "0%",
-    transform: "translateY(-50%)",
-    [screenSize.smartphone]: {
-      position: "relative",
-      width: "auto",
-      padding: "0"
+  grid: {
+    height: "100%",
+    [screenSize.portrait]: {
+      margin: "0px",
+      padding: "0px",
+      position: "relative"
+    }
+  },
+  columnLeft: {
+    width: "32.5%",
+    [screenSize.portrait]: {
+      width: "0%"
+    }
+  },
+  columnRight: {
+    width: "67.5%",
+    [screenSize.portrait]: {
+      textAlign: "center",
+      width: "100%",
+      height: "100%"
     }
   },
 
@@ -67,12 +96,19 @@ export const styles = StyleSheet.create({
     pointerEvents: "auto",
     bottom: "0%",
     height: "100%",
-    width: "100%"
+    width: "100%",
+    [screenSize.portrait]: {
+      position: "relative",
+      width: "100%"
+    }
   },
   // Transitions
   transitionGroup: {
     position: "absolute",
-    top: "0px"
+    top: "0px",
+    [screenSize.portrait]: {
+      position: "relative"
+    }
   },
   // Header
   header: {
@@ -80,7 +116,11 @@ export const styles = StyleSheet.create({
     marginTop: "20vh",
     left: "10vw",
     fontSize: "2vw",
-    pointerEvents: "none"
+    pointerEvents: "none",
+    [screenSize.portrait]: {
+      left: "0px",
+      marginTop: "5%"
+    }
   },
   // p
   m3: { margin: "3%" },

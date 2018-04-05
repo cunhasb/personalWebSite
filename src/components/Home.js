@@ -25,8 +25,8 @@ export default class Home extends Component {
       <div className={css(styles.outerWrapper)}>
         <div className={css(styles.leftDiv)} />
         <Grid className={css(styles.grid)}>
-          <Grid.Column width={5} />
-          <Grid.Column width={11}>
+          <Grid.Column className={css(styles.columnLeft)} />
+          <Grid.Column className={css(styles.columnRight)}>
             <Tilt
               options={{
                 scale: 1,
@@ -35,7 +35,7 @@ export default class Home extends Component {
               }}
               className={css(styles.outerTilt)}
             >
-              <Responsive minWidth={480}>
+              <Responsive minWidth={800}>
                 <div className={css(styles.tiltDiv)} />
               </Responsive>
             </Tilt>
