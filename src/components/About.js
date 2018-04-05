@@ -48,19 +48,30 @@ class About extends React.Component {
   };
   handleUpdateState = e => {};
   handleClick = e => {
-    // if (!this.props.pictures.length) {
-    this.props.takePicture(this.props.refItem);
-    // }
-    this.props.startClient();
-    this.props.analyzePicture();
-
-    this.setState(prevState => {
-      return {
-        node: prevState.node,
-        picture: prevState.picture,
-        modalOpen: true
-      };
-    });
+    if (!!this.props.pictures) {
+      let picturePromise = new Promise((resolve, reject) => {
+        debugger;
+        let newPicture = this.props.takePicture(this.props.refItem);
+        !!newPicture.pictures
+          ? resolve(newPicture)
+          : reject("Failed to take picture");
+      })
+        .then(res => {
+          this.props.startClient();
+          let analyses = this.props.analyzePicture();
+          return analyses ? analyses : Error;
+        })
+        .then(res => {
+          this.setState(prevState => {
+            return {
+              node: prevState.node,
+              picture: prevState.picture,
+              modalOpen: true
+            };
+          });
+        })
+        .catch(err => console.log(err));
+    }
   };
 
   handleClose = e => {
