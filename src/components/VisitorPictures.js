@@ -26,9 +26,7 @@ const VisitorPictures = props => (
         <p>
           All the information we showed you came from an AI API Called Clarifai
         </p>
-        <p>
-          We took the first image taken and analyzed it against three models
-        </p>
+        <p>I took the first image taken and analyzed it against three models</p>
         <p>Demographcs * Celebrity * General</p>
         <p>
           We only displayed the results. And please rest assured I'm not saving

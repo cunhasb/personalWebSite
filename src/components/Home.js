@@ -43,19 +43,8 @@ export default class Home extends Component {
             backgroundClip: "borderBox"
           }}
         />
-        <Grid
-          style={{
-            height: "100%"
-          }}
-        >
-          <Grid.Column
-            width={5}
-            style={{
-              height: "100%",
-              top: "0px",
-              left: "0px"
-            }}
-          />
+        <Grid style={{ height: "100%" }}>
+          <Grid.Column width={5} />
           <Grid.Column width={11}>
             <Tilt
               options={{
@@ -76,7 +65,8 @@ export default class Home extends Component {
                   options={{ scale: 1 }}
                   style={{
                     position: "absolute",
-                    top: "15vh",
+                    left: "-10%",
+                    top: "17vh",
                     width: "75vh",
                     height: "45vh",
                     backgroundColor: "rgba(250,250,250,0.6)",
@@ -96,8 +86,8 @@ export default class Home extends Component {
                 <Header
                   style={{
                     position: "relative",
-                    marginTop: "18vh",
-                    left: "15vw",
+                    marginTop: "20vh",
+                    left: "10vw",
                     fontSize: "2vw",
                     pointerEvents: "none"
                   }}
