@@ -4,7 +4,9 @@ import {
   Header,
   Transition,
   Responsive,
-  Segment
+  Segment,
+  Grid,
+  Image
 } from "semantic-ui-react";
 import Tilt from "react-tilt";
 
@@ -29,30 +31,36 @@ export default class Home extends Component {
       >
         <div
           style={{
-            height: "100%",
-            width: "50%",
+            position: "fixed",
+            pointerEvents: "auto",
             top: "0px",
             left: "0px",
-            position: "fixed",
-            pointerEvents: "none",
-            backgroundImage: `url('${require("../images/fabianoSketch0.png")}')`
+            height: "100%",
+            width: "31.25%",
+            backgroundImage: `url(${require("../images/fabianoSketch.png")})`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+            backgroundClip: "borderBox"
           }}
         />
-        <div
+        <Grid
           style={{
-            height: "100%",
-            width: "50%",
-            rigth: "0px",
-            position: "absolute",
-            pointerEvents: "none",
-            backgroundColor: "blue"
+            height: "100%"
           }}
         >
-          <div style={{ position: "relative" }}>
+          <Grid.Column
+            width={5}
+            style={{
+              height: "100%",
+              top: "0px",
+              left: "0px"
+            }}
+          />
+          <Grid.Column width={11}>
             <Tilt
               options={{
                 scale: 1,
-                max: 45,
+                max: 25,
                 reverse: true
               }}
               style={{
@@ -60,8 +68,7 @@ export default class Home extends Component {
                 pointerEvents: "auto",
                 bottom: "0%",
                 height: "100%",
-                width: "100%",
-                backgroundColor: "red"
+                width: "100%"
               }}
             >
               <Responsive minWidth={480}>
@@ -70,7 +77,6 @@ export default class Home extends Component {
                   style={{
                     position: "absolute",
                     top: "15vh",
-                    left: "2vw",
                     width: "75vh",
                     height: "45vh",
                     backgroundColor: "rgba(250,250,250,0.6)",
@@ -91,7 +97,7 @@ export default class Home extends Component {
                   style={{
                     position: "relative",
                     marginTop: "18vh",
-                    left: "35vw",
+                    left: "15vw",
                     fontSize: "2vw",
                     pointerEvents: "none"
                   }}
@@ -108,8 +114,8 @@ export default class Home extends Component {
                 </Header>
               )}
             </Transition.Group>
-          </div>
-        </div>
+          </Grid.Column>
+        </Grid>
       </div>
     );
   }
