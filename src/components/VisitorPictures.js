@@ -36,7 +36,7 @@ const VisitorPictures = props => (
         </p>
       </Modal.Description>
     </Modal.Content>
-    <Card.Group fluid centered>
+    <Card.Group centered>
       {props.pictures.map(picture => {
         return <Card key={uuidv4()} raised image={picture} />;
       })}
