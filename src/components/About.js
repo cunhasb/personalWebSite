@@ -68,15 +68,26 @@ class About extends React.Component {
       return {
         node: prevState.node,
         picture: prevState.picture,
-        modalOpen: false,
+        modalOpen: !prevState.modalOpen,
         visitorPictures: true
       };
     });
   };
-  handleCloseVisitorPictures = e => {
-    return {
-      visitorPictures: false
-    };
+  handleCloseVisitorPictures = (e, data) => {
+    // debugger;
+    if (
+      e.target.getAttribute("class").includes("transition visible active") ||
+      !e.target.getAttribute("data-suir-click-target")
+    ) {
+      this.setState(prevState => {
+        return {
+          node: prevState.node,
+          picture: prevState.picture,
+          modalOpen: prevState.modalOpen,
+          visitorPictures: false
+        };
+      });
+    }
   };
   getPicture = coordinates => {
     let props = this.props;
@@ -151,9 +162,8 @@ class About extends React.Component {
   };
 
   render() {
-    // console.log("state", this.state);
     console.log("about props", this.props);
-    console.log("celebrity", this.props.clarifai.celebrity);
+    console.log("about state", this.state);
     const celebrities = this.props.clarifai.celebrity.map(el => {
       return <List.Item key={uuidv4()}>{el}</List.Item>;
     });

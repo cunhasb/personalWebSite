@@ -1,18 +1,24 @@
 import React from "react";
 import { Button, Header, Image, Modal, Card, Divider } from "semantic-ui-react";
+import uuidv4 from "uuid/v4";
 
+// trigger={<Button>Show Modal</Button>}
 const VisitorPictures = props => (
   <Modal
+    closeIcon
+    closeOnDimmerClick={true}
+    closeOnDocumentClick={true}
+    onClose={props.close}
+    open={props.open}
     style={{
       position: "absolute",
       top: "50%",
       left: "50%",
       transform: "translateX(-50%)",
-      // transform: "translate(-50%,-50%)",
       textAlign: "center"
     }}
-    trigger={<Button>Show Modal</Button>}
   >
+    {console.log("visitor", props)}
     <Modal.Header>You Are Really Photogenic!</Modal.Header>
     <Modal.Content>
       <Modal.Description>
@@ -32,7 +38,7 @@ const VisitorPictures = props => (
     </Modal.Content>
     <Card.Group fluid centered>
       {props.pictures.map(picture => {
-        return <Card raised image={picture} />;
+        return <Card key={uuidv4()} raised image={picture} />;
       })}
     </Card.Group>
     <Divider hidden />
