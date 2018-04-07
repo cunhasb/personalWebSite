@@ -62,11 +62,7 @@ class MainContainer extends Component {
               !this.props.parameters.contact
                 ? this.props.getParameters()
                 : null;
-              return (
-                <Motion defaultStyle={{ opacity: 1 }} style={{ opacity: 0 }}>
-                  {value => <Contact />}
-                </Motion>
-              );
+              return <Contact />;
             }}
           />
           <Route

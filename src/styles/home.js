@@ -1,57 +1,44 @@
 import { StyleSheet } from "aphrodite";
-const screenSize = {
-  smartphone: "@media only screen and (max-width:479px)",
-  smartphoneLandscape:
-    "@media only screen and (min-width:480px) and (max-width:599px)",
-  smallTablet: "@media only screen and (min-width:600px) and (max-width:767px)",
-  smallTabletLandscape:
-    "@media only screen and (min-width:800px) and (max-width:1023)",
-  tablet: "@media only screen and (min-width:768) and (max-width:1023)",
-  tabletLandscape:
-    "@media only screen and (min-width:769px) and (max-width:1024px)",
-  desktop: "@media only screen and (min-width:992px)",
-  portrait: "@media only screen and (orientation:portrait)",
-  landscape: "@media only screen and (orientation:landscape)",
-  small: "@media only screen and (max-width:600px)"
-};
-const translateKeyframes = {
-  "0%": {
-    position: "relative",
-    background: "red",
-    marginTop: "-20vh",
-    right: "0%",
-    height: "120vh",
-    width: "100px"
-  },
-
-  "50%": {
-    marginTop: "-20vh",
-    background: "red",
-    position: "relative",
-    height: "120vh",
-    width: "100vw"
-  }
-};
-
-const opacityKeyframes = {
-  from: {
-    opacity: 1
-  },
-
-  to: {
-    opacity: 1
-  }
-};
-const disappear = {
-  "0%": {
-    opacity: 0
-  },
-
-  "75%": {
-    opacity: 0
-  },
-  "100%": { opacity: 1 }
-};
+import { screenSize } from "./screenSizes";
+import { leftScreen, disappear } from "./animations";
+// const translateKeyframes = {
+//   "0%": {
+//     position: "relative",
+//     background: "red",
+//     marginTop: "-20vh",
+//     right: "0%",
+//     height: "120vh",
+//     width: "100px"
+//   },
+//
+//   "50%": {
+//     marginTop: "-20vh",
+//     background: "red",
+//     position: "relative",
+//     height: "120vh",
+//     width: "100vw"
+//   }
+// };
+//
+// const opacityKeyframes = {
+//   from: {
+//     opacity: 1
+//   },
+//
+//   to: {
+//     opacity: 1
+//   }
+// };
+// const disappear = {
+//   "0%": {
+//     opacity: 0
+//   },
+//
+//   "75%": {
+//     opacity: 0
+//   },
+//   "100%": { opacity: 1 }
+// };
 export const styles = StyleSheet.create({
   // Divs
   outerWrapper: {
@@ -60,7 +47,7 @@ export const styles = StyleSheet.create({
     left: "-12.5%",
     position: "relative",
     pointerEvents: "none",
-    animationName: [translateKeyframes, opacityKeyframes],
+    animationName: [leftScreen],
     animationDuration: "5s",
     animationIterationCount: "1",
     [screenSize.portrait]: {
