@@ -50,7 +50,6 @@ class MainContainer extends Component {
             path="/about"
             render={() => {
               const x = this.props;
-              // debugger;
               !this.props.parameters.about ? this.props.getParameters() : null;
               return <About />;
             }}
@@ -79,6 +78,8 @@ class MainContainer extends Component {
               return (
                 <CSSTransitionGroup
                   transitionAppear={true}
+                  transitionEnter={true}
+                  transitionLeave={true}
                   transitionAppearTimeout={500}
                   transitionEnterTimeout={500}
                   transitionLeaveTimeout={500}
@@ -101,7 +102,7 @@ class MainContainer extends Component {
                   transitionAppearTimeout={500}
                   transitionEnterTimeout={500}
                   transitionLeaveTimeout={500}
-                  transitionName="example"
+                  transitionName="SlideIn"
                 >
                   <Work key={this.props.location.key} />
                 </CSSTransitionGroup>

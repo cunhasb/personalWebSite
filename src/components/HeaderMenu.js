@@ -7,7 +7,10 @@ import { withRouter, NavLink } from "react-router-dom";
 import { StyleSheet, css } from "aphrodite";
 
 class HeaderMenu extends Component {
-  state = {};
+  state = {
+    activeItem: "HOME",
+    home: ["FABIANO S. CUNHA", "GO BACK HOME"]
+  };
 
   handleItemClick = (e, { name }) => {
     this.props.takePicture(this.props.pictures.refItem);
@@ -15,9 +18,15 @@ class HeaderMenu extends Component {
   };
 
   handleMouseEnter = e => {
+    if ((e.target.name = "HOME")) {
+      this.setState({ activeItem: "HOME" });
+    }
     this.props.setPointerType("hover");
   };
   handleMouseLeave = e => {
+    if (e.target.name == "HOME") {
+      this.setState({ activeItem: "WORK" });
+    }
     this.props.setPointerType("default");
   };
   render() {
@@ -26,12 +35,15 @@ class HeaderMenu extends Component {
     return (
       <div className="ui text menu">
         <NavLink
+          name="HOME"
           to="/home"
           className={css(styles.navLink) + " " + "header item"}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
         >
-          FABIANO S. CUNHA
+          {this.state.activeItem == "HOME"
+            ? this.state.home[1]
+            : this.state.home[0]}
         </NavLink>
         <div className="right menu">
           <NavLink
