@@ -23,6 +23,7 @@ class Work extends React.Component {
 
   handleVisibility = () => this.setState({ visible: !this.state.visible });
   handleMouseOver = project => {
+    console.log("handle mouse over", project);
     this.props.setSelectedProject(project);
   };
 
@@ -103,6 +104,7 @@ class Work extends React.Component {
     clearInterval(this.state.innerTimer.timer);
   }
   handleShow = () => {
+    console.log("handle show", this.props);
     this.props.setPointerType("hover");
     this.setState(prevState => {
       return {
@@ -114,6 +116,7 @@ class Work extends React.Component {
     });
   };
   handleHide = () => {
+    console.log("handle hide", this.props);
     this.props.setPointerType("default");
     this.setState(prevState => {
       return {
@@ -147,22 +150,13 @@ class Work extends React.Component {
       );
     });
     return (
-      <Container className={css(styles.mainContainer)}>
+      <div className={css(styles.mainContainer)}>
         <List animated verticalAlign="middle" className={css(styles.list)}>
           {projectsList}
         </List>
         <Container className={css(styles.tiltContainer)}>
-          <Tilt
-            options={{ max: 25, scale: 1.05 }}
-            style={{
-              position: "relative",
-              marginTop: "5%",
-              width: "40vw",
-              height: "30vw",
-              marginLeft: "40%"
-            }}
-          >
-            <div>
+          <Tilt className={css(styles.tilt)} options={{ max: 25, scale: 1.05 }}>
+            <div className={css(styles.tiltWrapper)}>
               <div className={css(styles.tiltOuterDivMain)} />
 
               <div className={css(styles.tiltInnerDivMain)}>
@@ -205,7 +199,7 @@ class Work extends React.Component {
             />
           </div>
         </Container>
-      </Container>
+      </div>
     );
   }
 }

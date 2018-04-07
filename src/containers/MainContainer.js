@@ -71,38 +71,14 @@ class MainContainer extends Component {
             render={() => {
               !this.props.projects.length > 0 ? this.props.getProjects() : null;
 
-              return (
-                <CSSTransitionGroup
-                  transitionAppear={true}
-                  transitionEnter={true}
-                  transitionLeave={true}
-                  transitionAppearTimeout={500}
-                  transitionEnterTimeout={500}
-                  transitionLeaveTimeout={500}
-                  transitionName="SlideIn"
-                >
-                  <WorkDetails key={this.props.location.key} />
-                </CSSTransitionGroup>
-              );
+              return <WorkDetails />;
             }}
           />
           <Route
             path="/work"
             render={() => {
               !this.props.projects.length > 0 ? this.props.getProjects() : null;
-              return (
-                <CSSTransitionGroup
-                  transitionAppear={true}
-                  transitionEnter={true}
-                  transitionLeave={true}
-                  transitionAppearTimeout={500}
-                  transitionEnterTimeout={500}
-                  transitionLeaveTimeout={500}
-                  transitionName="SlideIn"
-                >
-                  <Work key={this.props.location.key} />
-                </CSSTransitionGroup>
-              );
+              return <Work key={this.props.location.key} />;
             }}
           />
           <Route path="/" component={Home} />

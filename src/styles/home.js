@@ -1,44 +1,7 @@
 import { StyleSheet } from "aphrodite";
 import { screenSize } from "./screenSizes";
 import { leftScreen, disappear } from "./animations";
-// const translateKeyframes = {
-//   "0%": {
-//     position: "relative",
-//     background: "red",
-//     marginTop: "-20vh",
-//     right: "0%",
-//     height: "120vh",
-//     width: "100px"
-//   },
-//
-//   "50%": {
-//     marginTop: "-20vh",
-//     background: "red",
-//     position: "relative",
-//     height: "120vh",
-//     width: "100vw"
-//   }
-// };
-//
-// const opacityKeyframes = {
-//   from: {
-//     opacity: 1
-//   },
-//
-//   to: {
-//     opacity: 1
-//   }
-// };
-// const disappear = {
-//   "0%": {
-//     opacity: 0
-//   },
-//
-//   "75%": {
-//     opacity: 0
-//   },
-//   "100%": { opacity: 1 }
-// };
+
 export const styles = StyleSheet.create({
   // Divs
   outerWrapper: {

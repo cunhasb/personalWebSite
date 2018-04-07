@@ -8,7 +8,8 @@ import {
   Segment,
   Grid,
   Visibility,
-  Sticky
+  Sticky,
+  Icon
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
@@ -79,10 +80,10 @@ class WorkDetails extends React.Component {
   render() {
     console.log("siblings", this.props.siblings);
     return (
-      <div>
-        <Grid stackable>
+      <div className={css(styles.outerWrapper)}>
+        <Grid stackable className={css(styles.grid)}>
           <Visibility onUpdate={this.handleUpdate}>
-            <Grid.Row>
+            <Grid.Row className={css(styles.firstRow)}>
               <div>
                 <Container
                   style={{
@@ -97,6 +98,9 @@ class WorkDetails extends React.Component {
                       this.props.project.media.featured
                     }`)}
                   />
+                  <div className={css(styles.chevronContainer)}>
+                    <div className={css(styles.chevron)} />
+                  </div>
                 </Container>
                 <div className={css(styles.divFeatured)}>
                   <span className={css(styles.divFeaturedHeader)}>

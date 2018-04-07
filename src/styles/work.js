@@ -1,10 +1,15 @@
 import { StyleSheet } from "aphrodite";
+import { openCloseOpen, disappear } from "./animations";
+import { screenSize } from "./screenSizes";
 
 export const styles = StyleSheet.create({
   mainContainer: {
     position: "relative",
     width: "85vw",
-    height: "75vh"
+    height: "75vh",
+    animationName: [openCloseOpen],
+    animationDuration: "5s",
+    animationIterationCount: "1"
   },
   navLink: {
     cursor: "none",
@@ -20,14 +25,45 @@ export const styles = StyleSheet.create({
     position: "absolute",
     top: "50%",
     transform: "translateY(-50%)",
-    width: "60vw"
+    width: "60vw",
+    animationName: [disappear],
+    animationDuration: "5s",
+    animationIterationCount: "1"
   },
   tiltContainer: {
+    // position: "relative",
+    // pointerEvents: "none",
+    // bottom: "0%",
+    // height: "100%",
+    // width: "100%",
+    // [screenSize.portrait]: {
+    //   position: "relative",
+    //   width: "100%"
+    // },
     position: "relative",
+    left: "10%",
     top: "50%",
-    width: "40vw",
+    width: "60vw",
     height: "30vw",
-    transform: "translateY(-50%)"
+    transform: "translateY(-50%)",
+    animationName: [disappear],
+    animationDuration: "5s",
+    animationIterationCount: "1",
+    [screenSize.portrait]: {
+      // visibility: "hidden"
+    }
+  }, // tilt
+  tilt: {
+    position: "relative",
+    marginTop: "5%",
+    width: "100%",
+    height: "30vw"
+  },
+  tiltWrapper: {
+    position: "relative",
+    height: "25vw",
+    width: "38vw",
+    float: "right"
   },
   tiltOuterDivMain: {
     position: "absolute",
@@ -41,7 +77,6 @@ export const styles = StyleSheet.create({
     position: "absolute",
     left: "80%",
     top: "60%",
-    width: "80%",
     zIndex: 1,
     fontSize: "1.5vw"
   },

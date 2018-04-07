@@ -4,7 +4,8 @@ import { bindActionCreators } from "redux";
 import { setPointerType } from "../actions";
 import { takePicture } from "../actions/picturesActions";
 import { withRouter, NavLink } from "react-router-dom";
-import { StyleSheet, css } from "aphrodite";
+import { css } from "aphrodite";
+import { styles } from "../styles/headerMenu";
 
 class HeaderMenu extends Component {
   state = {
@@ -18,15 +19,13 @@ class HeaderMenu extends Component {
   };
 
   handleMouseEnter = e => {
-    if ((e.target.name = "HOME")) {
+    if (e.target.name == "HOME") {
       this.setState({ activeItem: "HOME" });
     }
     this.props.setPointerType("hover");
   };
   handleMouseLeave = e => {
-    if (e.target.name == "HOME") {
-      this.setState({ activeItem: "WORK" });
-    }
+    this.setState({ activeItem: "WORK" });
     this.props.setPointerType("default");
   };
   render() {
@@ -41,9 +40,11 @@ class HeaderMenu extends Component {
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
         >
-          {this.state.activeItem == "HOME"
-            ? this.state.home[1]
-            : this.state.home[0]}
+          <span className={css(styles.home)}>
+            {this.state.activeItem == "HOME"
+              ? this.state.home[1]
+              : this.state.home[0]}
+          </span>
         </NavLink>
         <div className="right menu">
           <NavLink
@@ -88,12 +89,6 @@ const mapStateToProps = store => {
   return store;
 };
 
-const styles = StyleSheet.create({
-  navLink: {
-    cursor: "none",
-    styles: "none"
-  }
-});
 export default withRouter(
   connect(mapStateToProps, { setPointerType, takePicture })(HeaderMenu)
 );
