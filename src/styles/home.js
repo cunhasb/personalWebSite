@@ -13,6 +13,7 @@ export const styles = StyleSheet.create({
     animationName: [leftScreen],
     animationDuration: "5s",
     animationIterationCount: "1",
+    backgroundColor: "rgb(242, 240, 241)",
     [screenSize.portrait]: {
       left: "0%",
       top: "0%",

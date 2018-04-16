@@ -2,7 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { connect } from "react-redux";
 import { takePicture } from "../actions/picturesActions";
-import { startClient, analyzePicture } from "../actions/clarifaiActions";
+import {
+  startClient,
+  analyzePicture,
+  savePictureData
+} from "../actions/clarifaiActions";
 import {
   Image,
   Segment,
@@ -25,6 +29,7 @@ import { css } from "aphrodite";
 import { styles } from "../styles/about";
 import ModalAbout from "../components/ModalAbout";
 import VisitorPictures from "../components/VisitorPictures";
+import { parseInfo } from "../services/Clarifai";
 
 class About extends React.Component {
   state = {
@@ -48,6 +53,7 @@ class About extends React.Component {
   };
   handleUpdateState = e => {};
   handleClick = e => {
+    this.setState({ loading: true });
     let y = this.props.pictures;
     let x = !this.props.pictures[0];
     let picturePromise = new Promise((resolve, reject) => {
@@ -63,14 +69,25 @@ class About extends React.Component {
     })
       .then(res => {
         this.props.startClient();
-        let analyses = this.props.analyzePicture();
-        return analyses ? analyses : Error;
+        return this.props.analyzePicture();
+      })
+      .then(res => {
+        return parseInfo(res);
+      })
+      .then(res => {
+        return this.props.savePictureData(res);
       })
       .then(res => {
         this.setState(prevState => {
           return {
             node: prevState.node,
-            picture: prevState.picture,
+            picture: prevState.picture
+          };
+        });
+      })
+      .then(res => {
+        this.setState(prevState => {
+          return {
             modalOpen: true
           };
         });
@@ -89,7 +106,6 @@ class About extends React.Component {
     });
   };
   handleCloseVisitorPictures = (e, data) => {
-    // debugger;
     if (
       e.target.getAttribute("class").includes("transition visible active") ||
       !e.target.getAttribute("data-suir-click-target")
@@ -106,7 +122,6 @@ class About extends React.Component {
   };
   getPicture = coordinates => {
     let props = this.props;
-    // debugger;
     const pictures = this.props.parameters.followingPictures;
     if (!!this.state.node) {
       let x = this.props.parameters.mouse.coordinates.x;
@@ -177,15 +192,12 @@ class About extends React.Component {
   };
 
   render() {
-    console.log("about props", this.props);
-    console.log("about state", this.state);
     const celebrities = this.props.clarifai.celebrity.map(el => {
       return <List.Item key={uuidv4()}>{el}</List.Item>;
     });
     const items = this.props.pictures.map(picture => {
       return <Card raised key={uuidv4()} image={picture} />;
     });
-    // console.log("celebrities", celebrities, "items", items);
     return (
       <div className={css(styles.outerWrapper)}>
         <Tilt
@@ -243,5 +255,6 @@ const mapStateToProps = store => {
 export default connect(mapStateToProps, {
   takePicture,
   startClient,
-  analyzePicture
+  analyzePicture,
+  savePictureData
 })(About);

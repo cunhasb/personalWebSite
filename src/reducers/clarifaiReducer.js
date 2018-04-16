@@ -7,9 +7,9 @@ export default (
   },
   action
 ) => {
+  console.log("clarifai reducer", action);
   switch (action.type) {
     case "SAVE_CLIENT": {
-      console.log("saving client", action);
       return {
         client: action.client,
         demographics: state.demographics,
@@ -19,7 +19,6 @@ export default (
     }
     case "SAVE_PICTURE_DATA": {
       console.log("saving picture data", action);
-      // debugger;
       return {
         client: state.client,
         ...action.data

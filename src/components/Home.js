@@ -20,7 +20,6 @@ export default class Home extends Component {
     this.setState({ visible: !this.state.visible });
   }
   render() {
-    console.log("home", this.props);
     return (
       <div className={css(styles.outerWrapper)}>
         <div className={css(styles.leftDiv)} />
@@ -46,7 +45,7 @@ export default class Home extends Component {
             >
               {this.state.visible && (
                 <Header className={css(styles.header)}>
-                  <p>{"I believe that with hard-work, creativity, and a"}</p>
+                  <p>{"I believe that with hard-work, creativity, and an"}</p>
                   <p className={css(styles.m3)}>
                     {"extra dose of perseverance, all things are possible."}
                   </p>

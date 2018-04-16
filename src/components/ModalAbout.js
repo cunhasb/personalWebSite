@@ -105,15 +105,18 @@ class NestedModal extends Component {
   };
   capitalize = s => {
     // lowerCase entire string, then it replaces all (/g) first letter(\b.) with the return statement in the nameless function a.toUpperCase();
-    return s.toLowerCase().replace(/\b./g, a => {
-      return a.toUpperCase();
-    });
+    console.log("s in capitalize", s, this.props.parameters);
+    // debugger;
+    if (!!s) {
+      return s.toLowerCase().replace(/\b./g, a => {
+        console.log(a);
+        return a.toUpperCase();
+      });
+    }
+    return "";
   };
   render() {
-    console.log("props modal", this.props);
-    console.log("state", this.state);
     const { open, items } = this.state;
-    // debugger;
     return (
       <Modal
         style={{

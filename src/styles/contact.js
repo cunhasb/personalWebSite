@@ -50,5 +50,7 @@ export const styles = StyleSheet.create({
     animationDelay: "3s",
     animationDuration: "5s",
     animationIterationCount: "1"
-  }
+  },
+  // Links
+  a: { color: "red" }
 });

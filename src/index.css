@@ -1,3 +1,7 @@
+.body: {
+  background-color: rgb(242, 240, 241);
+}
+
 .SlideIn-appear {
   top: -10vh;
   width: 100vw;

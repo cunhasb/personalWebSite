@@ -33,16 +33,24 @@ class Contact extends Component {
 
             <p>
               {this.props.email.text}
-              <a href={this.props.email.href}>email</a>
+              <a className={css(styles.a)} href={this.props.email.href}>
+                email
+              </a>
             </p>
             <p>
               {this.props.linkedIn.text}
-              <a href={this.props.linkedIn.href}> linkedIn or </a>
-              <a href={this.props.github.href}> Github</a>
+              <a className={css(styles.a)} href={this.props.linkedIn.href}>
+                linkedIn
+              </a>{" "}
+              <a className={css(styles.a)} href={this.props.github.href}>
+                Github
+              </a>
             </p>
             <p>
               {this.props.phone.text}
-              <a href={this.props.phone.href}> phone</a>
+              <a className={css(styles.a)} href={this.props.phone.href}>
+                phone
+              </a>
             </p>
           </Header>
         </div>

@@ -48,16 +48,11 @@ class WorkDetails extends React.Component {
 
   handleOffScreen = (e, { calculations }) => this.setState({ calculations });
   handleOnFire = (e, { calculations }) => {
-    console.log("calculations", calculations.fits);
-    console.log("offset", this.state.pageOffset + 1);
     for (let i = 0; calculations.fits; i++) {
-      console.log(i);
       this.setState({ pageOffset: this.state.pageOffset + i });
     }
   };
   handleUpdate = (e, { calculations }) => {
-    console.log("calculations on Fire", calculations.fits);
-    console.log("offset", this.state.pageOffset + 1);
     if (calculations.fits) {
       this.setState({ pageOffset: this.state.pageOffset + 1 });
     }
@@ -78,7 +73,6 @@ class WorkDetails extends React.Component {
   }
 
   render() {
-    console.log("siblings", this.props.siblings);
     return (
       <div className={css(styles.outerWrapper)}>
         <Grid stackable className={css(styles.grid)}>

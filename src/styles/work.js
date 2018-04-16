@@ -20,6 +20,12 @@ export const styles = StyleSheet.create({
       fontSize: "3vw"
     }
   },
+  active: {
+    transform: "translateX(50px)",
+    ":hover": {
+      transform: "translateX(0px)"
+    }
+  },
   list: {
     marginLeft: "3vw",
     position: "absolute",

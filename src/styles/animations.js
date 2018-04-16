@@ -1,7 +1,7 @@
 export const openCloseOpen = {
   "0%": {
     position: "relative",
-    background: "red",
+    background: "rgba(20, 20, 20, 1)",
     left: "-10vw",
     marginTop: "-15vh",
     height: "120vh",
@@ -11,14 +11,14 @@ export const openCloseOpen = {
   "50%": {
     marginTop: "-15vh",
     left: "-10vw",
-    background: "red",
+    background: "rgba(200, 200, 200, 1)",
     position: "relative",
     height: "120vh",
     width: "100vw"
   },
   "75%": {
     position: "relative",
-    background: "red",
+    background: "rgba(20, 20, 20, 1)",
     left: "-10vw",
     marginTop: "-15vh",
     height: "120vh",
@@ -34,7 +34,7 @@ export const openCloseOpen = {
 export const leftScreen = {
   "0%": {
     position: "relative",
-    background: "red",
+    background: "rgb(136, 136, 136)",
     marginTop: "-20vh",
     right: "0%",
     height: "120vh",
@@ -43,7 +43,7 @@ export const leftScreen = {
 
   "50%": {
     marginTop: "-20vh",
-    background: "red",
+    background: "rgb(136, 136, 136)",
     position: "relative",
     height: "120vh",
     width: "100vw"
@@ -52,7 +52,7 @@ export const leftScreen = {
 export const leftScreenRound = {
   "0%": {
     position: "relative",
-    background: "red",
+    background: "rgb(136, 136, 136)",
     left: "-20vw",
     marginTop: "-20vh",
     right: "0%",
@@ -63,7 +63,7 @@ export const leftScreenRound = {
   "50%": {
     left: "-10vw",
     marginTop: "-20vh",
-    background: "red",
+    background: "rgb(136, 136, 136)",
     position: "relative",
     height: "120vh",
     width: "100vw",
@@ -95,5 +95,5 @@ export const flyLeft = {
 export const rotate = {
   "0%": { content: "Fabiano S. Cunha", transform: "rotateY(0deg)" },
   "50%": { transform: "rotateY(270deg)" },
-  "100%": { content: "Go Back Home", transform: "rotateY(0deg)" }
+  "100%": { transform: "rotateY(0deg)" }
 };

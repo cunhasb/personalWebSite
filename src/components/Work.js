@@ -23,7 +23,6 @@ class Work extends React.Component {
 
   handleVisibility = () => this.setState({ visible: !this.state.visible });
   handleMouseOver = project => {
-    console.log("handle mouse over", project);
     this.props.setSelectedProject(project);
   };
 
@@ -89,7 +88,6 @@ class Work extends React.Component {
   componentDidMount() {
     let timer = setInterval(this.tick, 10000);
     let innerTimer = setInterval(this.innerTick, 100);
-    // debugger;
     this.setState(prevState => {
       return {
         visible: !prevState.visible,
@@ -99,12 +97,10 @@ class Work extends React.Component {
     });
   }
   componentWillUnmount() {
-    // debugger;
     clearInterval(this.state.timer.timer);
     clearInterval(this.state.innerTimer.timer);
   }
   handleShow = () => {
-    console.log("handle show", this.props);
     this.props.setPointerType("hover");
     this.setState(prevState => {
       return {
@@ -116,7 +112,6 @@ class Work extends React.Component {
     });
   };
   handleHide = () => {
-    console.log("handle hide", this.props);
     this.props.setPointerType("default");
     this.setState(prevState => {
       return {
@@ -136,7 +131,9 @@ class Work extends React.Component {
           onMouseEnter={() => this.props.setPointerType("hover")}
           onMouseLeave={() => this.props.setPointerType("default")}
           key={project.id}
-          className={css(styles.listStyle)}
+          className={css(
+            this.props.selectedProject.id === project.id ? styles.active : ""
+          )}
         >
           <List.Content>
             <Link

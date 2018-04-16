@@ -8,13 +8,7 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <div
-        style={
-          {
-            //position: "absolute", bottom: "0px" }}>
-          }
-        }
-      >
+      <div style={{ position: "absolute", top: "95vh" }}>
         <Menu text>
           <Menu.Item href="https://www.linkedin.com/in/fabiano-cunha/">
             <Icon name="linkedin" />
