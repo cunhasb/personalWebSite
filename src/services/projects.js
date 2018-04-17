@@ -1,16 +1,17 @@
 export default [
   {
     id: "1",
-    name: "Art Collection Organizer",
-    route: "art-gallery",
-    description:
-      "A CLI application built using Ruby and Active Record, to organize art Collections",
-    keyPoints: `CLI Layout
-    Ruby and Active Record
-    CRUD Functionality
-    Artsy API Gallery
-    Presentation of Art Pieces in the terminal using Catpix
-    `,
+    name: "Personal Website",
+    route: "personal-website",
+    description: "My personal Website built using React and Redux",
+    keyPoints: `Page Transitions
+  Pane tilting effects
+  Custom Mouse React Component
+  React Routes
+  WebRtc to take pictures
+  Clarifai Image Recognition to analyze pictures
+  Custom CSS
+  `,
     webSiteUrl: "www.mywebsite.com",
     media: {
       featured: ["pexels-photo-316466.jpeg"],
@@ -24,17 +25,41 @@ export default [
       mobile: ["image1", "image2", "image3"]
     },
     fullDescription: {
-      techonologies: ["Ruby", "Active Record", "APIs access"],
-      services: "CLI app",
-      description: `An Art Collection Organizer, where users can browse through art pieces provided from Artsy API fetches.
-CRUD functionality using Active Record. Users can create different collections, browse the art pieces and view, add and delete  art pieces to his collection, also able to view his own collections.
+      techonologies: [
+        "Javascript",
+        "React",
+        "Redux",
+        "React Routes",
+        "CSS",
+        "Clarifai API",
+        "WebRtc"
+      ],
+      services: "WebApp",
+      description: `My personal website built using React and Redux.
+      To replace the mouse pointer I used HOC compoments wrapping the rest of the application with the new mouse pointer and tracking mouse movements. Changes in behaviour like (on hover, scroll and click) were updated to the store by each component.
 
-Application used Artsy API for displaying art pieces and worked around pagination to display and fetch them.
+      Transitions were implemented in each page rendering using Custom CSS (Keyframes, and animations)
+
+      Links are handled using React Route. NavBar contains four links
+
+            HOME
+            WORK
+            ABOUT
+            CONTACT
+
+The WORK page contains two components, A list with all projects and a tilting component with the feature image for the project. Two timers were used to cycle through the menu items, one for the menu and the other for the picture. They both were initiated at ComponentDidMount and terminated at ComponentWillUnmout. Feature image, brings the details page.
+
+The Details page display details of the selected project. The page uses Custom scroll pointer, at the bottom of the page you have a link picture to previous and next project, and upon clicking on it the page automatically scrolls to the top of the page and initiates transition to the selected project.
+
+ABOUT page display information about me, but also uses a picture that tilts and changes depending on mouse position. Clicking on the picture will open one modal that will display data from the user's picture taken while changing routes in the application, at the end of the presentation, another modal will be opened showing all the pictures taken. If access to camera is denied upon request, no modals would be opened.
+
+Styling of application was done using a combination of Semantics and Custom Css, media queries were also used to make sure page would render in different size screens.
 `,
       client: "Personal Project",
-      year: "2017"
+      year: "2018"
     }
   },
+
   {
     id: "2",
     name: "Peekr",
@@ -84,6 +109,42 @@ Once you had your profile built you would be matched with other users that share
   },
   {
     id: "3",
+    name: "Art Collection Organizer",
+    route: "art-gallery",
+    description:
+      "A CLI application built using Ruby and Active Record, to organize art Collections",
+    keyPoints: `CLI Layout
+    Ruby and Active Record
+    CRUD Functionality
+    Artsy API Gallery
+    Presentation of Art Pieces in the terminal using Catpix
+    `,
+    webSiteUrl: "www.mywebsite.com",
+    media: {
+      featured: ["pexels-photo-316466.jpeg"],
+      wall: [
+        "pexels-photo-316466.jpeg",
+        "pexels-photo-583846.jpeg",
+        "pexels-photo-585752.jpeg"
+      ],
+      webSite: ["pexels-photo-316466.jpeg"],
+      video: "178779-family-guy-herbert-gif.gif",
+      mobile: ["image1", "image2", "image3"]
+    },
+    fullDescription: {
+      techonologies: ["Ruby", "Active Record", "APIs access"],
+      services: "CLI app",
+      description: `An Art Collection Organizer, where users can browse through art pieces provided from Artsy API fetches.
+CRUD functionality using Active Record. Users can create different collections, browse the art pieces and view, add and delete  art pieces to his collection, also able to view his own collections.
+
+Application used Artsy API for displaying art pieces and worked around pagination to display and fetch them.
+`,
+      client: "Personal Project",
+      year: "2017"
+    }
+  },
+  {
+    id: "4",
     name: "Manager",
     route: "manager",
     description: `A simple and Dynamic Application to organize and manage estimates, invoices, accounts payable and receivable, job progress and payroll.`,
