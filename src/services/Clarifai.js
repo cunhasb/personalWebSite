@@ -3,41 +3,91 @@ import { savePictureData } from "../actions/clarifaiActions";
 export const workFlow = (dispatch, state) => {
   const client = state().clarifai.client;
   const picture = state().pictures.pictures[0].split(",")[1];
-  let response = client.workflow.predict("personalWebSite", {
-    base64: picture
-  });
+  // return client.workflow.predict("personalWebSite", {
+  //   base64: picture
+  // });
+  //
   // Fake data so I don't call Clarifai
-  // let data = {
-  //   demographics: {
-  //     age: [36, 39],
-  //     gender: "masculine",
-  //     ethnicity: ["white", "middle eastern or north african", "asian"]
-  //   },
-  //   celebrity: ["robert lasardo", "michael mando", "jonathan pryce"],
-  //   general: [
-  //     "portrait",
-  //     "man",
-  //     "people",
-  //     "adult",
-  //     "indoors",
-  //     "one",
-  //     "light",
-  //     "room",
-  //     "wear",
-  //     "business",
-  //     "facial expression",
-  //     "side view",
-  //     "offense",
-  //     "window",
-  //     "festival",
-  //     "music",
-  //     "confidence",
-  //     "facial hair",
-  //     "landscape",
-  //     "battle"
-  //   ]
-  // };
-  return response;
+  let data = {
+    results: [
+      {
+        outputs: [
+          {
+            data: {
+              regions: [
+                {
+                  data: {
+                    face: {
+                      age_appearance: {
+                        concepts: [{ name: 36 }, { name: 37 }, { name: 39 }]
+                      },
+                      gender_appearance: { concepts: [{ name: "masculine" }] },
+                      multicultural_appearance: {
+                        concepts: [
+                          { name: "white" },
+                          { name: "middle eastern or north african" },
+                          { name: "asian" }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            data: {
+              regions: [
+                {
+                  data: {
+                    face: {
+                      identity: {
+                        concepts: [
+                          { name: "robert lasardo" },
+                          { name: "michael mando" },
+                          { name: "jonathan pryce" }
+                        ]
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          {
+            data: {
+              concepts: [
+                { name: "portrait" },
+                { name: "man" },
+                { name: "people" },
+                { name: "adult" },
+                { name: "indoors" },
+                { name: "one" },
+                { name: "light" },
+                { name: "room" },
+                { name: "wear" },
+                { name: "business" },
+                { name: "facial expression" },
+                { name: "side view" },
+                { name: "offense" },
+                { name: "window" },
+                { name: "festival" },
+                { name: "music" },
+                { name: "confidence" },
+                { name: "facial hair" },
+                { name: "landscape" },
+                { name: "battle" }
+              ]
+            }
+          }
+        ]
+      }
+    ]
+  };
+
+  return new Promise((resolve, reject) => {
+    resolve(data);
+  });
 };
 export const parseInfo = response => {
   // demographics data
@@ -51,6 +101,7 @@ export const parseInfo = response => {
     .slice(0, 3)
     .map(el => el.name)
     .sort();
+  console.log("age", age);
 
   let data = {
     demographics: {
