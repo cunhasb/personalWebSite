@@ -109,14 +109,16 @@ class WorkDetails extends React.Component {
           </Visibility>
 
           <Grid.Row columns={2} stretched>
-            <Grid.Column>
+            <Grid.Column width={3}>
               <Header>Technologies</Header>
               <List items={this.props.project.fullDescription.techonologies} />
               <Header>Year</Header>
               <Header>{this.props.project.fullDescription.year}</Header>
             </Grid.Column>
-            <Grid.Column>
-              <Header>{this.props.project.fullDescription.description}</Header>
+            <Grid.Column width={13}>
+              <Header style={{ whiteSpace: "pre-line" }}>
+                {this.props.project.fullDescription.description}
+              </Header>
             </Grid.Column>
           </Grid.Row>
           <Grid.Row columns={1}>
@@ -197,7 +199,9 @@ class WorkDetails extends React.Component {
             <Grid.Column>
               <Segment basic>
                 <Header>Keypoints</Header>
-                <p>{this.props.project.keyPoints}</p>
+                <p style={{ whiteSpace: "pre-line" }}>
+                  {this.props.project.keyPoints}
+                </p>
               </Segment>
             </Grid.Column>
             <Grid.Column>

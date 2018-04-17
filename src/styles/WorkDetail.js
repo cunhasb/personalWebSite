@@ -19,14 +19,16 @@ export const styles = StyleSheet.create({
     position: "relative",
     fontFamily: "Open Sans Condensed",
     color: "white",
-    left: "50%",
+    textAlign: "center",
     textShadow: "0px 0px 2px #43AABA",
     fontSize: "4em"
   },
   divFeaturedP: {
     position: "relative",
     fontFamily: "Open Sans Condensed",
-    left: "50%",
+    textAlign: "justified",
+    maxWidth: "90%",
+    left: "10%",
     color: "white",
     textShadow: "0px 0px 2px #43AABA",
     fontSize: "2em",
@@ -64,6 +66,7 @@ export const styles = StyleSheet.create({
     animationIterationCount: "1"
   },
   firstRow: {
+    height: "100vh",
     width: "85vw",
     animationName: [flyLeft],
     animationDelay: "6.5s",
