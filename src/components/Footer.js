@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Menu, Icon } from "semantic-ui-react";
+import { styles } from "../styles/footer";
+import { css } from "aphrodite";
 
 export default class Footer extends Component {
   state = {};
@@ -8,7 +10,7 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <div style={{ position: "absolute", top: "95vh" }}>
+      <div className={css(styles.outerWrapper)}>
         <Menu text>
           <Menu.Item href="https://www.linkedin.com/in/fabiano-cunha/">
             <Icon name="linkedin" />

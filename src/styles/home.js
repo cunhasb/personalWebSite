@@ -5,7 +5,7 @@ import { leftScreen, disappear } from "./animations";
 export const styles = StyleSheet.create({
   // Divs
   outerWrapper: {
-    height: "80vh",
+    height: "100%",
     width: "100vw",
     left: "-12.5%",
     position: "relative",
@@ -64,11 +64,12 @@ export const styles = StyleSheet.create({
   },
   // Grid
   grid: {
-    height: "100%",
+    height: "87vh",
     animationName: [disappear],
     animationDuration: "3s",
     animationIterationCount: "1",
     [screenSize.portrait]: {
+      height: "auto",
       margin: "0px",
       padding: "0px",
       position: "relative"
@@ -82,8 +83,10 @@ export const styles = StyleSheet.create({
   },
   columnRight: {
     width: "67.5%",
+
     [screenSize.portrait]: {
       textAlign: "center",
+
       width: "100%",
       height: "100%"
     }

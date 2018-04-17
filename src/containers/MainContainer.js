@@ -35,7 +35,7 @@ class MainContainer extends Component {
   render() {
     // console.log("props", this.props);
     return (
-      <Container fluid style={{ width: "80%", paddingBottom: "10rem" }}>
+      <Container fluid style={{ width: "80%" }}>
         <Webcam
           style={{ visibility: "hidden", position: "absolute" }}
           audio={false}

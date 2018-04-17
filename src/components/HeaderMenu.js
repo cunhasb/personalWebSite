@@ -32,7 +32,7 @@ class HeaderMenu extends Component {
     const { activeItem } = this.state;
 
     return (
-      <div className="ui text menu">
+      <div className="ui text menu" style={{ height: "5vh" }}>
         <NavLink
           name="HOME"
           to="/home"
