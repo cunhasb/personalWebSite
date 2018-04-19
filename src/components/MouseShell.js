@@ -9,8 +9,16 @@ export const mouseShell = Page => {
       const x = this.props;
       // console.log("mouse", this.props);
       if (this.props.mouse.type == "hover") {
+        this.props.setMouseCoordinates({
+          x: e.pageX,
+          y: e.pageY
+        });
         this.props.setMousePointer(2);
       } else {
+        this.props.setMouseCoordinates({
+          x: e.pageX,
+          y: e.pageY
+        });
         this.props.setMousePointer(0);
       }
       // const pointer = this.props.mouse.type === "hover" ? 2 : 0;
@@ -80,8 +88,8 @@ export const mouseShell = Page => {
       const styles = StyleSheet.create({
         wrapper: {
           width: "100vw",
-          height: "100vh",
-          cursor: "none"
+          height: "100vh"
+          // cursor: "none"
         },
         default: {
           position: "absolute",
@@ -110,7 +118,7 @@ export const mouseShell = Page => {
           transform: "translate(-50%,-50%)"
         },
         outerCircleMouseDefault: {
-          cursor: "none",
+          // cursor: "none",
           pointerEvents: "none",
           height: "85px",
           width: "85px",
@@ -128,7 +136,7 @@ export const mouseShell = Page => {
           animationFillMode: "forwards"
         },
         outerCircleMouseClick: {
-          cursor: "none",
+          // cursor: "none",
           pointerEvents: "none",
           height: "85px",
           width: "85px",
@@ -138,12 +146,11 @@ export const mouseShell = Page => {
           borderColor: "rgba(248,248,248,.6)",
           borderRadius: "50%",
           position: "absolute",
-          top: this.props.mouse.coordinates.y,
-          left: this.props.mouse.coordinates.x,
+          top: this.props.mouse.coordinates.y - 42.5,
+          left: this.props.mouse.coordinates.x - 42.5,
           animationName: [translateKeyframes],
           animationDuration: "750ms, 500ms",
-          animationIterationCount: "1",
-          transform: "translate(-50%,-50%)"
+          animationIterationCount: "1"
         },
         mouseClick: {
           position: "relative",
