@@ -9,8 +9,8 @@ import { styles } from "../styles/headerMenu";
 
 class HeaderMenu extends Component {
   state = {
-    activeItem: "HOME",
-    home: ["FABIANO S. CUNHA", "GO BACK HOME"]
+    activeItem: "WORK",
+    firstRender: true
   };
 
   handleItemClick = (e, { name }) => {
@@ -20,7 +20,7 @@ class HeaderMenu extends Component {
 
   handleMouseEnter = e => {
     if (e.target.name == "HOME") {
-      this.setState({ activeItem: "HOME" });
+      this.setState({ activeItem: "HOME", firstRender: false });
     }
     this.props.setPointerType("hover");
   };
@@ -30,21 +30,29 @@ class HeaderMenu extends Component {
   };
   render() {
     const { activeItem } = this.state;
-
     return (
-      <div className="ui text menu" style={{ height: "5vh" }}>
+      <div className="ui text menu">
         <NavLink
           name="HOME"
           to="/home"
-          className={css(styles.navLink) + " " + "header item"}
+          className={css(styles.homeLink) + " " + "header item"}
           onMouseEnter={this.handleMouseEnter}
           onMouseLeave={this.handleMouseLeave}
         >
-          <span className={css(styles.home)}>
-            {this.state.activeItem == "HOME"
-              ? this.state.home[1]
-              : this.state.home[0]}
-          </span>
+          <div className={css(styles.container)}>
+            <div
+              className={css(
+                this.state.firstRender
+                  ? styles.homeDivFirstRender
+                  : this.state.activeItem == "HOME"
+                    ? styles.homeDivBack
+                    : styles.homeDivFront
+              )}
+            >
+              <span className={css(styles.back)}>GO BACK HOME</span>
+              <span className={css(styles.front)}>FABIANO CUNHA</span>
+            </div>
+          </div>
         </NavLink>
         <div className="right menu">
           <NavLink

@@ -1,18 +1,82 @@
 import { StyleSheet } from "aphrodite";
 import { screenSize } from "./screenSizes";
-import { leftScreenRound, disappear, flyLeft, rotate } from "./animations";
+import {
+  leftScreenRound,
+  disappear,
+  flyLeft,
+  rotate,
+  rotateYby,
+  rotateFront
+} from "./animations";
 
 export const styles = StyleSheet.create({
   // Divs
-  home: {
+  hover: {
     ":hover": {
+      backfaceVisibility: "hidden",
       animationName: [rotate],
-      animationDuration: "3s",
+      animationDuration: "2s",
       animationIterationCount: "1"
     }
   },
   navLink: {
-    cursor: "none",
-    styles: "none"
+    ":any-link": {
+      height: "5vh",
+      // cursor: "none",
+      styles: "none"
+    }
+  },
+  homeLink: {
+    width: "15em",
+    height: "2em"
+  },
+  container: {
+    position: "relative",
+    perspective: "800px",
+    width: "13em",
+    height: "1em",
+    textAlign: "center"
+  },
+  homeDivFirstRender: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    transformStyle: "preserve-3d"
+  },
+  homeDivBack: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    transformStyle: "preserve-3d",
+    animationFillMode: "forwards",
+    animationName: [rotateYby(180)],
+    animationDuration: "2s",
+    animationIterationCount: "1"
+  },
+  homeDivFront: {
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    transformStyle: "preserve-3d",
+    animationName: [rotateFront],
+    animationDuration: "1s",
+    animationIterationCount: "1"
+  },
+  front: {
+    margin: 0,
+    display: "block",
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    backfaceVisibility: "hidden"
+  },
+  back: {
+    margin: 0,
+    display: "block",
+    position: "absolute",
+    width: "100%",
+    height: "100%",
+    backfaceVisibility: "hidden",
+    transform: "rotateY( 180deg )"
   }
 });

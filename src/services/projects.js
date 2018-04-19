@@ -12,7 +12,11 @@ export default [
   Clarifai Image Recognition to analyze pictures
   Custom CSS
   `,
-    webSiteUrl: "www.mywebsite.com",
+    links: [
+      //   { name: "Demo", url: "www.thisdemo.com" },
+      //   { name: "GitHub", url: "www.github" },
+      //   { name: "WebSite", url: "www.mywebsite.com" }
+    ],
     media: {
       featured: ["pexels-photo-316466.jpeg"],
       wall: [
@@ -70,7 +74,18 @@ Styling of application was done using a combination of Semantics and Custom Css,
     Bootstrap for styling
     Sessions for authentication
     Image Recognition`,
-    webSiteUrl: "www.mywebsite.com",
+    links: [
+      {
+        name: "Slides",
+        url:
+          "https://docs.google.com/presentation/d/e/2PACX-1vRv3HvnfityJBw-2IKPUBmf-GX7DGt-zoLzKQYZ_JtQovACJEZ8Hiu-UaeTGdIJ-Z6B34UOJof57g84/pub?start=true&loop=false&delayms=3000"
+      },
+      {
+        name: "Demo",
+        url: "https://www.youtube.com/watch?v=bDJMm85v9so&feature=youtu.be"
+      },
+      { name: "GitHub", url: "https://github.com/cunhasb/mod2_project" }
+    ],
     media: {
       video: "2017-12-15 05_33_41.gif",
       featured: ["pexels-photo-583846.jpeg"],
@@ -119,7 +134,17 @@ Once you had your profile built you would be matched with other users that share
     Artsy API Gallery
     Presentation of Art Pieces in the terminal using Catpix
     `,
-    webSiteUrl: "www.mywebsite.com",
+    links: [
+      {
+        name: "Demo",
+        url: "https://www.youtube.com/watch?v=4bzTFbhLY1w&feature=youtu.be"
+      },
+      {
+        name: "GitHub",
+        url:
+          "https://github.com/liamkillion/module-one-final-project-guidelines-web-100817"
+      }
+    ],
     media: {
       featured: ["pexels-photo-316466.jpeg"],
       wall: [
@@ -153,7 +178,12 @@ Application used Artsy API for displaying art pieces and worked around paginatio
     SQL Expression Builder
     Over 20 Pre-made Reports
     `,
-    webSiteUrl: "www.mywebsite.com",
+    links: [
+      {
+        name: "Demo",
+        url: "https://www.youtube.com/watch?v=_w49oobvP_Y&feature=youtu.be"
+      }
+    ],
     media: {
       video: "2017-12-15 05_33_41.gif",
       featured: ["pexels-photo-585752.jpeg"],

@@ -16,10 +16,10 @@ export const styles = StyleSheet.create({
   },
   innerDiv: {
     position: "absolute",
-    top: "50%",
+    top: "55%",
     left: "50%",
-    width: "40%",
-    height: "25vw",
+    width: "60%",
+    height: "35vw",
     backgroundColor: "rgba(250,250,250,0.6)",
     transform: "translate(-50%,-50%)",
     transformStyle: "preserve-3d",
@@ -29,7 +29,7 @@ export const styles = StyleSheet.create({
   },
   headerDiv: {
     position: "absolute",
-    top: "50%",
+    top: "55%",
     left: "50%",
     transform: "translate(-50%,-50%)",
     animationName: [disappear],

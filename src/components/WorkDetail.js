@@ -202,6 +202,14 @@ class WorkDetails extends React.Component {
                 <p style={{ whiteSpace: "pre-line" }}>
                   {this.props.project.keyPoints}
                 </p>
+                <Header>Links</Header>
+                {this.props.project.links.map(el => {
+                  return (
+                    <a style={{ padding: "10px" }} href={el.url}>
+                      {el.name}
+                    </a>
+                  );
+                })}
               </Segment>
             </Grid.Column>
             <Grid.Column>
@@ -209,7 +217,6 @@ class WorkDetails extends React.Component {
                 basic
                 style={{
                   backgroundImage: `url('/images/pexels-photo-534273.png')`,
-                  // backgroundColor: "red",
                   backgroundSize: "contain",
                   backgroundRepeat: "no-repeat",
                   backgroundPosition: "center",

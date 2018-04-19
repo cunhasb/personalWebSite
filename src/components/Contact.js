@@ -22,7 +22,7 @@ class Contact extends Component {
     return (
       <div className={css(styles.outerWrapper)}>
         <Tilt
-          classname={css(styles.outerTilt)}
+          className={css(styles.outerTilt)}
           options={{ scale: 1, reverse: true, max: 35 }}
         >
           <div className={css(styles.innerDiv)} />
@@ -40,7 +40,7 @@ class Contact extends Component {
             <p>
               {this.props.linkedIn.text}
               <a className={css(styles.a)} href={this.props.linkedIn.href}>
-                linkedIn
+                LinkedIn
               </a>{" "}
               <a className={css(styles.a)} href={this.props.github.href}>
                 Github
@@ -50,6 +50,12 @@ class Contact extends Component {
               {this.props.phone.text}
               <a className={css(styles.a)} href={this.props.phone.href}>
                 phone
+              </a>
+            </p>
+            <p>
+              {this.props.resume.text}
+              <a className={css(styles.a)} href={this.props.resume.href}>
+                resume
               </a>
             </p>
           </Header>

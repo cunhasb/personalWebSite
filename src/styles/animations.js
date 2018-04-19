@@ -93,7 +93,20 @@ export const flyLeft = {
   "100%": { transform: "translatteX(0%)", opacity: 1 }
 };
 export const rotate = {
-  "0%": { content: "Fabiano S. Cunha", transform: "rotateY(0deg)" },
-  "50%": { transform: "rotateY(270deg)" },
+  "0%": { transform: "rotateY(0deg)" },
+  "100%": { transform: "rotateY(360deg)" }
+};
+
+export const rotateYby = deg => {
+  return {
+    "0%": { transform: "rotateY(0deg)" },
+    "100%": { transform: `rotateY(${deg}deg)` }
+  };
+};
+
+export const rotateFront = {
+  "0%": { transform: "rotateY(180deg)" },
+  "50%": { transform: "rotateY(90deg)" },
+  "75%": { transform: "rotateY(45deg)" },
   "100%": { transform: "rotateY(0deg)" }
 };

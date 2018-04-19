@@ -229,7 +229,7 @@ class About extends React.Component {
           </div>
         </Tilt>
         <div className={css(styles.headerContainer)}>
-          <Header style={{ fontSize: "1.5vw" }}>
+          <Header style={{ fontSize: "1.5vw", whiteSpace: "pre-wrap" }}>
             {this.props.parameters.about}
           </Header>
           <VisitorPictures
