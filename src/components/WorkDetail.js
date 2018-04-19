@@ -70,6 +70,7 @@ class WorkDetails extends React.Component {
       )[0];
       this.props.setSelectedProject(project);
     }
+    this.props.setPointerType("scroll");
   }
 
   render() {
@@ -205,7 +206,12 @@ class WorkDetails extends React.Component {
                 <Header>Links</Header>
                 {this.props.project.links.map(el => {
                   return (
-                    <a style={{ padding: "10px" }} href={el.url}>
+                    <a
+                      style={{ cursor: "none", padding: "10px" }}
+                      onMouseEnter={() => this.props.setPointerType("hover")}
+                      onMouseLeave={() => this.props.setPointerType("default")}
+                      href={el.url}
+                    >
                       {el.name}
                     </a>
                   );

@@ -7,6 +7,7 @@ import {
   analyzePicture,
   savePictureData
 } from "../actions/clarifaiActions";
+import { setPointerType } from "../actions";
 import {
   Image,
   Segment,
@@ -219,6 +220,8 @@ class About extends React.Component {
                     className={css(styles.image)}
                     onMouseOver={this.handleMouseOver}
                     onClick={this.handleClick}
+                    onMouseEnter={() => this.props.setPointerType("hover")}
+                    onMouseLeave={() => this.props.setPointerType("default")}
                     src={`${require(`../images/parameters/${
                       this.state.picture
                     }`)}`}
@@ -256,5 +259,6 @@ export default connect(mapStateToProps, {
   takePicture,
   startClient,
   analyzePicture,
-  savePictureData
+  savePictureData,
+  setPointerType
 })(About);

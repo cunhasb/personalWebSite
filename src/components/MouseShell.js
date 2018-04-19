@@ -14,6 +14,12 @@ export const mouseShell = Page => {
           y: e.pageY
         });
         this.props.setMousePointer(2);
+      } else if (this.props.mouse.type == "scroll") {
+        this.props.setMouseCoordinates({
+          x: e.pageX,
+          y: e.pageY
+        });
+        this.props.setMousePointer(1);
       } else {
         this.props.setMouseCoordinates({
           x: e.pageX,
