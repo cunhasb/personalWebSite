@@ -88,8 +88,8 @@ export const mouseShell = Page => {
       const styles = StyleSheet.create({
         wrapper: {
           width: "100vw",
-          height: "100vh"
-          // cursor: "none"
+          height: "100vh",
+          cursor: "none"
         },
         default: {
           position: "absolute",
@@ -118,7 +118,7 @@ export const mouseShell = Page => {
           transform: "translate(-50%,-50%)"
         },
         outerCircleMouseDefault: {
-          // cursor: "none",
+          cursor: "none",
           pointerEvents: "none",
           height: "85px",
           width: "85px",
@@ -136,7 +136,7 @@ export const mouseShell = Page => {
           animationFillMode: "forwards"
         },
         outerCircleMouseClick: {
-          // cursor: "none",
+          cursor: "none",
           pointerEvents: "none",
           height: "85px",
           width: "85px",
@@ -151,6 +151,7 @@ export const mouseShell = Page => {
           animationName: [translateKeyframes],
           animationDuration: "750ms, 500ms",
           animationIterationCount: "1"
+          // transform: "translate(-50%,-50%)"
         },
         mouseClick: {
           position: "relative",

@@ -7,6 +7,7 @@ export const styles = StyleSheet.create({
   outerWrapper: {
     bottom: "0px",
     position: "absolute",
+    width: "85vw",
     height: "10vh",
 
     [screenSize.portrait]: {
