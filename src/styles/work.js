@@ -12,7 +12,7 @@ export const styles = StyleSheet.create({
     animationIterationCount: "1"
   },
   navLink: {
-    // cursor: "none",
+    cursor: "none",
     styles: "none",
     fontSize: "2vw",
     ":hover": {
@@ -93,7 +93,7 @@ export const styles = StyleSheet.create({
     perspective: "3000px"
   },
   image: {
-    // cursor: "none",
+    cursor: "none",
     position: "absolute",
     marginLeft: "3%",
     top: "5%",

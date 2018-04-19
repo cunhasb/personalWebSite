@@ -5,6 +5,7 @@ import { leftScreenRound, disappear, flyLeft } from "./animations";
 export const styles = StyleSheet.create({
   // Divs
   outerWrapper: {
+    cursor: "none",
     position: "relative",
     left: "-10vw",
     width: "100vw",
@@ -52,5 +53,5 @@ export const styles = StyleSheet.create({
     animationIterationCount: "1"
   },
   // Links
-  a: { color: "red" }
+  a: { cursor: "none", color: "red" }
 });

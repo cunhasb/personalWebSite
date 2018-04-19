@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Header } from "semantic-ui-react";
 import { connect } from "react-redux";
 import Tilt from "react-tilt";
+import { setPointerType } from "../actions/";
 import { styles } from "../styles/contact";
 import { css } from "aphrodite";
 
@@ -33,28 +34,53 @@ class Contact extends Component {
 
             <p>
               {this.props.email.text}
-              <a className={css(styles.a)} href={this.props.email.href}>
+              <a
+                className={css(styles.a)}
+                onMouseEnter={() => this.props.setPointerType("hover")}
+                onMouseLeave={() => this.props.setPointerType("default")}
+                href={this.props.email.href}
+              >
                 email
               </a>
             </p>
             <p>
               {this.props.linkedIn.text}
-              <a className={css(styles.a)} href={this.props.linkedIn.href}>
+              <a
+                className={css(styles.a)}
+                onMouseEnter={() => this.props.setPointerType("hover")}
+                onMouseLeave={() => this.props.setPointerType("default")}
+                href={this.props.linkedIn.href}
+              >
                 LinkedIn
               </a>{" "}
-              <a className={css(styles.a)} href={this.props.github.href}>
+              <a
+                className={css(styles.a)}
+                onMouseEnter={() => this.props.setPointerType("hover")}
+                onMouseLeave={() => this.props.setPointerType("default")}
+                href={this.props.github.href}
+              >
                 Github
               </a>
             </p>
             <p>
               {this.props.phone.text}
-              <a className={css(styles.a)} href={this.props.phone.href}>
+              <a
+                className={css(styles.a)}
+                onMouseEnter={() => this.props.setPointerType("hover")}
+                onMouseLeave={() => this.props.setPointerType("default")}
+                href={this.props.phone.href}
+              >
                 phone
               </a>
             </p>
             <p>
               {this.props.resume.text}
-              <a className={css(styles.a)} href={this.props.resume.href}>
+              <a
+                className={css(styles.a)}
+                onMouseEnter={() => this.props.setPointerType("hover")}
+                onMouseLeave={() => this.props.setPointerType("default")}
+                href={this.props.resume.href}
+              >
                 resume
               </a>
             </p>
@@ -67,4 +93,4 @@ class Contact extends Component {
 const mapStateToProps = store => {
   return store.parameters.contact;
 };
-export default connect(mapStateToProps)(Contact);
+export default connect(mapStateToProps, { setPointerType })(Contact);
