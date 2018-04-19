@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
     width: "100vw",
     left: "-12.5%",
     position: "relative",
+    cursor: "none",
     pointerEvents: "none",
     animationName: [leftScreen],
     animationDuration: "5s",

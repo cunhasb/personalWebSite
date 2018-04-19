@@ -21,6 +21,7 @@ class Footer extends Component {
       <div className={css(styles.outerWrapper)}>
         <Menu text>
           <Menu.Item
+            className={css(styles.menuItem)}
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
             href="https://www.linkedin.com/in/fabiano-cunha/"
@@ -28,6 +29,7 @@ class Footer extends Component {
             <Icon name="linkedin" />
           </Menu.Item>
           <Menu.Item
+            className={css(styles.menuItem)}
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
             href="https://github.com/cunhasb"
@@ -35,6 +37,7 @@ class Footer extends Component {
             <Icon name="github" />
           </Menu.Item>
           <Menu.Item
+            className={css(styles.menuItem)}
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
             href="https://medium.com/@cunhasb"
@@ -42,6 +45,7 @@ class Footer extends Component {
             <Icon name="medium" />
           </Menu.Item>
           <Menu.Item
+            className={css(styles.menuItem)}
             onMouseEnter={this.handleMouseEnter}
             onMouseLeave={this.handleMouseLeave}
             href="mailto:fabianocunhadev@gmail.com?subject=More%20Info"

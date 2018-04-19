@@ -5,6 +5,7 @@ import { leftScreen, disappear } from "./animations";
 export const styles = StyleSheet.create({
   // Divs
   outerWrapper: {
+    cursor: "none",
     bottom: "0px",
     position: "absolute",
     width: "85vw",
@@ -15,5 +16,8 @@ export const styles = StyleSheet.create({
       padding: "0px",
       position: "relative"
     }
+  },
+  menuItem: {
+    cursor: "none"
   }
 });
