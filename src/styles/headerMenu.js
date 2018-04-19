@@ -22,11 +22,12 @@ export const styles = StyleSheet.create({
   navLink: {
     ":any-link": {
       height: "5vh",
-      // cursor: "none",
+      cursor: "none",
       styles: "none"
     }
   },
   homeLink: {
+    cursor: "none",
     width: "15em",
     height: "2em"
   },
