@@ -26,7 +26,8 @@ export const styles = StyleSheet.create({
     transformStyle: "preserve-3d",
     animationName: [disappear],
     animationDuration: "5s",
-    animationIterationCount: "1"
+    animationIterationCount: "1",
+    cursor: "none"
   },
   headerDiv: {
     position: "absolute",
@@ -35,13 +36,15 @@ export const styles = StyleSheet.create({
     transform: "translate(-50%,-50%)",
     animationName: [disappear],
     animationDuration: "5s",
-    animationIterationCount: "1"
+    animationIterationCount: "1",
+    cursor: "none"
   },
 
   // Tilts
   outerTilt: {
     width: "100%",
-    height: "100%"
+    height: "100%",
+    cursor: "none"
   },
 
   // Header
@@ -50,7 +53,8 @@ export const styles = StyleSheet.create({
     animationName: [flyLeft],
     animationDelay: "3s",
     animationDuration: "5s",
-    animationIterationCount: "1"
+    animationIterationCount: "1",
+    cursor: "none"
   },
   // Links
   a: { cursor: "none", color: "red" }
