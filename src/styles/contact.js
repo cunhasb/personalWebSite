@@ -49,6 +49,8 @@ export const styles = StyleSheet.create({
 
   // Header
   header: {
+    color: "#111",
+    textShadow: "2px 2px 2px #000",
     fontSize: "3vw",
     animationName: [flyLeft],
     animationDelay: "3s",

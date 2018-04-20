@@ -49,6 +49,7 @@ class Contact extends Component {
                 className={css(styles.a)}
                 onMouseEnter={() => this.props.setPointerType("hover")}
                 onMouseLeave={() => this.props.setPointerType("default")}
+                target="_blank"
                 href={this.props.linkedIn.href}
               >
                 LinkedIn
@@ -57,6 +58,7 @@ class Contact extends Component {
                 className={css(styles.a)}
                 onMouseEnter={() => this.props.setPointerType("hover")}
                 onMouseLeave={() => this.props.setPointerType("default")}
+                target="_blank"
                 href={this.props.github.href}
               >
                 Github
@@ -68,6 +70,7 @@ class Contact extends Component {
                 className={css(styles.a)}
                 onMouseEnter={() => this.props.setPointerType("hover")}
                 onMouseLeave={() => this.props.setPointerType("default")}
+                target="_blank"
                 href={this.props.phone.href}
               >
                 phone
@@ -79,6 +82,7 @@ class Contact extends Component {
                 className={css(styles.a)}
                 onMouseEnter={() => this.props.setPointerType("hover")}
                 onMouseLeave={() => this.props.setPointerType("default")}
+                target="_blank"
                 href={this.props.resume.href}
               >
                 resume

@@ -11,15 +11,26 @@ import {
 import Tilt from "react-tilt";
 import { css } from "aphrodite";
 import { styles } from "../styles/home";
+import { connect } from "react-redux";
 
-export default class Home extends Component {
+class Home extends Component {
   state = { animation: "scale", duration: 4000, visible: false };
 
   handleVisibility = () => this.setState({ visible: !this.state.visible });
   componentDidMount() {
     this.setState({ visible: !this.state.visible });
   }
+  // <p>{"I believe that with hard-work, creativity, and an"}</p>
+  // <p className={css(styles.m3)}>
+  //   {"extra dose of perseverance, all things are possible."}
+  // </p>
+  //
+  // <p className={css(styles.m6)}>
+  //   {"I'm Fabiano a Fullstack Developer."}
+  // </p>
+  // <p className={css(styles.m9)}>{"What do you believe in?"}</p>
   render() {
+    console.log("home props", this.props);
     return (
       <div className={css(styles.outerWrapper)}>
         <div className={css(styles.leftDiv)} />
@@ -45,15 +56,7 @@ export default class Home extends Component {
             >
               {this.state.visible && (
                 <Header className={css(styles.header)}>
-                  <p>{"I believe that with hard-work, creativity, and an"}</p>
-                  <p className={css(styles.m3)}>
-                    {"extra dose of perseverance, all things are possible."}
-                  </p>
-
-                  <p className={css(styles.m6)}>
-                    {"I'm Fabiano a Fullstack Developer."}
-                  </p>
-                  <p className={css(styles.m9)}>{"What do you believe in?"}</p>
+                  {this.props.home}
                 </Header>
               )}
             </Transition.Group>
@@ -63,3 +66,7 @@ export default class Home extends Component {
     );
   }
 }
+const mapstateToProps = store => {
+  return store.parameters;
+};
+export default connect(mapstateToProps)(Home);

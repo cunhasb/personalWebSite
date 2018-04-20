@@ -5,6 +5,7 @@ import { leftScreen, disappear } from "./animations";
 export const styles = StyleSheet.create({
   // Divs
   outerWrapper: {
+    color: "#111",
     cursor: "none",
     bottom: "0px",
     position: "absolute",
@@ -15,9 +16,19 @@ export const styles = StyleSheet.create({
       margin: "0px",
       padding: "0px",
       position: "relative"
+    },
+    [screenSize.smartphoneLandscape]: {
+      height: "16vh"
     }
   },
   menuItem: {
-    cursor: "none"
+    cursor: "none",
+    margin: "0px",
+    padding: "0px"
+  },
+  copyright: {
+    [screenSize.smartphone]: {
+      fontSize: "1em"
+    }
   }
 });

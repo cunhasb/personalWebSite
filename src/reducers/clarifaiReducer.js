@@ -7,7 +7,6 @@ export default (
   },
   action
 ) => {
-  console.log("clarifai reducer", action);
   switch (action.type) {
     case "SAVE_CLIENT": {
       return {

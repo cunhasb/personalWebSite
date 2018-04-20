@@ -31,7 +31,7 @@ class HeaderMenu extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <div className="ui text menu">
+      <div className={css(styles.menu) + " " + "ui text menu"}>
         <NavLink
           name="HOME"
           to="/home"

@@ -1,5 +1,6 @@
 import { StyleSheet } from "aphrodite";
 import { openCloseOpen, disappear, flyLeft, blink } from "./animations";
+import { screenSize } from "./screenSizes";
 
 export const styles = StyleSheet.create({
   // Divs
@@ -14,7 +15,10 @@ export const styles = StyleSheet.create({
     color: "white",
     // textShadow: "0px 0px 2px #43AABA",
     textShadow: "4px 4px 4px #000",
-    marginTop: "15%"
+    marginTop: "15%",
+    [screenSize.smartphoneLandscape]: {
+      fontSize: ".65em"
+    }
   },
   divFeaturedHeader: {
     position: "relative",
@@ -56,7 +60,10 @@ export const styles = StyleSheet.create({
     width: "85vw",
     height: "4vw",
     position: "relative",
-    top: "80%"
+    top: "80%",
+    [screenSize.smartphoneLandscape]: {
+      top: "70%"
+    }
   },
   chevronContainer2: {
     left: "50%",
@@ -96,6 +103,11 @@ export const styles = StyleSheet.create({
     animationDelay: "6.5s",
     animationDuration: "4",
     animationIterationCount: "1"
+  },
+  container: {
+    float: "right",
+    width: "78%",
+    marginBottom: "8%"
   },
   // Links
   navLink: {

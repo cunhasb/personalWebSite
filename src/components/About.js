@@ -214,18 +214,32 @@ class About extends React.Component {
                   options={{ max: 1, scale: 1, reverse: true }}
                 />
               </Responsive>
-              <Tilt options={{ max: 10, scale: 1, reverse: true }}>
+              <Tilt
+                options={{
+                  max: 10,
+                  scale: 1,
+                  reverse: true
+                }}
+              >
                 <Ref innerRef={node => this.setState({ node })}>
-                  <Image
-                    className={css(styles.image)}
-                    onMouseOver={this.handleMouseOver}
-                    onClick={this.handleClick}
-                    onMouseEnter={() => this.props.setPointerType("hover")}
-                    onMouseLeave={() => this.props.setPointerType("default")}
-                    src={`${require(`../images/parameters/${
-                      this.state.picture
-                    }`)}`}
-                  />
+                  <div
+                    style={{
+                      marginLeft: "10vw",
+                      width: "80%"
+                      // backgroundColor: "green"
+                    }}
+                  >
+                    <Image
+                      className={css(styles.image)}
+                      onMouseOver={this.handleMouseOver}
+                      onClick={this.handleClick}
+                      onMouseEnter={() => this.props.setPointerType("hover")}
+                      onMouseLeave={() => this.props.setPointerType("default")}
+                      src={`${require(`../images/parameters/${
+                        this.state.picture
+                      }`)}`}
+                    />
+                  </div>
                 </Ref>
               </Tilt>
             </div>

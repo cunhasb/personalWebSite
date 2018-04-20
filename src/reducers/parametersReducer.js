@@ -1,6 +1,7 @@
 export default (
   state = {
     about: "",
+    home: "",
     followingPictures: {},
     mouse: { coordinates: { x: 0, y: 0 } },
     contact: "",
@@ -15,6 +16,7 @@ export default (
     case "SET_MOUSE_COORDINATES": {
       return {
         about: state.about,
+        home: state.home,
         followingPictures: state.followingPictures,
         mouse: {
           coordinates: { x: action.coordinates.x, y: action.coordinates.y }

@@ -80,13 +80,7 @@ class WorkDetails extends React.Component {
           <Visibility onUpdate={this.handleUpdate}>
             <Grid.Row className={css(styles.firstRow)} textAlign="center">
               <div>
-                <Container
-                  style={{
-                    float: "right",
-                    width: "78%",
-                    marginBottom: "8%"
-                  }}
-                >
+                <Container className={css(styles.container)}>
                   <Image
                     fluid
                     src={require(`../images/${
@@ -182,7 +176,7 @@ class WorkDetails extends React.Component {
                 />
               </div>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column only="computer tablet">
               <Sticky
                 bottomOffset={10}
                 context={this.state.contextRef}
@@ -213,6 +207,7 @@ class WorkDetails extends React.Component {
                       onMouseEnter={() => this.props.setPointerType("hover")}
                       onMouseLeave={() => this.props.setPointerType("default")}
                       href={el.url}
+                      target="_blank"
                     >
                       {el.name}
                     </a>

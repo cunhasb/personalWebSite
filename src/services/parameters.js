@@ -1,10 +1,19 @@
 export default {
-  about: `Full Stack web developer who believes that with sweat, hard-work, creativity, and an extra dose of patience, all things are possible.
+  about: `Full Stack web developer based in the Jersey Shore who believes that with sweat, hard-work, creativity, and an extra dose of patience, all things are possible.
 
   Experience in Ruby, Javascript, Python, HTML and CSS programming languages, and in React, Redux, Flask, Gvinci frameworks and libraries with a  background in Electronics and Construction.
 
   My previous work and experience gives me an understanding of the commercial needs of small business while providing first class customer service.
+
+  I am a learner by heart and love new challenges. I'm excited to potentially bring my knowledge and experience to you, and possibly contribute to you or your  organization in a meaningful way.
 `,
+  home: `I believe that with hard-work, creativity, and an
+
+       extra dose of perseverance, all things are possible.
+
+                 I'm Fabiano a Fullstack Developer.
+                 
+                                What do you believe in?`,
   clarifai: {
     demographics: {
       gender: `Let's begin by your gender appearance, I would say that I'm pretty confident your appear to be `,

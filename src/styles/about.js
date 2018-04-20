@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
   outerWrapper: {
     position: "relative",
     left: "-5vw",
-    height: "87vh",
+    height: "86vh",
     width: "89vw",
     animationName: [leftScreenRound],
     animationDuration: "5s",
@@ -25,7 +25,7 @@ export const styles = StyleSheet.create({
   },
   imageContainer: {
     position: "absolute",
-    width: "45%",
+    width: "55%",
     top: "50%",
     left: "0%",
     transform: "translateY(-50%)",
@@ -53,17 +53,20 @@ export const styles = StyleSheet.create({
   outerTilt: {
     width: "100%",
     height: "100%"
+    // backgroundColor: "red"
   },
   imageTilt: {
+    left: "10vw",
     bottom: "0px",
-    width: "100%",
+    width: "80%",
     height: "50%",
     position: "absolute",
     backgroundColor: "rgba(250,250,250,0.6)"
   },
   image: {
+    // position: "absolute",
     maxWidth: "100%",
-    height: "auto",
+    height: "70vh",
     animationName: [disappear],
     animationDuration: "5s",
     animationIterationCount: "1",

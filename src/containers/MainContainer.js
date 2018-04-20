@@ -81,7 +81,13 @@ class MainContainer extends Component {
               return <Work key={this.props.location.key} />;
             }}
           />
-          <Route path="/" component={Home} />
+          <Route
+            path="/"
+            render={() => {
+              !this.props.parameters.home ? this.props.getParameters() : null;
+              return <Home key={this.props.location.key} />;
+            }}
+          />
         </Switch>
         <Footer style={{ position: "fixed", bottom: "0px" }} />
       </Container>

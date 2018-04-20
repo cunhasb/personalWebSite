@@ -117,9 +117,12 @@ export const styles = StyleSheet.create({
   header: {
     position: "relative",
     marginTop: "20vh",
-    left: "10vw",
-    fontSize: "2vw",
+    left: "5vw",
+    whiteSpace: "pre-wrap",
+    color: "#111",
+    fontSize: "2.25vw",
     pointerEvents: "none",
+    textShadow: "2px 2px 4px #fff",
     [screenSize.portrait]: {
       left: "0px",
       marginTop: "5%"

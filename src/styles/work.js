@@ -9,12 +9,17 @@ export const styles = StyleSheet.create({
     height: "75vh",
     animationName: [openCloseOpen],
     animationDuration: "5s",
-    animationIterationCount: "1"
+    animationIterationCount: "1",
+    [screenSize.smartphoneLandscape]: {
+      backgroundColor: "blue"
+    }
   },
   navLink: {
     cursor: "none",
     styles: "none",
-    fontSize: "2vw",
+    fontSize: "3vw",
+    color: "white",
+    textShadow: "4px 4px 4px #000",
     ":hover": {
       transform: "translateX(50px)",
       fontSize: "3vw"

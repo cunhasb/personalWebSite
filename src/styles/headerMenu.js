@@ -19,23 +19,31 @@ export const styles = StyleSheet.create({
       animationIterationCount: "1"
     }
   },
+  menu: {
+    [screenSize.smartphone]: {
+      fontSize: "2vw"
+    },
+    [screenSize.smartphoneLandscape]: {
+      fontSize: "2vw"
+    }
+  },
   navLink: {
     ":any-link": {
       height: "5vh",
       cursor: "none",
-      styles: "none"
+      styles: "none",
+      fontSize: "1.5em"
     }
   },
   homeLink: {
     cursor: "none",
-    width: "15em",
     height: "2em"
   },
   container: {
     pointerEvents: "none",
     position: "relative",
     perspective: "800px",
-    width: "13em",
+    width: "18em",
     height: "2em",
     textAlign: "center"
   },
@@ -70,7 +78,10 @@ export const styles = StyleSheet.create({
     position: "absolute",
     width: "100%",
     height: "100%",
-    backfaceVisibility: "hidden"
+    backfaceVisibility: "hidden",
+    [screenSize.smartphone]: {
+      fontSize: "2em"
+    }
   },
   back: {
     margin: 0,
@@ -79,6 +90,9 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     backfaceVisibility: "hidden",
-    transform: "rotateY( 180deg )"
+    transform: "rotateY( 180deg )",
+    [screenSize.smartphone]: {
+      fontSize: "2em"
+    }
   }
 });
