@@ -18,6 +18,9 @@ export const styles = StyleSheet.create({
     marginTop: "15%",
     [screenSize.smartphoneLandscape]: {
       fontSize: ".65em"
+    },
+    [screenSize.portrait]: {
+      marginTop: "50%"
     }
   },
   divFeaturedHeader: {
@@ -107,7 +110,10 @@ export const styles = StyleSheet.create({
   container: {
     float: "right",
     width: "78%",
-    marginBottom: "8%"
+    marginBottom: "8%",
+    [screenSize.portrait]: {
+      marginTop: "50%"
+    }
   },
   // Links
   navLink: {
