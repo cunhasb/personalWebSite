@@ -3,6 +3,7 @@ export const styles = () => {
     header: {
       fontSize: "4em",
       color: "white",
+      textShadow: "4px 4px 4px #000",
       position: "absolute",
       marginTop: "-37.2%",
       left: "0",

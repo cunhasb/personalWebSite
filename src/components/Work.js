@@ -126,24 +126,30 @@ class Work extends React.Component {
   render() {
     const projectsList = this.props.projects.map(project => {
       return (
-        <List.Item
-          onMouseOver={() => this.handleMouseOver(project)}
-          onMouseEnter={() => this.props.setPointerType("hover")}
+        <div
+          style={{ paddingLeft: "2%" }}
+          onMouseEnter={() => {
+            this.handleMouseOver(project);
+            this.props.setPointerType("hover");
+          }}
           onMouseLeave={() => this.props.setPointerType("default")}
           key={project.id}
-          className={css(
-            this.props.selectedProject.id === project.id ? styles.active : ""
-          )}
         >
-          <List.Content>
-            <Link
-              className={`${css(styles.navLink)} ui header`}
-              to={`/work/${this.props.selectedProject.route}`}
-            >
-              <List.Header>{project.name}</List.Header>
-            </Link>
-          </List.Content>
-        </List.Item>
+          <List.Item
+            className={css(
+              this.props.selectedProject.id === project.id ? styles.active : ""
+            )}
+          >
+            <List.Content>
+              <Link
+                className={`${css(styles.navLink)} ui header`}
+                to={`/work/${this.props.selectedProject.route}`}
+              >
+                <List.Header>{project.name}</List.Header>
+              </Link>
+            </List.Content>
+          </List.Item>
+        </div>
       );
     });
     return (
@@ -168,7 +174,7 @@ class Work extends React.Component {
                     onMouseLeave={this.handleHide}
                     to={`/work/${this.props.selectedProject.route}`}
                   >
-                    <span className={css(styles.seeIt)}>See it...</span>
+                    <h1 className={css(styles.seeIt)}>See it...</h1>
                   </Link>
                 </Transition>
               </div>

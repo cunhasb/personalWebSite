@@ -36,18 +36,15 @@ class NavSiblings extends React.Component {
     // debugger;
     let y = window.pageYOffset;
     if (y > 0) {
-      window.scroll(0, window.pageYOffset - 5);
-      console.log(y);
+      window.scroll(0, window.pageYOffset - 10);
     } else {
       clearInterval(timer);
-      console.log(timer);
       this.props.history.push(`/work/${project.route}`);
       this.props.setSelectedProject(project);
     }
   };
   handleClick = (e, project) => {
     let timer = setInterval(() => this.scrollTimer(timer, project), 1);
-    console.log("timer", timer);
     // debugger;
   };
 

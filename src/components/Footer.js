@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Menu, Icon } from "semantic-ui-react";
+import { Menu, Icon, Header } from "semantic-ui-react";
 import { styles } from "../styles/footer";
 import { css } from "aphrodite";
 import { connect } from "react-redux";
@@ -26,7 +26,7 @@ class Footer extends Component {
             onMouseLeave={this.handleMouseLeave}
             href="https://www.linkedin.com/in/fabiano-cunha/"
           >
-            <Icon name="linkedin" />
+            <Icon size="big" name="linkedin" />
           </Menu.Item>
           <Menu.Item
             className={css(styles.menuItem)}
@@ -34,7 +34,7 @@ class Footer extends Component {
             onMouseLeave={this.handleMouseLeave}
             href="https://github.com/cunhasb"
           >
-            <Icon name="github" />
+            <Icon size="big" name="github" />
           </Menu.Item>
           <Menu.Item
             className={css(styles.menuItem)}
@@ -42,7 +42,7 @@ class Footer extends Component {
             onMouseLeave={this.handleMouseLeave}
             href="https://medium.com/@cunhasb"
           >
-            <Icon name="medium" />
+            <Icon size="big" name="medium" />
           </Menu.Item>
           <Menu.Item
             className={css(styles.menuItem)}
@@ -50,10 +50,12 @@ class Footer extends Component {
             onMouseLeave={this.handleMouseLeave}
             href="mailto:fabianocunhadev@gmail.com?subject=More%20Info"
           >
-            <Icon name="mail" />
+            <Icon size="big" name="mail" />
           </Menu.Item>
           <Menu.Menu position="right">
-            <Menu.Item>&copy;2018 Fabiano S. Cunha</Menu.Item>
+            <Menu.Item>
+              <Header>&copy;2018 Fabiano S. Cunha</Header>
+            </Menu.Item>
           </Menu.Menu>
         </Menu>
       </div>

@@ -49,8 +49,8 @@ class HeaderMenu extends Component {
                     : styles.homeDivFront
               )}
             >
-              <span className={css(styles.back)}>GO BACK HOME</span>
-              <span className={css(styles.front)}>FABIANO CUNHA</span>
+              <h3 className={css(styles.back)}>GO BACK HOME</h3>
+              <h3 className={css(styles.front)}>FABIANO CUNHA</h3>
             </div>
           </div>
         </NavLink>

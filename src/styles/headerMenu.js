@@ -32,10 +32,11 @@ export const styles = StyleSheet.create({
     height: "2em"
   },
   container: {
+    pointerEvents: "none",
     position: "relative",
     perspective: "800px",
     width: "13em",
-    height: "1em",
+    height: "2em",
     textAlign: "center"
   },
   homeDivFirstRender: {

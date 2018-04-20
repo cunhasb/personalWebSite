@@ -78,7 +78,7 @@ class WorkDetails extends React.Component {
       <div className={css(styles.outerWrapper)}>
         <Grid stackable className={css(styles.grid)}>
           <Visibility onUpdate={this.handleUpdate}>
-            <Grid.Row className={css(styles.firstRow)}>
+            <Grid.Row className={css(styles.firstRow)} textAlign="center">
               <div>
                 <Container
                   style={{
@@ -93,9 +93,6 @@ class WorkDetails extends React.Component {
                       this.props.project.media.featured
                     }`)}
                   />
-                  <div className={css(styles.chevronContainer)}>
-                    <div className={css(styles.chevron)} />
-                  </div>
                 </Container>
                 <div className={css(styles.divFeatured)}>
                   <span className={css(styles.divFeaturedHeader)}>
@@ -104,6 +101,11 @@ class WorkDetails extends React.Component {
                   <p className={css(styles.divFeaturedP)}>
                     {this.props.project.description}
                   </p>
+                </div>
+              </div>
+              <div className={css(styles.chevronDiv)}>
+                <div className={css(styles.chevronContainer2)}>
+                  <div className={css(styles.chevron)} />
                 </div>
               </div>
             </Grid.Row>

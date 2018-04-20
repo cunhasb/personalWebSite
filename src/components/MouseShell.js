@@ -56,14 +56,14 @@ export const mouseShell = Page => {
       const translateKeyframesLeave = {
         "0%": {
           transform: "scale3d(1,1,1)",
-          backgroundColor: "rgba(248,248,248,0.4)",
-          borderColor: "rgba(248,248,248,1)"
+          backgroundColor: "rgba(0,0,0,0.4)",
+          borderColor: "rgba(0,0,0,0.4)"
         },
 
         "100%": {
           transform: "scale3d(0.2,0.2,0.2)",
-          backgroundColor: "rgba(248,248,248,1)",
-          borderColor: "rgba(248,248,248,0)"
+          backgroundColor: "rgba(0,0,0,1)",
+          borderColor: "rgba(0,0,0)"
         }
       };
       const offsetMouse = {
@@ -107,10 +107,10 @@ export const mouseShell = Page => {
           margin: 0,
           height: "85px",
           width: "85px",
-          backgroundColor: "rgba(0,0,0,0.3)",
+          backgroundColor: "rgba(0,0,0,0.6)",
           border: "solid",
           borderWidth: "2px",
-          borderColor: "rgba(248,248,248,.6)",
+          borderColor: "rgba(0,0,0.7)",
           borderRadius: "50%",
           position: "absolute",
           top: this.props.mouse.coordinates.y,
@@ -128,11 +128,11 @@ export const mouseShell = Page => {
           pointerEvents: "none",
           height: "85px",
           width: "85px",
-          backgroundColor: "rgba(248, 248, 248, 0.03)",
+          backgroundColor: "rgba(0, 0, 0, 0.08)",
           borderRadius: "50%",
           border: "solid",
           borderWidth: "2px",
-          borderColor: "rgba(248,248,248,.6)",
+          borderColor: "rgba(0,0,0,.7)",
           position: "absolute",
           top: this.props.mouse.coordinates.y - 42.5,
           left: this.props.mouse.coordinates.x - 42.5,
@@ -146,10 +146,10 @@ export const mouseShell = Page => {
           pointerEvents: "none",
           height: "85px",
           width: "85px",
-          backgroundColor: "rgba(248, 248, 248, 0.03)",
+          backgroundColor: "rgba(0, 0, 0, 0.3)",
           border: "solid",
           borderWidth: "2px",
-          borderColor: "rgba(248,248,248,.6)",
+          borderColor: "rgba(0,0,0,.6)",
           borderRadius: "50%",
           position: "absolute",
           top: this.props.mouse.coordinates.y - 42.5,
@@ -157,7 +157,6 @@ export const mouseShell = Page => {
           animationName: [translateKeyframes],
           animationDuration: "750ms, 500ms",
           animationIterationCount: "1"
-          // transform: "translate(-50%,-50%)"
         },
         mouseClick: {
           position: "relative",
@@ -165,13 +164,11 @@ export const mouseShell = Page => {
           transform: "translateX(-50%)",
           height: "17px",
           width: "17px",
-          backgroundColor: "rgba(248,248,248)",
+          backgroundColor: "rgba(0,0,0)",
           borderRadius: "50%"
         }
       });
-      // <div key="click" className={css(styles.outerCircleMouseDefault)}>
-      //   <Icon name="circle" className={css(styles.default)} fitted inverted />
-      // </div>
+
       const mousePointers = [
         <div key="default" className={css(styles.outerCircleMouseDefault)}>
           <div
@@ -179,8 +176,8 @@ export const mouseShell = Page => {
               position: "absolute",
               height: "17px",
               width: "17px",
-              top: "37%",
-              left: "37%",
+              top: "39%",
+              left: "39%",
               borderRadius: "50%"
             }}
           />
@@ -206,7 +203,6 @@ export const mouseShell = Page => {
             className={css(styles.mouseClick)}
             name="circle"
             fitted
-            inverted
             style={{ marginTop: "30%" }}
           />
         </Segment>

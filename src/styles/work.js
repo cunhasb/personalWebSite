@@ -21,10 +21,7 @@ export const styles = StyleSheet.create({
     }
   },
   active: {
-    transform: "translateX(50px)",
-    ":hover": {
-      transform: "translateX(0px)"
-    }
+    transform: "translateX(50px)"
   },
   list: {
     marginLeft: "3vw",
@@ -37,15 +34,6 @@ export const styles = StyleSheet.create({
     animationIterationCount: "1"
   },
   tiltContainer: {
-    // position: "relative",
-    // pointerEvents: "none",
-    // bottom: "0%",
-    // height: "100%",
-    // width: "100%",
-    // [screenSize.portrait]: {
-    //   position: "relative",
-    //   width: "100%"
-    // },
     position: "relative",
     left: "10%",
     top: "50%",
@@ -86,7 +74,7 @@ export const styles = StyleSheet.create({
     zIndex: 1,
     fontSize: "1.5vw"
   },
-  seeIt: { color: "white", cursor: "none" },
+  seeIt: { color: "white", cursor: "none", textShadow: "4px 4px 4px #000" },
   perspectiveOutter: {
     position: "relative",
     webkitPerspective: "3000px",
