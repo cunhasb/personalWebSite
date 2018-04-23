@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
       height: "5vh",
       cursor: "none",
       styles: "none",
-      fontSize: "1.5em"
+      fontSize: "1.1em"
     }
   },
   homeLink: {

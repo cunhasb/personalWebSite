@@ -10,9 +10,7 @@ export const styles = StyleSheet.create({
     animationName: [openCloseOpen],
     animationDuration: "5s",
     animationIterationCount: "1",
-    [screenSize.smartphoneLandscape]: {
-      backgroundColor: "blue"
-    }
+    [screenSize.smartphoneLandscape]: {}
   },
   navLink: {
     cursor: "none",
@@ -77,9 +75,17 @@ export const styles = StyleSheet.create({
     left: "80%",
     top: "60%",
     zIndex: 1,
-    fontSize: "1.5vw"
+    fontSize: "1.5vw",
+    [screenSize.portrait]: { left: "50%" },
+    [screenSize.landscape]: { left: "50%" }
   },
-  seeIt: { color: "white", cursor: "none", textShadow: "4px 4px 4px #000" },
+  seeIt: {
+    color: "white",
+    cursor: "none",
+    textShadow: "4px 4px 4px #000",
+    [screenSize.smartphone]: { fontSize: "2em" },
+    [screenSize.smartphoneLandscape]: { fontSize: "1.5em" }
+  },
   perspectiveOutter: {
     position: "relative",
     webkitPerspective: "3000px",

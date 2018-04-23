@@ -4,6 +4,7 @@ import { Header, Image, Segment, Grid, Transition } from "semantic-ui-react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import { styles } from "../styles/NavSiblings";
+import { css } from "aphrodite";
 
 class NavSiblings extends React.Component {
   state = {
@@ -74,12 +75,12 @@ class NavSiblings extends React.Component {
                   <div>
                     <Image
                       centered
-                      style={styles().image}
+                      className={css(styles.image)}
                       src={require(`../images/${
                         this.props.siblings[0].media.featured
                       }`)}
                     />
-                    <Header style={styles().header}>
+                    <Header className={css(styles.header)}>
                       {this.props.siblings[0].name}
                     </Header>
                   </div>
@@ -89,7 +90,7 @@ class NavSiblings extends React.Component {
                     duration={1000}
                     visible={this.state.siblings.prev.visible}
                   >
-                    <div style={styles().div}>
+                    <div className={css(styles.div)}>
                       <Image
                         name="prev"
                         src={require(`../images/${
@@ -103,7 +104,7 @@ class NavSiblings extends React.Component {
                     duration={700}
                     visible={this.state.siblings.prev.visible}
                   >
-                    <Header style={styles().header}>PREV</Header>
+                    <Header className={css(styles.header)}>PREV</Header>
                   </Transition>
                 </div>
               </Segment>
@@ -119,12 +120,12 @@ class NavSiblings extends React.Component {
                   <div>
                     <Image
                       centered
-                      style={styles().image}
+                      className={css(styles.image)}
                       src={require(`../images/${
                         this.props.siblings[1].media.featured
                       }`)}
                     />
-                    <Header style={styles().header}>
+                    <Header className={css(styles.header)}>
                       {this.props.siblings[1].name}
                     </Header>
                   </div>
@@ -134,7 +135,7 @@ class NavSiblings extends React.Component {
                     duration={1000}
                     visible={this.state.siblings.next.visible}
                   >
-                    <div style={styles().div}>
+                    <div className={css(styles.div)}>
                       <Image
                         name="next"
                         src={require(`../images/${
@@ -148,7 +149,7 @@ class NavSiblings extends React.Component {
                     duration={700}
                     visible={this.state.siblings.next.visible}
                   >
-                    <Header style={styles().header}>NEXT</Header>
+                    <Header className={css(styles.header)}>NEXT</Header>
                   </Transition>
                 </div>
               </Segment>
