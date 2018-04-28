@@ -3,91 +3,91 @@ import { savePictureData } from "../actions/clarifaiActions";
 export const workFlow = (dispatch, state) => {
   const client = state().clarifai.client;
   const picture = state().pictures.pictures[0].split(",")[1];
-  // return client.workflow.predict("personalWebSite", {
-  //   base64: picture
-  // });
+  return client.workflow.predict("personalWebSite", {
+    base64: picture
+  });
   //
   // Fake data so I don't call Clarifai
-  let data = {
-    results: [
-      {
-        outputs: [
-          {
-            data: {
-              regions: [
-                {
-                  data: {
-                    face: {
-                      age_appearance: {
-                        concepts: [{ name: 36 }, { name: 37 }, { name: 39 }]
-                      },
-                      gender_appearance: { concepts: [{ name: "masculine" }] },
-                      multicultural_appearance: {
-                        concepts: [
-                          { name: "white" },
-                          { name: "middle eastern or north african" },
-                          { name: "asian" }
-                        ]
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            data: {
-              regions: [
-                {
-                  data: {
-                    face: {
-                      identity: {
-                        concepts: [
-                          { name: "robert lasardo" },
-                          { name: "michael mando" },
-                          { name: "jonathan pryce" }
-                        ]
-                      }
-                    }
-                  }
-                }
-              ]
-            }
-          },
-          {
-            data: {
-              concepts: [
-                { name: "portrait" },
-                { name: "man" },
-                { name: "people" },
-                { name: "adult" },
-                { name: "indoors" },
-                { name: "one" },
-                { name: "light" },
-                { name: "room" },
-                { name: "wear" },
-                { name: "business" },
-                { name: "facial expression" },
-                { name: "side view" },
-                { name: "offense" },
-                { name: "window" },
-                { name: "festival" },
-                { name: "music" },
-                { name: "confidence" },
-                { name: "facial hair" },
-                { name: "landscape" },
-                { name: "battle" }
-              ]
-            }
-          }
-        ]
-      }
-    ]
-  };
+  // let data = {
+  //   results: [
+  //     {
+  //       outputs: [
+  //         {
+  //           data: {
+  //             regions: [
+  //               {
+  //                 data: {
+  //                   face: {
+  //                     age_appearance: {
+  //                       concepts: [{ name: 36 }, { name: 37 }, { name: 39 }]
+  //                     },
+  //                     gender_appearance: { concepts: [{ name: "masculine" }] },
+  //                     multicultural_appearance: {
+  //                       concepts: [
+  //                         { name: "white" },
+  //                         { name: "middle eastern or north african" },
+  //                         { name: "asian" }
+  //                       ]
+  //                     }
+  //                   }
+  //                 }
+  //               }
+  //             ]
+  //           }
+  //         },
+  //         {
+  //           data: {
+  //             regions: [
+  //               {
+  //                 data: {
+  //                   face: {
+  //                     identity: {
+  //                       concepts: [
+  //                         { name: "robert lasardo" },
+  //                         { name: "michael mando" },
+  //                         { name: "jonathan pryce" }
+  //                       ]
+  //                     }
+  //                   }
+  //                 }
+  //               }
+  //             ]
+  //           }
+  //         },
+  //         {
+  //           data: {
+  //             concepts: [
+  //               { name: "portrait" },
+  //               { name: "man" },
+  //               { name: "people" },
+  //               { name: "adult" },
+  //               { name: "indoors" },
+  //               { name: "one" },
+  //               { name: "light" },
+  //               { name: "room" },
+  //               { name: "wear" },
+  //               { name: "business" },
+  //               { name: "facial expression" },
+  //               { name: "side view" },
+  //               { name: "offense" },
+  //               { name: "window" },
+  //               { name: "festival" },
+  //               { name: "music" },
+  //               { name: "confidence" },
+  //               { name: "facial hair" },
+  //               { name: "landscape" },
+  //               { name: "battle" }
+  //             ]
+  //           }
+  //         }
+  //       ]
+  //     }
+  //   ]
+  // };
 
-  return new Promise((resolve, reject) => {
-    resolve(data);
-  });
+  // return new Promise((resolve, reject) => {
+  //   resolve(data);
+  // });
 };
 export const parseInfo = response => {
   // demographics data

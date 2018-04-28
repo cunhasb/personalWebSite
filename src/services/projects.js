@@ -21,8 +21,8 @@ export default [
       featured: ["pexels-photo-316466.jpeg"],
       wall: [
         "pexels-photo-316466.jpeg",
-        "pexels-photo-583846.jpeg",
-        "pexels-photo-585752.jpeg"
+        "pexels-photo-316466.jpeg",
+        "pexels-photo-316466.jpeg"
       ],
       webSite: ["pexels-photo-316466.jpeg"],
       video: "178779-family-guy-herbert-gif.gif",
@@ -88,13 +88,9 @@ Styling of application was done using a combination of Semantics and Custom Css,
     ],
     media: {
       video: "2017-12-15 05_33_41.gif",
-      featured: ["pexels-photo-583846.jpeg"],
-      wall: [
-        "pexels-photo-316466.jpeg",
-        "pexels-photo-583846.jpeg",
-        "pexels-photo-585752.jpeg"
-      ],
-      webSite: ["pexels-photo-583846.jpeg"],
+      featured: ["peekr-featured.png"],
+      wall: ["peekr-wall-1.png", "peekr-wall-2.png", "peekr-wall-3.png"],
+      webSite: ["peekr-featured.png"],
       mobile: ["image1", "image2", "image3"]
     },
     fullDescription: {
@@ -146,13 +142,13 @@ Once you had your profile built you would be matched with other users that share
       }
     ],
     media: {
-      featured: ["pexels-photo-316466.jpeg"],
+      featured: ["art-gallery-featured.jpg"],
       wall: [
-        "pexels-photo-316466.jpeg",
-        "pexels-photo-583846.jpeg",
-        "pexels-photo-585752.jpeg"
+        "art-gallery-wall-1.png",
+        "art-gallery-wall-2.png",
+        "art-gallery-wall-3.png"
       ],
-      webSite: ["pexels-photo-316466.jpeg"],
+      webSite: ["art-gallery-website.png"],
       video: "178779-family-guy-herbert-gif.gif",
       mobile: ["image1", "image2", "image3"]
     },
@@ -186,13 +182,9 @@ Application used Artsy API for displaying art pieces and worked around paginatio
     ],
     media: {
       video: "2017-12-15 05_33_41.gif",
-      featured: ["pexels-photo-585752.jpeg"],
-      wall: [
-        "pexels-photo-316466.jpeg",
-        "pexels-photo-583846.jpeg",
-        "pexels-photo-585752.jpeg"
-      ],
-      webSite: ["pexels-photo-585752.jpeg"],
+      featured: ["manager-featured.jpeg"],
+      wall: ["manager-wall-1.png", "manager-wall-2.png", "manager-wall-3.png"],
+      webSite: ["manager-website.png"],
       mobile: ["image1", "image2", "image3"]
     },
     fullDescription: {

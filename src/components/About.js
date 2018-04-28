@@ -19,6 +19,7 @@ import {
   Modal,
   List,
   Card,
+  Icon,
   Responsive
 } from "semantic-ui-react";
 import PageShell from "../components/PageShell";
@@ -193,6 +194,7 @@ class About extends React.Component {
   };
 
   render() {
+    console.log("clarifai store", this.props.clarifai);
     const celebrities = this.props.clarifai.celebrity.map(el => {
       return <List.Item key={uuidv4()}>{el}</List.Item>;
     });
@@ -226,7 +228,6 @@ class About extends React.Component {
                     style={{
                       marginLeft: "10vw",
                       width: "80%"
-                      // backgroundColor: "green"
                     }}
                   >
                     <Image
@@ -238,6 +239,13 @@ class About extends React.Component {
                       src={`${require(`../images/parameters/${
                         this.state.picture
                       }`)}`}
+                    />
+
+                    <Icon
+                      className={css(styles.icon)}
+                      size="big"
+                      inverted
+                      name="gift"
                     />
                   </div>
                 </Ref>
@@ -253,6 +261,9 @@ class About extends React.Component {
             open={this.state.visitorPictures}
             close={this.handleCloseVisitorPictures}
             pictures={this.props.pictures}
+            demographics={this.props.clarifai.demographics}
+            celebrities={this.props.clarifai.celebrity}
+            general={this.props.clarifai.general}
           />
         </div>
         <ModalAbout open={this.state.modalOpen} close={this.handleClose} />

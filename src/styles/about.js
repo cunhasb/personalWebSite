@@ -1,10 +1,11 @@
 import { StyleSheet } from "aphrodite";
 import { screenSize } from "./screenSizes";
-import { leftScreenRound, disappear } from "./animations";
+import { leftScreenRound, disappear, blink } from "./animations";
 
 export const styles = StyleSheet.create({
   // Divs
   outerWrapper: {
+    cursor: "none",
     position: "relative",
     left: "-5vw",
     height: "86vh",
@@ -15,6 +16,7 @@ export const styles = StyleSheet.create({
     [screenSize.small]: { left: "0%" }
   },
   outerContainer: {
+    cursor: "none",
     position: "relative",
     height: "100%",
     width: "auto",
@@ -75,5 +77,14 @@ export const styles = StyleSheet.create({
       marginLeft: "13%",
       paddingBottom: "3%"
     }
+  },
+  icon: {
+    pointerEvents: "none",
+    position: "absolute",
+    bottom: "10%",
+    left: "80%",
+    animationName: [blink],
+    animationDuration: "2s",
+    animationIterationCount: "infinite"
   }
 });

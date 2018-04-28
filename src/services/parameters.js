@@ -3,7 +3,7 @@ export default {
 
   Experience in Ruby, Javascript, Python, HTML and CSS programming languages, and in React, Redux, Flask, Gvinci frameworks and libraries with a  background in Electronics and Construction.
 
-  My previous work and experience gives me an understanding of the commercial needs of small business while providing first class customer service.
+  My previous work and experience gives me an understanding of the commercial needs of small business and individuals while providing first class customer service.
 
   I am a learner by heart and love new challenges. I'm excited to potentially bring my knowledge and experience to you, and possibly contribute to you or your  organization in a meaningful way.
 `,
@@ -12,7 +12,7 @@ export default {
        extra dose of perseverance, all things are possible.
 
                  I'm Fabiano a Fullstack Developer.
-                 
+
                                 What do you believe in?`,
   clarifai: {
     demographics: {
