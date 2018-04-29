@@ -18,15 +18,15 @@ export default [
       //   { name: "WebSite", url: "www.mywebsite.com" }
     ],
     media: {
-      featured: ["pexels-photo-316466.jpeg"],
+      featured: ["personalwebsite-featured.png"],
       wall: [
-        "pexels-photo-316466.jpeg",
-        "pexels-photo-316466.jpeg",
-        "pexels-photo-316466.jpeg"
+        "personalwebsite-wall-1.png",
+        "personalwebsite-wall-2.png",
+        "personalwebsite-wall-3.png"
       ],
-      webSite: ["pexels-photo-316466.jpeg"],
+      webSite: ["personalwebsite-featured.png"],
       video: "178779-family-guy-herbert-gif.gif",
-      mobile: ["image1", "image2", "image3"]
+      mobile: ["personalwebsite-mobile-1.png"]
     },
     fullDescription: {
       techonologies: [
@@ -91,7 +91,7 @@ Styling of application was done using a combination of Semantics and Custom Css,
       featured: ["peekr-featured.png"],
       wall: ["peekr-wall-1.png", "peekr-wall-2.png", "peekr-wall-3.png"],
       webSite: ["peekr-featured.png"],
-      mobile: ["image1", "image2", "image3"]
+      mobile: ["Peekr-smallscreen.gif"]
     },
     fullDescription: {
       techonologies: [
@@ -104,7 +104,7 @@ Styling of application was done using a combination of Semantics and Custom Css,
       services: "WebApp",
       description: `Matchmaker application, it uses image recognition to create your profile and present matches.
 
-Upon sign up, the user would upload his picture, his profile would be built using data returned from a Clarifai API call using the demographics model. The user would then select his preferences in 4 different categories to finish his profile
+Upon sign up, the user would upload his or her picture, his or her profile would be built using data returned from a Clarifai API call using the demographics model. The user would then select his or her  preferences in 4 different categories to finish his or her profile
         * On my weekend
         * I would prefer to eat
         * Drink of choice
@@ -112,7 +112,7 @@ Upon sign up, the user would upload his picture, his profile would be built usin
 
 This selection would generate your preferences profile (using data from Clarifai using different models, food, general and demographics).
 
-Once you had your profile built you would be matched with other users that shared the same commonalities. And from there you could view, like, and dislike other users.
+Once you have your profile built you would be matched with other users that share the same commonalities. And from there you could view, like, and dislike other users.
 `,
       client: "Personal Project",
       year: "2017"
@@ -150,13 +150,13 @@ Once you had your profile built you would be matched with other users that share
       ],
       webSite: ["art-gallery-website.png"],
       video: "178779-family-guy-herbert-gif.gif",
-      mobile: ["image1", "image2", "image3"]
+      mobile: ["art-gallery-mobile-1.png"]
     },
     fullDescription: {
       techonologies: ["Ruby", "Active Record", "APIs access"],
       services: "CLI app",
       description: `An Art Collection Organizer, where users can browse through art pieces provided from Artsy API fetches.
-CRUD functionality using Active Record. Users can create different collections, browse the art pieces and view, add and delete  art pieces to his collection, also able to view his own collections.
+CRUD functionality using Active Record. Users can create different collections, browse the art pieces and view, add and delete  art pieces to his or her collection, also able to view his or her own collections.
 
 Application used Artsy API for displaying art pieces and worked around pagination to display and fetch them.
 `,
@@ -185,7 +185,7 @@ Application used Artsy API for displaying art pieces and worked around paginatio
       featured: ["manager-featured.jpeg"],
       wall: ["manager-wall-1.png", "manager-wall-2.png", "manager-wall-3.png"],
       webSite: ["manager-website.png"],
-      mobile: ["image1", "image2", "image3"]
+      mobile: ["manager-mobile-1.png"]
     },
     fullDescription: {
       techonologies: ["Visual Basic", "SQL", "Gas"],

@@ -1,5 +1,5 @@
 export default {
-  about: `Full Stack web developer based in the Jersey Shore who believes that with sweat, hard-work, creativity, and an extra dose of patience, all things are possible.
+  about: `Full Stack web developer based in the Jersey Shore who believes that with hard-work, creativity, and an extra dose of patience, all things are possible.
 
   Experience in Ruby, Javascript, Python, HTML and CSS programming languages, and in React, Redux, Flask, Gvinci frameworks and libraries with a  background in Electronics and Construction.
 

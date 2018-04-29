@@ -120,8 +120,8 @@ class WorkDetails extends React.Component {
           </Grid.Row>
           <Grid.Row columns={1}>
             <Grid.Column>
-              <Segment>
-                <div style={{ padding: "5%" }}>
+              <Segment compact style={{ margin: 0, padding: 0 }}>
+                <div>
                   <Image
                     fluid
                     centered
@@ -135,8 +135,17 @@ class WorkDetails extends React.Component {
           </Grid.Row>
           <Grid.Row columns={1}>
             <Grid.Column>
-              <Segment>
-                <div style={{ padding: "5%" }}>
+              <Segment
+                style={{
+                  padding: "5%",
+                  borderRadius: "5%",
+                  borderColor: "white",
+                  borderWidth: "5px",
+                  // backgroundColor: "rgb(242, 240, 241)"
+                  backgroundColor: "rgba(0,0,0,.5)"
+                }}
+              >
+                <div>
                   {
                     //   <Embed
                     //   loop
@@ -219,18 +228,43 @@ class WorkDetails extends React.Component {
               <Segment
                 basic
                 style={{
-                  backgroundImage: `url('/images/pexels-photo-534273.png')`,
-                  backgroundSize: "contain",
-                  backgroundRepeat: "no-repeat",
-                  backgroundPosition: "center",
+                  // backgroundImage: `url('/images/pexels-photo-534273.png')`
+
                   marginBottom: "25%"
                 }}
               >
-                <Image
-                  size="medium"
-                  centered
-                  src={require(`../images/${"pexels-photo-534273.png"}`)}
-                />
+                <div
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    position: "relative",
+                    // backgroundImage: `url(${require(`../images/${
+                    //   this.props.project.media.mobile[0]
+                    // }`)})`,
+                    backgroundSize: "contain",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "center"
+                  }}
+                >
+                  <Image
+                    src={require(`../images/${
+                      this.props.project.media.mobile[0]
+                    }`)}
+                    style={{
+                      top: "50%",
+                      left: "50%",
+                      transform: "translate(-50%,-50%)",
+                      position: "absolute",
+                      height: "80%"
+                    }}
+                  />
+                  <Image
+                    style={{ position: "relative" }}
+                    size="medium"
+                    centered
+                    src={require(`../images/${"mobile-frame.png"}`)}
+                  />
+                </div>
               </Segment>
             </Grid.Column>
           </Grid.Row>
