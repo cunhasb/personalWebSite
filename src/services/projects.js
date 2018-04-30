@@ -87,7 +87,7 @@ Styling of application was done using a combination of Semantics and Custom Css,
       { name: "GitHub", url: "https://github.com/cunhasb/mod2_project" }
     ],
     media: {
-      video: "2017-12-15 05_33_41.gif",
+      video: "peekr-media-video.gif",
       featured: ["peekr-featured.png"],
       wall: ["peekr-wall-1.png", "peekr-wall-2.png", "peekr-wall-3.png"],
       webSite: ["peekr-featured.png"],
@@ -149,7 +149,7 @@ Once you have your profile built you would be matched with other users that shar
         "art-gallery-wall-3.png"
       ],
       webSite: ["art-gallery-website.png"],
-      video: "178779-family-guy-herbert-gif.gif",
+      video: "art-collection-media-video.gif",
       mobile: ["art-gallery-mobile-1.png"]
     },
     fullDescription: {
@@ -181,7 +181,7 @@ Application used Artsy API for displaying art pieces and worked around paginatio
       }
     ],
     media: {
-      video: "2017-12-15 05_33_41.gif",
+      video: "manager-media-video.gif",
       featured: ["manager-featured.jpeg"],
       wall: ["manager-wall-1.png", "manager-wall-2.png", "manager-wall-3.png"],
       webSite: ["manager-website.png"],
