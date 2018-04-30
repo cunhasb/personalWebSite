@@ -17,7 +17,6 @@ export default (
       };
     }
     case "SAVE_PICTURE_DATA": {
-      console.log("saving picture data", action);
       return {
         client: state.client,
         ...action.data

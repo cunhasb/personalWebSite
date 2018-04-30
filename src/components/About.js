@@ -8,16 +8,7 @@ import {
   savePictureData
 } from "../actions/clarifaiActions";
 import { setPointerType } from "../actions";
-import {
-  Image,
-  Header,
-  Ref,
-  List,
-  Card,
-  Icon,
-  Responsive
-} from "semantic-ui-react";
-import uuidv4 from "uuid/v4";
+import { Image, Header, Ref, Icon, Responsive } from "semantic-ui-react";
 import Tilt from "react-tilt";
 import { css } from "aphrodite";
 import { styles } from "../styles/about";
@@ -183,12 +174,12 @@ class About extends React.Component {
   };
 
   render() {
-    const celebrities = this.props.clarifai.celebrity.map(el => {
-      return <List.Item key={uuidv4()}>{el}</List.Item>;
-    });
-    const items = this.props.pictures.map(picture => {
-      return <Card raised key={uuidv4()} image={picture} />;
-    });
+    // const celebrities = this.props.clarifai.celebrity.map(el => {
+    //   return <List.Item key={uuidv4()}>{el}</List.Item>;
+    // });
+    // const items = this.props.pictures.map(picture => {
+    //   return <Card raised key={uuidv4()} image={picture} />;
+    // });
     return (
       <div className={css(styles.outerWrapper)}>
         <Tilt

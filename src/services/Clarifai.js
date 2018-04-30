@@ -99,7 +99,6 @@ export const parseInfo = response => {
     .slice(0, 3)
     .map(el => el.name)
     .sort();
-  console.log("age", age);
 
   let data = {
     demographics: {

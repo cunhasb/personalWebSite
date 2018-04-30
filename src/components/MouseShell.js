@@ -63,21 +63,21 @@ export const mouseShell = Page => {
           borderColor: "rgba(0,0,0)"
         }
       };
-      const offsetMouse = {
-        from: {
-          transform: "translate(-50%,-50%)"
-        },
-        to: { transform: "translate(-50%,-50%)" }
-      };
-      const opacityKeyframesLeave = {
-        from: {
-          opacity: 0
-        },
-
-        to: {
-          opacity: 1
-        }
-      };
+      // const offsetMouse = {
+      //   from: {
+      //     transform: "translate(-50%,-50%)"
+      //   },
+      //   to: { transform: "translate(-50%,-50%)" }
+      // };
+      // const opacityKeyframesLeave = {
+      //   from: {
+      //     opacity: 0
+      //   },
+      //
+      //   to: {
+      //     opacity: 1
+      //   }
+      // };
       const opacityKeyframes = {
         from: {
           opacity: 0

@@ -13,6 +13,7 @@ import uuidv4 from "uuid/v4";
 // trigger={<Button>Show Modal</Button>}
 const VisitorPictures = props => (
   <Modal
+    key={"modal"}
     closeIcon
     closeOnDimmerClick={true}
     closeOnDocumentClick={true}
@@ -26,7 +27,6 @@ const VisitorPictures = props => (
       textAlign: "center"
     }}
   >
-    {console.log("visitor", props)}
     <Modal.Header>You Are Really Photogenic!</Modal.Header>
     <Modal.Content>
       <Modal.Description>
@@ -60,7 +60,7 @@ const VisitorPictures = props => (
             <Header>Age Appearance Range</Header>
             <Label.Group>
               {props.demographics.age.map(el => {
-                return <Label>{`${el}`}</Label>;
+                return <Label key={el}>{`${el}`}</Label>;
               })}
             </Label.Group>
           </Grid.Column>
@@ -70,7 +70,7 @@ const VisitorPictures = props => (
               {props.demographics.ethnicity
                 ? props.demographics.ethnicity.map(el => {
                     return (
-                      <Label style={{ textTransform: "capitalize" }}>
+                      <Label key={el} style={{ textTransform: "capitalize" }}>
                         {el}
                       </Label>
                     );
@@ -85,7 +85,9 @@ const VisitorPictures = props => (
             {props.celebrities
               ? props.celebrities.map(el => {
                   return (
-                    <Label style={{ textTransform: "capitalize" }}>{el}</Label>
+                    <Label key={el} style={{ textTransform: "capitalize" }}>
+                      {el}
+                    </Label>
                   );
                 })
               : ""}
@@ -95,7 +97,9 @@ const VisitorPictures = props => (
             {props.general
               ? props.general.map(el => {
                   return (
-                    <Label style={{ textTransform: "capitalize" }}>{el}</Label>
+                    <Label key={el} style={{ textTransform: "capitalize" }}>
+                      {el}
+                    </Label>
                   );
                 })
               : ""}
