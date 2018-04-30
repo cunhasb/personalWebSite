@@ -25,8 +25,8 @@ export default [
         "personalwebsite-wall-3.png"
       ],
       webSite: ["personalwebsite-featured.png"],
-      video: "178779-family-guy-herbert-gif.gif",
-      mobile: ["personalwebsite-mobile-1.png"]
+      video: "personal-website-media-video.gif",
+      mobile: ["personal-website-mobile.gif"]
     },
     fullDescription: {
       techonologies: [
