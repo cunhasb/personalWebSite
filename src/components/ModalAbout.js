@@ -3,15 +3,12 @@ import {
   Button,
   Icon,
   Modal,
-  Image,
   List,
   Transition,
-  Divider,
   Loader,
   Label
 } from "semantic-ui-react";
 import { connect } from "react-redux";
-import uuidv4 from "uuid/v4";
 class NestedModal extends Component {
   state = { open: false, timer: "", messages: [], items: [], categories: [] };
 
