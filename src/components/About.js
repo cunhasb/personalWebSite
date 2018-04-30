@@ -10,21 +10,13 @@ import {
 import { setPointerType } from "../actions";
 import {
   Image,
-  Segment,
   Header,
-  Item,
-  Container,
-  Grid,
   Ref,
-  Modal,
   List,
   Card,
   Icon,
   Responsive
 } from "semantic-ui-react";
-import PageShell from "../components/PageShell";
-import { TransitionGroup } from "react-transition-group"; // ES6
-import Webcam from "react-webcam";
 import uuidv4 from "uuid/v4";
 import Tilt from "react-tilt";
 import { css } from "aphrodite";
@@ -56,8 +48,6 @@ class About extends React.Component {
   handleUpdateState = e => {};
   handleClick = e => {
     this.setState({ loading: true });
-    let y = this.props.pictures;
-    let x = !this.props.pictures[0];
     let picturePromise = new Promise((resolve, reject) => {
       // debugger;
       if (!!this.props.pictures[0]) {
@@ -123,7 +113,6 @@ class About extends React.Component {
     }
   };
   getPicture = coordinates => {
-    let props = this.props;
     const pictures = this.props.parameters.followingPictures;
     if (!!this.state.node) {
       let x = this.props.parameters.mouse.coordinates.x;
@@ -194,7 +183,6 @@ class About extends React.Component {
   };
 
   render() {
-    console.log("clarifai store", this.props.clarifai);
     const celebrities = this.props.clarifai.celebrity.map(el => {
       return <List.Item key={uuidv4()}>{el}</List.Item>;
     });

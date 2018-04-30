@@ -8,15 +8,12 @@ import {
   Segment,
   Grid,
   Visibility,
-  Sticky,
-  Icon
+  Sticky
 } from "semantic-ui-react";
 import { connect } from "react-redux";
 import * as actions from "../actions";
 import { styles } from "../styles/WorkDetail";
 import NavSiblings from "./NavSiblings";
-import PageShell from "../components/PageShell";
-import { CSSTransitionGroup } from "react-transition-group"; // ES6
 import { css } from "aphrodite";
 
 class WorkDetails extends React.Component {
@@ -212,6 +209,7 @@ class WorkDetails extends React.Component {
                 {this.props.project.links.map(el => {
                   return (
                     <a
+                      key={el.url}
                       style={{ cursor: "none", padding: "10px" }}
                       onMouseEnter={() => this.props.setPointerType("hover")}
                       onMouseLeave={() => this.props.setPointerType("default")}

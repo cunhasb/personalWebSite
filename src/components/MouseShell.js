@@ -1,12 +1,10 @@
 import React from "react";
-import { Icon, Grid, Segment, Divider } from "semantic-ui-react";
-import { CSSTransitionGroup } from "react-transition-group"; // ES6
+import { Icon, Segment, Divider } from "semantic-ui-react";
 import { StyleSheet, css } from "aphrodite";
 
 export const mouseShell = Page => {
   return class MouseShell extends React.Component {
     handleMouseMove = e => {
-      const x = this.props;
       // console.log("mouse", this.props);
       if (this.props.mouse.type == "hover") {
         this.props.setMouseCoordinates({

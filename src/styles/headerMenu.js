@@ -1,13 +1,6 @@
 import { StyleSheet } from "aphrodite";
 import { screenSize } from "./screenSizes";
-import {
-  leftScreenRound,
-  disappear,
-  flyLeft,
-  rotate,
-  rotateYby,
-  rotateFront
-} from "./animations";
+import { rotate, rotateYby, rotateFront } from "./animations";
 
 export const styles = StyleSheet.create({
   // Divs

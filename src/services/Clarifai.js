@@ -1,5 +1,3 @@
-import { savePictureData } from "../actions/clarifaiActions";
-
 export const workFlow = (dispatch, state) => {
   const client = state().clarifai.client;
   const picture = state().pictures.pictures[0].split(",")[1];

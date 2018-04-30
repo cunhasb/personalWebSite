@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-  Container,
-  Header,
-  Transition,
-  Responsive,
-  Segment,
-  Grid,
-  Image
-} from "semantic-ui-react";
+import { Header, Transition, Responsive, Grid } from "semantic-ui-react";
 import Tilt from "react-tilt";
 import { css } from "aphrodite";
 import { styles } from "../styles/home";
@@ -30,7 +22,6 @@ class Home extends Component {
   // </p>
   // <p className={css(styles.m9)}>{"What do you believe in?"}</p>
   render() {
-    console.log("home props", this.props);
     return (
       <div className={css(styles.outerWrapper)}>
         <div className={css(styles.leftDiv)} />

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
 import { setPointerType } from "../actions";
 import { takePicture } from "../actions/picturesActions";
 import { withRouter, NavLink } from "react-router-dom";

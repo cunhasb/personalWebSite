@@ -15,11 +15,6 @@ import {
   getParameters,
   setMouseCoordinates
 } from "../actions/parametersActions";
-import PageShell from "../components/PageShell";
-import { fadesUp } from "../components/FadesUp";
-import { FirstChild } from "../components/FirstChild";
-import { TransitionGroup, CSSTransitionGroup } from "react-transition-group";
-import { Motion, spring } from "react-motion";
 import Webcam from "react-webcam";
 import "../index.css";
 
@@ -49,7 +44,6 @@ class MainContainer extends Component {
           <Route
             path="/about"
             render={() => {
-              const x = this.props;
               !this.props.parameters.about ? this.props.getParameters() : null;
               return <About />;
             }}
@@ -57,8 +51,6 @@ class MainContainer extends Component {
           <Route
             path="/contact"
             render={() => {
-              let x = this.props;
-              // debugger;
               !this.props.parameters.contact
                 ? this.props.getParameters()
                 : null;

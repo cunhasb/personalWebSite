@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Container, Header } from "semantic-ui-react";
+import { Header } from "semantic-ui-react";
 import { connect } from "react-redux";
 import Tilt from "react-tilt";
 import { setPointerType } from "../actions/";

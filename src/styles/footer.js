@@ -1,6 +1,5 @@
 import { StyleSheet } from "aphrodite";
 import { screenSize } from "./screenSizes";
-import { leftScreen, disappear } from "./animations";
 
 export const styles = StyleSheet.create({
   // Divs
